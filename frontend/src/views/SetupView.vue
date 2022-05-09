@@ -1,32 +1,29 @@
 <template>
-  <div class="tab">
-    <ButtonBack text="Back" />
-    <ButtonNext text="Next" />
+  <div>
+    <ProgressBar />
   </div>
   <div class="container">
-    <SetTrip/>
+    <SetTrip />
   </div>
   <div class="container2">
-    <InviteFriend/>
+    <InviteFriend />
   </div>
   
 </template>
 
 
 <script>
-import ButtonNext from './ButtonNext.vue'
-import ButtonBack from './ButtonBack.vue'
-import SetTrip from './SetTrip.vue'
-import InviteFriend from './Invite.vue'
+import ProgressBar from '../components/ProgressBar.vue'
+import SetTrip from '../components/Setup/SetTrip.vue'
+import InviteFriend from '../components/Setup/Invite.vue'
 
 export default {
-  name: 'CreateTripFile',
+  name: 'SetupView',
   components: {
-    ButtonNext,
-    ButtonBack,
+    ProgressBar,
     SetTrip,
     InviteFriend
-}
+  }
 }
 </script>
 
@@ -68,20 +65,6 @@ body {
   border-radius: 20px;
   margin-left: 40px;
   margin-top: 25px;
-}
-
-
-.tab {
-  max-width: 390px;
-  height: 2.3cm;
-  overflow: auto;
-  box-shadow:2px 2px 10px -2px rgba(146, 146, 156, 0.5);
-  border: 1px solid rgb(252, 252, 252);
-  background-color: rgb(255, 255, 255);
-  padding: 5px;
-  border-radius: 0px 0px 30px 30px;
-  margin-top: 25px;
-  margin-left: 40px;
 }
 
 .btn {

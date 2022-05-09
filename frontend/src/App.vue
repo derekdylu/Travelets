@@ -1,18 +1,9 @@
 <template>
-  <CreateTripFile/>
+  <div id="nav">
+    <router-link :to="{name: 'SetupView'}">Setup</router-link>
+  </div>
+  <router-view/>
 </template>
-
-
-<script>
-import CreateTripFile from './components/CreateTrip/CreateTripFile.vue'
-
-export default {
-  name: 'App',
-  components: {
-    CreateTripFile
-}
-}
-</script>
 
 
 <style>
