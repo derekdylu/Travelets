@@ -1,0 +1,13 @@
+{
+  "name": "Travelets",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/derekdylu/Travelets.git",
+  "author": "derekdylu <derekdylu@gmail.com>",
+  "license": "MIT"
+
+  ,"scripts": {
+    "start": "cd frontend && yarn start",
+    "server": "cd backend && yarn start"
+  }
+}
