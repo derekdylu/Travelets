@@ -7,7 +7,6 @@
   "license": "MIT",
 
   "scripts": {
-    "install": "yarn && cd frontend && yarn && cd ../backend && yarn",
     "frontend": "cd frontend && yarn serve",
     "backend": "cd backend && yarn ???"
   }
