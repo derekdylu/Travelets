@@ -1,12 +1,18 @@
 <template>
-  <div id="nav">
-    <router-link :to="{name: 'SetupView'}">Setup</router-link>
-  </div>
-  <router-view/>
+  <v-app>
+    <v-main>
+      <router-view/>
+    </v-main>
+  </v-app>
 </template>
 
+<script>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
-</style>
+export default {
+  name: 'App',
 
+  data: () => ({
+    //
+  }),
+}
+</script>
