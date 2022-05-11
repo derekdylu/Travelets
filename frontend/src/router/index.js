@@ -13,6 +13,11 @@ const routes = [
     name:'SetupView',
     component: SetupView
   }
+  {
+    path: '/addnotes',
+    name:'AddNotesView',
+    component: AddNotesView
+  }
 ]
 
 const router = createRouter({
