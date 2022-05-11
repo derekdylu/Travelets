@@ -22,7 +22,7 @@ export default {
 
 .block {
   max-width: 390px;
-  overflow: auto; //scroll
+  overflow: auto; 
   box-shadow:2px 2px 10px -2px rgba(146, 146, 156, 0.5);
   border: 1px solid rgb(252, 252, 252);
   background-color: rgb(255, 255, 255);
