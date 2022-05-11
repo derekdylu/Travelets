@@ -2,9 +2,13 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import HomeView from '../views/HomeView.vue'
 import SetupView from '../views/SetupView.vue'
+<<<<<<< HEAD
 import AddView from '../views/AddView.vue'
 
 import ProgressBar from '../components/General/ProgressBar.vue'
+=======
+import AddNotesView from '../views/AddNotesView.vue'
+>>>>>>> 503429bb1c4798bb90d6af278d12eaf5054139a7
 
 const routes = [
   {
@@ -26,7 +30,11 @@ const routes = [
     // for testing only
     path: '/progress',
     name: 'progress',
-    component: ProgressBar
+    component: ProgressBar},
+  {
+    path: '/addnotes',
+    name:'AddNotesView',
+    component: AddNotesView
   }
 ]
 
