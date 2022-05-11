@@ -11,7 +11,7 @@ import ScheduleUnit from '../components/ScheduleUnit.vue'
 export default {
   name: 'AddNotesView',
   components: {
-    ProgressBar,
+    ScheduleUnit,
   }
 }
 </script>
