@@ -1,6 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
+
 import HomeView from '../views/HomeView.vue'
 import SetupView from '../views/SetupView.vue'
+import AddView from '../views/AddView.vue'
+
+import ProgressBar from '../components/General/ProgressBar.vue'
 
 const routes = [
   {
@@ -10,8 +14,19 @@ const routes = [
   },
   {
     path: '/setup',
-    name:'SetupView',
+    name: 'SetupView',
     component: SetupView
+  },
+  {
+    path: '/add',
+    name: 'AddView',
+    component: AddView
+  },
+  {
+    // for testing only
+    path: '/progress',
+    name: 'progress',
+    component: ProgressBar
   }
 ]
 

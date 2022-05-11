@@ -13,7 +13,7 @@
 
 
 <script>
-import ProgressBar from '../components/ProgressBar.vue'
+import ProgressBar from '../components/General/ProgressBar.vue'
 import SetTrip from '../components/Setup/SetTrip.vue'
 import InviteFriend from '../components/Setup/Invite.vue'
 
