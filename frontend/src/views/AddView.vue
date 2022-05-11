@@ -1,15 +1,15 @@
 <template>
-    <ItemsList />
+	<ItemsList />
 </template>
 
 <script>
 import ItemsList from '@/components/Add/ItemsList.vue'
 
 export default {
-    name: 'AddView',
+	name: 'AddView',
 
-    components: {
-        ItemsList,
-    },
+	components: {
+		ItemsList,
+  },
 }
 </script>
