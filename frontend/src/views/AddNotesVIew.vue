@@ -1,12 +1,12 @@
 <template>
   <div>
-    <ProgressBar />
+    <ScheduleUnit />
   </div>
 </template>
 
 
 <script>
-import ProgressBar from '../components/ProgressBar.vue'
+import ScheduleUnit from '../components/ScheduleUnit.vue'
 
 export default {
   name: 'AddNotesView',
