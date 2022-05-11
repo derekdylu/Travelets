@@ -1,19 +1,16 @@
 <template>
-    <div class="block">
-        <ButtonBack text="Back" />
-        <ButtonNext text="Next" />
+    <div class = "block">
+        <ButtonAddNotes text = "add memo..." />
     </div>
 </template>
 
 <script>
-import ButtonBack from './ButtonBack.vue'
-import ButtonNext from './ButtonNext.vue'
+import ButtonAddNotes from './ButtonAddNotes.vue'
 
 export default {
   name: 'ScheduleUnit',
   components: {
-    ButtonBack,
-    ButtonNext
+    ButtonAddNotes
   }
 }
 </script>
