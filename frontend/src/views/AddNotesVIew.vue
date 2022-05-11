@@ -9,7 +9,7 @@
 import ProgressBar from '../components/ProgressBar.vue'
 
 export default {
-  name: 'SetupView',
+  name: 'AddNotesView',
   components: {
     ProgressBar,
   }
