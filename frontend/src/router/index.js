@@ -12,7 +12,7 @@ const routes = [
     path: '/setup',
     name:'SetupView',
     component: SetupView
-  }
+  },
   {
     path: '/addnotes',
     name:'AddNotesView',
