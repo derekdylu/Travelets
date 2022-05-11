@@ -23,7 +23,7 @@
   display: inline-block;
   background: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
-  border: none;
+  border: solid 1px rgba(255, 255, 255, 0.753);
   padding: 8px 15px;
   margin: 5px;
   border-radius: 20px;
