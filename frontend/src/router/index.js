@@ -28,6 +28,7 @@ const routes = [
     name: 'progress',
     component: ProgressBar},
   {
+    // to check component
     path: '/addnotes',
     name:'AddNotesView',
     component: AddNotesView
