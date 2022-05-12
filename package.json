@@ -5,9 +5,13 @@
   "repository": "https://github.com/derekdylu/Travelets.git",
   "author": "derekdylu <derekdylu@gmail.com>",
   "license": "MIT",
-
   "scripts": {
     "frontend": "cd frontend && yarn serve",
     "backend": "cd backend && yarn ???"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.6.2",
+    "graphql": "^16.5.0",
+    "graphql-tag": "^2.12.6"
   }
 }
