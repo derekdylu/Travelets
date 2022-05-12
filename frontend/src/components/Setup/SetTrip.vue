@@ -55,7 +55,7 @@
 }
 
 .form-control {
-  margin: 12px 0;
+  margin: 12px 0;;
 }
 
 .form-control label {
@@ -77,9 +77,6 @@
   border-radius: 20px;
 }
 
-
-
-
 .word{
   font-size: 14px;
   margin-left: -55px;
@@ -100,9 +97,9 @@
   border-radius: 20px;
   background:var(--ms-bg,rgb(228, 230, 231));
   font-size:14px;
+  text-align: center;
   margin-top: 5px;
   margin-left: 15px;
-  font-family:'Poppins';
 }
 
 .multiselect.is-open{

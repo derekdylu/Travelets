@@ -131,7 +131,7 @@
   align-items:center
 }
 .multiselect-tag{
-  background:var(--ms-tag-bg,green);
+  background:var(--ms-tag-bg,#5EA839);
   color:var(--ms-tag-color,#fff);
   font-size:var(--ms-tag-font-size,.875rem);
   line-height:var(--ms-tag-line-height,1.25rem);

@@ -2,7 +2,7 @@
     <div>
       <ProgressBar />
     </div>
-  
+
     <div class="container">
       <SetTrip />
     </div>
@@ -58,7 +58,7 @@ body {
 
 .container2 {
   max-width: 370px;
-  height: 4.5cm;
+  height: 5cm;
   overflow: auto;
   box-shadow:2px 2px 10px -2px rgba(163, 163, 179, 0.5);
   border: 1px solid rgb(253, 254, 255);
