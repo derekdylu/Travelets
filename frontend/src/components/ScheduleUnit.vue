@@ -19,7 +19,7 @@
                 <div class = "icon line"></div>
             </div>
             <div class = "blc_r3 right">
-                <div class = "titleText"> Taipei 101</div>
+                <div class = "titleText"> {{place}} </div>
             </div>
             </div>
             <div class = "blc_r2 bottom">
@@ -28,7 +28,7 @@
                 <div class = "icon line"></div>
             </div>
             <div class = "blc_r3 right">
-                <div class = "titleText"> 1hr 23min</div>
+                <div class = "titleText"> {{time}}</div>
             </div>
             </div>
         </div>
@@ -41,10 +41,14 @@ import AttractionAndTime from './AttractionAndTime.vue'
 
 export default {
   name: 'ScheduleUnit',
+  props: {
+    place: String,
+    time: String,
+  },
   compenents: {
       MemoBlc,
       AttractionAndTime,
-  }
+  },
 }
 </script>
 
@@ -56,7 +60,7 @@ export default {
   position: relative;
   align-items: center;
   justify-content: space-around;
-  border: solid 2px rgb(0, 0, 0);
+  /* border: solid 2px rgb(0, 0, 0); */
   margin-top: 5px;
 }
 

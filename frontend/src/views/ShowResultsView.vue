@@ -1,20 +1,12 @@
 <template>
   <div class = "screen">
-    <div class = "c">
-      <!-- <ProgressBar /> -->
-      <!-- <vue-larger-image
-        width="auto"
-        bgColor = #eee
-        height="auto"
-        alt="hello"
-        src="../assets/fake_map.jpg">
-      </vue-larger-image> -->
-      <img src="https://media.nownews.com/nn_media/thumbnail/2019/05/1556754432-f753c3a75140ef4445b7e6826161c842-696x532.png">
+    <div class = "c_show">
+      <ProgressBarForResults />
     </div>
-    <div class = "c scroll">
-      <div class = "title">
-        <ScheduleTitle />
-      </div>
+    <div class = "c_show">
+      <CongratsTitle />
+    </div>
+    <div class = "c scroll_show">
       <div class = "Day"> 
         <div class = "date_title">
           <p class = "date"> May 12 2023 (Day1)</p>
@@ -59,16 +51,16 @@
 </template>
 
 <script>
-// import ProgressBar from '../components/General/ProgressBar.vue'
+import ProgressBarForResults from '../components/ProgressBarForResults.vue'
 import ScheduleUnit from '../components/ScheduleUnit.vue'
-import ScheduleTitle from '../components/ScheduleTitle.vue'
+import CongratsTitle from '../components/CongratsTitle.vue'
 
 export default {
-  name: 'AddNotesView',
+  name: 'ShowResultsView',
   components: {
-    // ProgressBar,
+    ProgressBarForResults,
     ScheduleUnit,
-    ScheduleTitle
+    CongratsTitle
   },
   data() {
       return {
@@ -112,17 +104,17 @@ body {
     align-items: center;
     justify-content: top;
 }
-.c{
+.c_show{
     /* border: solid 2px rgb(76, 0, 255); */
     width: 370px;
-    height: 300px;
+    height: auto;
     margin: 5px;
-    overflow: auto;
+    /* overflow: auto; */
     /* height: fill; */
     /* flex: 1; */
     /* cursor: grab; */
 }
-.c.scroll{
+.c.scroll_show{
     overflow: auto;
     height: fill;
     margin-bottom: 30px;

@@ -5,6 +5,7 @@ import SetupView from '../views/SetupView.vue'
 import AddView from '../views/AddView.vue'
 import ProgressBar from '../components/General/ProgressBar.vue'
 import AddNotesView from '../views/AddNotesView.vue'
+import ShowResultsView from '../views/ShowResultsView.vue'
 
 const routes = [
   {
@@ -28,11 +29,17 @@ const routes = [
     name: 'progress',
     component: ProgressBar},
   {
-    // to check component
+    
     path: '/addnotes',
     name:'AddNotesView',
     component: AddNotesView
-  }
+  },
+  {
+    
+    path: '/results',
+    name:'ShowResultsView',
+    component: ShowResultsView
+  },
 ]
 
 const router = createRouter({

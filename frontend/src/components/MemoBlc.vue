@@ -1,8 +1,8 @@
 <template>
   <div class = "blc_l">
     <div class = "blc_l2 btn_blc">
-      <v-btn variant="text">
-      ADD MEMO
+      <v-btn variant="text" v-bind:color = "green">
+        ADD MEMO
       </v-btn>
     </div>
     <div class = "blc_l2 type_blc">
