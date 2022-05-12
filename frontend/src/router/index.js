@@ -6,7 +6,7 @@ import AddView from '../views/AddView.vue'
 import ProgressBar from '../components/General/ProgressBar.vue'
 import AddNotesView from '../views/AddNotesView.vue'
 import ShowResultsView from '../views/ShowResultsView.vue'
-
+import VoteView from '../views/VoteView.vue'
 const routes = [
   {
     path: '/',
@@ -39,6 +39,11 @@ const routes = [
     path: '/results',
     name:'ShowResultsView',
     component: ShowResultsView
+  },
+  {
+    path: '/Votes',
+    name:'VoteView',
+    component: VoteView
   },
 ]
 

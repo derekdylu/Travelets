@@ -1,16 +1,18 @@
 <template>
-  <v-card class="d-inline-xs rounded-xl py-6">
+  <v-card class="pa-6 .bg-white rounded-b-xl">
     
     <v-row
       align="center"
-      justify="space-around"
+      justify="space-between"
     >
-      <v-btn
+      <v-btn 
+        class = "bton"
         variant="text"
       >
         BACK
       </v-btn>
-      <v-btn
+      <v-btn 
+        class = "bton"
         color="primary"
       >
         NEXT
@@ -27,4 +29,8 @@ export default {
 </script>
 
 <style>
+.bton{
+  margin-left: 20px;
+  margin-right: 20px;
+}
 </style>
