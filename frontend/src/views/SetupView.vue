@@ -1,13 +1,15 @@
 <template>
-  <div>
-    <ProgressBar />
-  </div>
-  <div class="container">
-    <SetTrip />
-  </div>
-  <div class="container2">
-    <InviteFriend />
-  </div>
+    <div>
+      <ProgressBar />
+    </div>
+  
+    <div class="container">
+      <SetTrip />
+    </div>
+    
+    <div class="container2">
+      <InviteFriend />
+    </div>
   
 </template>
 
@@ -28,7 +30,7 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 
 * {
@@ -42,20 +44,20 @@ body {
 }
 
 .container {
-  max-width: 390px;
+  max-width: 370px;
   overflow: auto;
   box-shadow:2px 2px 10px -2px rgba(163, 163, 179, 0.5);
   border: 1px solid rgb(255, 255, 255);
   background-color: rgb(255, 255, 255);
   padding: 10px;
   border-radius: 20px;
-  margin-left: 40px;
-  margin-top: 20px;
+  margin-top: 25px;
+  margin-left: 10px;
   height: 10.3cm;
 }
 
 .container2 {
-  max-width: 390px;
+  max-width: 370px;
   height: 4.5cm;
   overflow: auto;
   box-shadow:2px 2px 10px -2px rgba(163, 163, 179, 0.5);
@@ -63,35 +65,9 @@ body {
   background-color: rgb(255, 255, 255);
   padding: 80px;
   border-radius: 20px;
-  margin-left: 40px;
+  margin-left: 10px;
   margin-top: 25px;
 }
 
-.btn {
-  display: inline-block;
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 8px 15px;
-  margin: 5px;
-  border-radius: 20px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 14px;
-  font-family: inherit;
-}
-
-.btn:focus {
-  outline: none;
-}
-
-.btn:active {
-  transform: scale(0.98);
-}
-
-.btn-block {
-  display: block;
-  width: 100%;
-}
 </style>
 
