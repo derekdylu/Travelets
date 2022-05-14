@@ -125,6 +125,7 @@
 }
 .bton_2{
   width:80px;
+  margin-left:10px;
 }
 
 
