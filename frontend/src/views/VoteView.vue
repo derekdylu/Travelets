@@ -3,28 +3,27 @@
     <div>
         <ProgressBar class = "ProgressBar"/>
     </div>
-    <div class="container">
-        <SetTrip />
+    <div class = "text">Wait for participants to vote ...</div>
+    <div >
+        <VoteCard />
     </div>
-    <div class="container2">
-        <InviteFriend />
-    </div>
+    <div class = "text_2">You can also discard or adopt the poll to go next.</div>
   
 </template>
 
 
 <script>
 import ProgressBar from '../components/General/ProgressBar.vue'
-import SetTrip from '../components/Setup/SetTrip.vue'
-import InviteFriend from '../components/Setup/Invite.vue'
+import VoteCard from '../components/Vote/VoteCard.vue'
+
 
 
 export default {
-  name: 'SetupView',
+  name: 'VoteView',
   components: {
     ProgressBar,
-    SetTrip,
-    InviteFriend
+    VoteCard,
+    
   }
 }
 </script>
@@ -43,28 +42,24 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-.container {
-  
-  overflow: auto;
-  box-shadow:2px 2px 10px -2px rgba(163, 163, 179, 0.5);
-  border: 1px solid rgb(255, 255, 255);
-  background-color: rgb(255, 255, 255);
-  padding: 10px;
-  border-radius: 20px;
-  margin-left: 40px;
-  margin-top: 20px;
-  height: 10.3cm;
-}
-.ProgressBar{
-    max-width: 390px;
-    margin-left: 40px;
-}
-.SystemBar{
-    max-width: 390px;
-    margin-left: 40px;
-}
 
-.container2 {
+.ProgressBar,.text{
+    max-width: 390px;
+    margin-left: 40px;
+    
+}
+.text{
+    margin-top: 25px;
+    max-width: 360px;
+    margin-left: 55px;
+}
+.text_2{
+    margin-top: 25px;
+    max-width: 360px;
+    margin-left: 55px;
+    font-size: 12px;
+}
+.container_2 {
   max-width: 390px;
   height: 4.5cm;
   overflow: auto;
@@ -79,31 +74,6 @@ body {
 
 
 
-.btn {
-  display: inline-block;
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 8px 15px;
-  margin: 5px;
-  border-radius: 20px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 14px;
-  font-family: inherit;
-}
 
-.btn:focus {
-  outline: none;
-}
-
-.btn:active {
-  transform: scale(0.98);
-}
-
-.btn-block {
-  display: block;
-  width: 100%;
-}
 </style>
 
