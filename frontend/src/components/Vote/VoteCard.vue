@@ -49,12 +49,8 @@
           justify="end"
           no-gutters
         >
-          <v-btn 
-            class= "bton_2"
-            variant="text"
-          >
-            DISCARD
-          </v-btn>
+          <PopupDiscard class= "bton_2"/>
+          
           <v-btn 
             
             color = "primary"
@@ -72,10 +68,13 @@
 </template>
 
 <script>
-  
+  import PopupDiscard from "./PopupDiscard.vue"
 
   export default {
       name: "VoteCard",
+      components: {
+        PopupDiscard
+      },
       data() {
         return {
           cards: [
@@ -96,17 +95,6 @@
           mode_B: false
         }
       },
-      // computed: {
-      //   totals: function(){
-      //     var sum = [0,0];
-      //     for (var i = 0; i < this.cards.length; i++) {
-      //       for (var j = 0; j < this.cards[i].voteNumbers.length; j++){
-      //         sum[i] += this.cards[i].voteNumbers[j];
-      //       }
-      //     }
-      //     return sum;
-      //   }
-      // }
   }
 </script>
 
