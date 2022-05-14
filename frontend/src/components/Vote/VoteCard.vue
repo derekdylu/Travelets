@@ -15,7 +15,7 @@
             <span class="text-subtitle-2 font-weight-bold">{{card.voteNumbers[0]}}</span>
         </v-row>
         <v-progress-linear
-            model-value={{card.voteNumbers[0]*10}}
+            v-model="card.voteProgress[0]"
             height="10"
             color="primary"
             rounded
@@ -30,7 +30,7 @@
             <span class="text-subtitle-2 font-weight-bold">{{card.voteNumbers[1]}}</span>
         </v-row>
         <v-progress-linear
-            model-value={{card.voteNumbers[1]*10}}
+            v-model="card.voteProgress[1]"
             height="10"
             color="primary"
             rounded
@@ -82,11 +82,13 @@
             {
               voteItems: ["Taipei 101", "COMMUNE A7"],
               voteNumbers: [0, 0],
+              voteProgress: ["0", "0"],
               voteTotal:0
             },
             {
               voteItems: ["A Train", "Placebo"],
               voteNumbers: [1, 0],
+              voteProgress: ["10", "0"],
               voteTotal:1
             },
 
