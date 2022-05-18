@@ -1,11 +1,11 @@
 <template>
   <div>
     <v-btn
-      variant = "text"
+      color="primary"
       
       @click.stop="dialog = true"
     >
-      DISCARD
+      ADOPT
     </v-btn>
 
     <v-dialog
@@ -15,11 +15,11 @@
     >
       <v-card class = "rounded-xl">
         <v-card-title class="text-subtitle-2 font-weight-bold">
-          Discard this poll
+          Adopt before ended
         </v-card-title>
 
         <v-card-text class="text-sm-body-2" style = "padding-top:0px">
-          Discard this poll delete the second option and choose the first option.
+          Adopt the poll result before ended will directly choose the option with the most votes.
         </v-card-text>
 
         <v-card-actions >
@@ -37,10 +37,10 @@
             </v-btn>
 
             <v-btn
-              color="danger"
+              color="primary"
               @click="dialog = false"
             >
-              DISCARD
+              ADOPT
             </v-btn>
           </v-row>
           
