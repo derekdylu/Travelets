@@ -50,13 +50,8 @@
           no-gutters
         >
           <PopupDiscard class= "bton_2"/>
+          <PopupAdopt class= "bton_2"/>
           
-          <v-btn
-            color="primary"
-            elevation="9"
-            icon
-            outlined
-          ></v-btn>
         </v-row>
     </v-card-text>
 
@@ -65,11 +60,12 @@
 
 <script>
   import PopupDiscard from "./PopupDiscard.vue"
-
+  import PopupAdopt from "./PopupAdopt.vue"
   export default {
       name: "VoteCard",
       components: {
-        PopupDiscard
+        PopupDiscard,
+        PopupAdopt
       },
       data() {
         return {
@@ -114,8 +110,10 @@
   
 }
 .bton_2{
+  
+  
   width:80px;
-  margin-left:10px;
+  
 }
 
 
