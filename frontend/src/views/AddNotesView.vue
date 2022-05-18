@@ -1,72 +1,60 @@
 <template>
-  <div class = "screen">
-    <div class = "c">
-      <!-- <ProgressBar /> -->
-      <!-- <vue-larger-image
-        width="auto"
-        bgColor = #eee
-        height="auto"
-        alt="hello"
-        src="../assets/fake_map.jpg">
-      </vue-larger-image> -->
-      <img src="https://media.nownews.com/nn_media/thumbnail/2019/05/1556754432-f753c3a75140ef4445b7e6826161c842-696x532.png">
+  <div class = "c">
+    <img src="https://media.nownews.com/nn_media/thumbnail/2019/05/1556754432-f753c3a75140ef4445b7e6826161c842-696x532.png">
+  </div>
+  <div class = "c scroll">
+    <div class = "title">
+      <ScheduleTitle />
     </div>
-    <div class = "c scroll">
-      <div class = "title">
-        <ScheduleTitle />
+    <div class = "Day"> 
+      <div class = "date_title">
+        <p class = "date"> May 12 2023 (Day1)</p>
       </div>
-      <div class = "Day"> 
-        <div class = "date_title">
-          <p class = "date"> May 12 2023 (Day1)</p>
-        </div>
-        <div class = "one_day_plan">
-          <ScheduleUnit 
-            v-for="attr in attrs"
-            :place="attr.place"
-            :time="attr.time"
-            :key="attr.id"
-          />
-        </div>
+      <div class = "one_day_plan">
+        <ScheduleUnit 
+          v-for="attr in attrs"
+          :place="attr.place"
+          :time="attr.time"
+          :key="attr.id"
+        />
       </div>
-      <div class = "Day"> 
-        <div class = "date_title">
-          <p class = "date"> May 13 2023 (Day2)</p>
-        </div>
-        <div class = "one_day_plan">
-          <ScheduleUnit 
-            v-for="attr in attrs"
-            :place="attr.place"
-            :time="attr.time"
-            :key="attr.id"
-          />
-        </div>
+    </div>
+    <div class = "Day"> 
+      <div class = "date_title">
+        <p class = "date"> May 13 2023 (Day2)</p>
       </div>
-      <div class = "Day"> 
-        <div class = "date_title">
-          <p class = "date"> May 14 2023 (Day3)</p>
-        </div>
-        <div class = "one_day_plan">
-          <ScheduleUnit 
-            v-for="attr in attrs"
-            :place="attr.place"
-            :time="attr.time"
-            :key="attr.id"
-          />
-        </div>
+      <div class = "one_day_plan">
+        <ScheduleUnit 
+          v-for="attr in attrs"
+          :place="attr.place"
+          :time="attr.time"
+          :key="attr.id"
+        />
+      </div>
+    </div>
+    <div class = "Day"> 
+      <div class = "date_title">
+        <p class = "date"> May 14 2023 (Day3)</p>
+      </div>
+      <div class = "one_day_plan">
+        <ScheduleUnit 
+          v-for="attr in attrs"
+          :place="attr.place"
+          :time="attr.time"
+          :key="attr.id"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-// import ProgressBar from '../components/General/ProgressBar.vue'
 import ScheduleUnit from '../components/ScheduleUnit.vue'
 import ScheduleTitle from '../components/ScheduleTitle.vue'
 
 export default {
   name: 'AddNotesView',
   components: {
-    // ProgressBar,
     ScheduleUnit,
     ScheduleTitle
   },
@@ -96,40 +84,31 @@ export default {
 body {
   font-family: 'Poppins', sans-serif;
 }
-.screen{
-    border: solid 2px rgb(0, 0, 0);
-    width: 390px;
-    height: 767px;
-    border-radius: 50px;
-    margin-top: 10px;
-    margin-left: 50px;
-    padding: 200px;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    align-items: center;
-    justify-content: top;
-}
 .c{
     /* border: solid 2px rgb(76, 0, 255); */
-    width: 370px;
+    max-width: 390px;
     height: 300px;
     margin: 5px;
     overflow: auto;
     /* height: fill; */
     /* flex: 1; */
     /* cursor: grab; */
+    /* box-shadow:2px 2px 10px -2px rgba(163, 163, 179, 0.5); */
+    border: 1px solid rgb(253, 254, 255);
+    background-color: rgb(255, 255, 255);
+    /* padding: 80px; */
+    /* border-radius: 20px; */
+    margin-left: 40px;
+    margin-top: 25px;
 }
 .c.scroll{
+    height: 467px;
     overflow: auto;
-    height: fill;
+    margin-top: 0px;
     margin-bottom: 30px;
-    /* flex: 5; */
 }
 .Day{
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 .date_title{
   padding-top: 10px;

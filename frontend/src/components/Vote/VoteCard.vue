@@ -1,9 +1,9 @@
 <template >
   <v-card v-for = "card in cards" :key = "card" class = "container_1">
     <v-card-header>     
-        <div class="text-subtitle-2 font-weight-bold">
-          Poll: {{card.voteItems[0]}}/{{card.voteItems[1]}}
-        </div>
+      <div class="text-subtitle-2 font-weight-bold">
+        Poll: {{card.voteItems[0]}}/{{card.voteItems[1]}}
+      </div>
     </v-card-header>
     <v-card-text > 
         <v-row 
@@ -51,19 +51,15 @@
         >
           <PopupDiscard class= "bton_2"/>
           
-          <v-btn 
-            
-            color = "primary"
-            class= "bton_2"
-          >
-            ADOPT
-          </v-btn>
+          <v-btn
+            color="primary"
+            elevation="9"
+            icon
+            outlined
+          ></v-btn>
         </v-row>
     </v-card-text>
 
-    
-    
-    
   </v-card>
 </template>
 
@@ -90,6 +86,12 @@
               voteProgress: ["10", "0"],
               voteTotal:1
             },
+            // {
+            //   voteItems: ["Starbacks", "Louisa"],
+            //   voteNumbers: [3, 2],
+            //   voteProgress: ["30", "20"],
+            //   voteTotal:5
+            // },
 
           ],
           mode_B: false

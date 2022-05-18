@@ -1,7 +1,7 @@
 <template>
   <div class = "screen">
     <div class = "c_show">
-      <ProgressBarForResults />
+      <ProgressBar primaryButton = "SAVE" />
     </div>
     <div class = "c_show">
       <CongratsTitle />
@@ -51,14 +51,14 @@
 </template>
 
 <script>
-import ProgressBarForResults from '../components/ProgressBarForResults.vue'
+import ProgressBar from '../components/General/ProgressBar.vue'
 import ScheduleUnit from '../components/ScheduleUnit.vue'
 import CongratsTitle from '../components/CongratsTitle.vue'
 
 export default {
   name: 'ShowResultsView',
   components: {
-    ProgressBarForResults,
+    ProgressBar,
     ScheduleUnit,
     CongratsTitle
   },
