@@ -51,12 +51,13 @@
         >
           <PopupDiscard class= "bton_2"/>
           
-          <v-btn
-            color="primary"
-            elevation="9"
-            icon
-            outlined
-          ></v-btn>
+          <v-btn 
+            
+            color = "primary"
+            class= "bton_2"
+          >
+            ADOPT
+          </v-btn>
         </v-row>
     </v-card-text>
 

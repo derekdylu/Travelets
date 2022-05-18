@@ -1,23 +1,28 @@
 <template >
-    <v-card v-for = "day in days" :key = "day" class = "container_1">
+    <v-card 
+        v-for = "day in days" 
+        :key = "day" 
+        class = "c1"
+        justify = "center"
+    >
         <v-card-header>     
-            <div class="text-subtitle-2 font-weight-bold">
-                May {{day.date}} 2023 (Day {{day.id}})
+            <div class="date_title">
+                May {{day.date}} 2023 (Day {{parseInt(day.id + 1)}})
             </div>
         </v-card-header>
         <v-card-text > 
             <v-row 
+                v-for="pair in day.pairs"
+                :key="pair.id"
                 align="center"
-                justify="start"
+                justify="space-around"
                 no-gutters
-                style="margin-top:10px;"
+                style="margin-top:5px;"
             >
                 <ScheduleUnit 
-                    v-for="pair in day.pairs"
                     :place="pair.place"
                     :time="pair.time"
                     :text="pair.note"
-                    :key="pair.id"
                 />
             </v-row>
             <v-row 
@@ -26,7 +31,7 @@
                 no-gutters
                 style="margin-top:10px; margin-bottom:10px"
             >
-                <span class="text-sm-body-2 ">Schedule for day {{day.id}}</span>
+                <span class="text-sm-body-2 ">Schedule for day {{parseInt(day.id + 1)}}</span>
             </v-row>
         </v-card-text>
     </v-card>
@@ -34,8 +39,6 @@
 <script>
 // import PopupDiscard from "../Vote/PopupDiscard.vue"
 import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
-
-
 
   export default {
       name: "VoteCard",
@@ -47,7 +50,7 @@ import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
         return {
           days: [
             {
-                id: "1",
+                id: "0",
                 date: "12",
                 pairs: [
                     { 
@@ -64,7 +67,7 @@ import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
                     { 
                         place: "Xinyi District", 
                         time: "24 minutes",
-                        note: "moviemoviemoviemovie",
+                        note: "movie movie movie movie movie movie movie movie movie movie movie movie movie movie movie movie",
                     },
                     { 
                         place: "NTU Park", 
@@ -74,7 +77,7 @@ import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
                 ],
             },
             {
-                id: "2",
+                id: "1",
                 date: "13",
                 pairs: [
                     { 
@@ -95,7 +98,7 @@ import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
                 ],
             },
             {
-                id: "3",
+                id: "2",
                 date: "14",
                 pairs: [
                     { 
@@ -128,8 +131,8 @@ import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
 </script>
 
 <style>
-.container_1{
-  max-width: 390px;
+.c1{
+  width: 460px;
   overflow: auto;
   box-shadow:2px 2px 10px -2px rgba(163, 163, 179, 0.5);
   border: 1px solid rgb(255, 255, 255);
@@ -137,26 +140,14 @@ import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
   
   border-radius: 20px;
   margin-left: 40px;
+  margin-right: 40px;
   margin-top: 25px;
   
 }
 
-.concon{
-  max-width: 370px;
-  overflow: auto;
-  box-shadow:2px 2px 10px -2px rgba(163, 163, 179, 0.5);
-  border: 1px solid rgb(255, 255, 255);
-  background-color: rgba(255, 255, 255, 0.642);
-  
-  border-radius: 20px;
-  margin-left: 0px;
-  margin-top: 0px;
-  
-}
-
-.bton_2{
-  width:80px;
-  margin-left:10px;
+.date_title{
+    font-size: 20px;
+    font-weight: 900;
 }
 
 </style>

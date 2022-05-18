@@ -8,8 +8,9 @@ import AddNotesView from '../views/AddNotesView.vue'
 import AddNotesView2 from '../views/AddNotesView2.vue'
 import ShowResultsView from '../views/ShowResultsView.vue'
 import VoteView from '../views/VoteView.vue'
-import ScheduleUnit from '../components/AddNotes/ScheduleUnit'
-import ScheduleCard from '../components/AddNotes/ScheduleCard'
+import ScheduleUnit from '../components/AddNotes/ScheduleUnit.vue'
+import ScheduleCard from '../components/AddNotes/ScheduleCard.vue'
+import PopupAdopt from '../components/Vote/PopupAdopt.vue'
 
 const routes = [
   {
@@ -31,7 +32,8 @@ const routes = [
     // for testing only
     path: '/progress',
     name: 'progress',
-    component: ProgressBar},
+    component: ProgressBar
+  },
   {
     
     path: '/addnotes',
@@ -63,6 +65,11 @@ const routes = [
     path: '/card',
     name:'ScheduleCard',
     component: ScheduleCard
+  },
+  {
+    path: '/adopt',
+    name:'PopupAdopt',
+    component: PopupAdopt
   },
 ]
 

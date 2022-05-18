@@ -1,10 +1,13 @@
 <template >
-    <v-card-text > 
+    <v-card-text> 
         <v-row 
             align="center"
-            justify = "space-around"
+            justify = "start"
+            no-gutters
         >
-            <v-col>
+            <v-col
+                cols = "4"
+            >
                 <v-btn
                     class = "edit_btn"
                     color="primary"
@@ -26,14 +29,23 @@
                 </v-card>
 
             </v-col>
-            <v-col>
-                <v-timeline 
+            <v-col
+                cols = "8"
+            >
+                <v-timeline class = "time_line"
+                    align-top
                     dense
                 >
-                    <v-timeline-item>
+                    <v-timeline-item 
+                        color = "primary"
+                        small
+                    >
                         <p class = "place"> {{place}} </p>
                     </v-timeline-item>
-                    <v-timeline-item>
+                    <v-timeline-item
+                        color = "danger"
+                        small
+                    >
                         <p class = "time"> {{time}} </p>
                     </v-timeline-item>
                 </v-timeline>
@@ -77,6 +89,7 @@
 
 .edit_btn{
     width: 70px;
+    position: relative;
 }
 
 .note_card{
@@ -85,9 +98,16 @@
     padding-top: 15px;
     padding-bottom: 15px;
     margin-top: 10px;
-    width: 100px;
+    width: fill;
     height: auto;
-    overflow: 
+    position: relative;
+}
+
+.time_line{
+    position: relative;
+    left: 0px;
+    padding: 0px;
+    border: solid 1px;
 }
 
 </style>
