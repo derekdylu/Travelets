@@ -14,15 +14,17 @@
 import GoogleMap from '../components/AddNotes/GoogleMap.vue'
 import ScheduleCard from '../components/AddNotes/ScheduleCard.vue'
 
-
-
 export default {
   name: 'AddNotesView2',
   components: {
     GoogleMap,
     ScheduleCard,
-    
-  }
+  },
+  data() {
+      return {
+        
+      }
+    },
 }
 </script>
 

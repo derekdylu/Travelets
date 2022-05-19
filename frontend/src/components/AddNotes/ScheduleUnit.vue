@@ -1,25 +1,17 @@
 <template >
     <v-card-text> 
         <v-row 
-            align="center"
-            justify = "start"
+            align="start"
+            justify = "center"
             no-gutters
         >
             <v-col
                 cols = "4"
+                align = ""
             >
-                <v-btn
-                    class = "edit_btn"
-                    color="primary"
-                    fab
-                    dark
-                    small
-                >   
-                    <v-icon dark>
-                        mdi-pencil
-                    </v-icon>
-                    EDIT
-                </v-btn>
+                <PopupEdit 
+                    class= "edit_btn_popup"
+                />
         
                 <v-card
                     elevation = "2"
@@ -39,12 +31,16 @@
                     <v-timeline-item 
                         color = "primary"
                         small
+                        left
+                        class = "dot_place"
                     >
                         <p class = "place"> {{place}} </p>
                     </v-timeline-item>
                     <v-timeline-item
                         color = "danger"
                         small
+                        left
+                        class = "dot_time"
                     >
                         <p class = "time"> {{time}} </p>
                     </v-timeline-item>
@@ -55,6 +51,7 @@
 </template>
 
 <script>
+import PopupEdit from "./PopupEdit.vue"
 
   export default {
       name: "ScheduleUnit",
@@ -64,14 +61,17 @@
         text: String,
       },
       components: {
-        
+          PopupEdit,
       },
       data() {
         return {
             // place: "Taipei 10101",
             // time: "100 hour 23 minutes",
-            // text: "my note my note my note...my note my note my note...my note my note my note..."
+            // text: "my note my note my note...my note "
         }
+      },
+      methods:{
+        
       },
   }
 </script>
@@ -87,7 +87,7 @@
     color: rgb(116, 116, 116);
 }
 
-.edit_btn{
+.edit_btn_popup{
     width: 70px;
     position: relative;
 }
@@ -99,6 +99,7 @@
     padding-bottom: 15px;
     margin-top: 10px;
     width: fill;
+    min-height: 90px;
     height: auto;
     position: relative;
 }
@@ -107,7 +108,16 @@
     position: relative;
     left: 0px;
     padding: 0px;
-    border: solid 1px;
+    /* border: solid 1px; */
+    margin-left: 10px;
+}
+
+.dot_place{
+
+}
+
+.dot_time{
+
 }
 
 </style>

@@ -7,7 +7,7 @@
     >
         <v-card-header>     
             <div class="date_title">
-                May {{day.date}} 2023 (Day {{parseInt(day.id + 1)}})
+                May {{day.date}} 2023 (Day {{parseInt(day.id) + 1}})
             </div>
         </v-card-header>
         <v-card-text > 
@@ -31,7 +31,7 @@
                 no-gutters
                 style="margin-top:10px; margin-bottom:10px"
             >
-                <span class="text-sm-body-2 ">Schedule for day {{parseInt(day.id + 1)}}</span>
+                <span class="text_bottom">Schedule for day {{parseInt(day.id) + 1}}</span>
             </v-row>
         </v-card-text>
     </v-card>
@@ -133,6 +133,7 @@ import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
 <style>
 .c1{
   width: 460px;
+  height: fill;
   overflow: auto;
   box-shadow:2px 2px 10px -2px rgba(163, 163, 179, 0.5);
   border: 1px solid rgb(255, 255, 255);
@@ -148,6 +149,10 @@ import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
 .date_title{
     font-size: 20px;
     font-weight: 900;
+}
+.text_bottom{
+    font-size: 15px;
+    margin-left: 20px;
 }
 
 </style>

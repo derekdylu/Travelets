@@ -1,24 +1,41 @@
+
 <template>
-  <div>
-    <div>
-      <h2 style = "margin-left: 40px; margin-top: 25px;">This is a map.</h2>
-    </div>
-    <br>
-    <GmapMap
-      :center='center'
-      :zoom='12'
-      style='max-width:390px;  max-height: 300px;'
-    />
-  </div>
+  <gmap-map
+    :center="center"
+    :zoom="16"
+    style="width: 100%; height: 500px"
+  >
+    <gmap-marker
+      :key="index"
+      v-for="(m, index) in markers"
+      :position="m.position"
+      :title="m.title"
+      :clickable="true"
+      :draggable="true"
+      @click="center=m.position"
+    ></gmap-marker>
+  </gmap-map>
 </template>
 
 <script>
-export default {
-  name: 'GoogleMap',
-  data() {
-    return {
-      center: { lat: 45.508, lng: -73.587 },
+  export default {
+    data () {
+      return {
+        
+        center: {lat: this.latitude, lng: this.longitude},
+        markers: [{
+          position: {lat: this.latitude, lng: this.longitude},
+          title: this.title
+        }]
+      }
+    },
+
+    props: {
+        latitude: Number,
+        longitude: Number,
+        title: String
     }
-  },
-};
+  }
 </script>
+
+<style lang="scss" scoped></style>

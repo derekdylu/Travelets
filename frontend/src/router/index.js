@@ -10,7 +10,8 @@ import ShowResultsView from '../views/ShowResultsView.vue'
 import VoteView from '../views/VoteView.vue'
 import ScheduleUnit from '../components/AddNotes/ScheduleUnit.vue'
 import ScheduleCard from '../components/AddNotes/ScheduleCard.vue'
-import PopupAdopt from '../components/Vote/PopupAdopt.vue'
+import PopupEdit from '../components/AddNotes/PopupEdit.vue'
+import MapTest from '../components/AddNotes/MapTest.vue'
 
 const routes = [
   {
@@ -67,9 +68,14 @@ const routes = [
     component: ScheduleCard
   },
   {
-    path: '/adopt',
-    name:'PopupAdopt',
-    component: PopupAdopt
+    path: '/pop',
+    name:'PopupEdit',
+    component: PopupEdit
+  },
+  {
+    path: '/t',
+    name:'MapTest',
+    component: MapTest
   },
 ]
 
