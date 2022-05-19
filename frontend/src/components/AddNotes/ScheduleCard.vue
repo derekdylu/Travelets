@@ -22,7 +22,7 @@
                 <ScheduleUnit 
                     :place="pair.place"
                     :time="pair.time"
-                    :text="pair.note"
+                    v-bind:text="pair.note"
                 />
             </v-row>
             <v-row 
@@ -37,13 +37,11 @@
     </v-card>
 </template>
 <script>
-// import PopupDiscard from "../Vote/PopupDiscard.vue"
 import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
 
   export default {
       name: "VoteCard",
       components: {
-        // PopupDiscard,
         ScheduleUnit,
       },
       data() {

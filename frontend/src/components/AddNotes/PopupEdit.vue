@@ -31,13 +31,13 @@
                     class = "input_memo"
                     label="Memo..."
                     required
-                    v-model = "input"
+                    v-model = "memo_text"
                 >
                 </v-text-field>
               </v-col>
             </v-row>
           </v-container>
-          <!-- <p> {{input}} </p> -->
+          <!-- <p> {{memo_text}} </p> -->
           <p class = "text_bottom">Automatically saved before closing</p>
         </v-card-text>
 
@@ -46,9 +46,9 @@
           <v-btn
             color="blue darken-1"
             text
-            @click= "dialog = false"
+            @click= "onClick(memo_text)"
           >
-            Close
+            Close 
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -59,22 +59,44 @@
 <script>
   export default {
     name: "PopupEdit",
+
     props: {
-        
+        // memo_text: String,
     },
+
     components: {
 
     },
+
     data () {
       return {
         dialog: false,
-        input: "",
+        memo_text: "",
       }
     },
-    methods: {
+
+    // computed: {
+    //   input: {
+    //     get(){
+    //         return this.value;
+    //     },
+    //     set(newVal){
+    //         this.value = newVal;
+    //     }
+    //   }
+    // },
+
+    methods:{
+      onClick(m){
+          this.dialog = false;
+          this.memo_text = m;
+          console.log(this.memo_text);
+      },
       
     },
   }
+
+  
 </script>
 
 <style>
