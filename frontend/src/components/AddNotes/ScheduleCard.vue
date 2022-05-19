@@ -20,9 +20,9 @@
                 style="margin-top:5px;"
             >
                 <ScheduleUnit 
-                    :place="pair.place"
-                    :time="pair.time"
-                    v-bind:text="pair.note"
+                    :place= "pair.place"
+                    :time= "pair.time"
+                    :input_text = "pair.note"
                 />
             </v-row>
             <v-row 

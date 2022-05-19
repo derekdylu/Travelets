@@ -29,16 +29,17 @@
               <v-col cols="12">
                 <v-text-field
                     class = "input_memo"
-                    label="Memo..."
+                    label="Add Memo..."
                     required
-                    v-model = "memo_text"
+                    v-model = "input_text"
+                    @input="send_back"
                 >
                 </v-text-field>
               </v-col>
             </v-row>
           </v-container>
-          <!-- <p> {{memo_text}} </p> -->
-          <p class = "text_bottom">Automatically saved before closing</p>
+          <!-- <p> {{input_text}} </p> -->
+          <p class = "text_bottom">Automatically saved.</p>
         </v-card-text>
 
         <v-card-actions>
@@ -46,7 +47,14 @@
           <v-btn
             color="blue darken-1"
             text
-            @click= "onClick(memo_text)"
+            @click= "onClick_clear()"
+          >
+            Clear 
+          </v-btn>
+          <v-btn
+            color="blue darken-1"
+            text
+            @click= "onClick_close()"
           >
             Close 
           </v-btn>
@@ -61,7 +69,7 @@
     name: "PopupEdit",
 
     props: {
-        // memo_text: String,
+        
     },
 
     components: {
@@ -71,27 +79,23 @@
     data () {
       return {
         dialog: false,
-        memo_text: "",
+        input_text: "",
+
       }
     },
 
-    // computed: {
-    //   input: {
-    //     get(){
-    //         return this.value;
-    //     },
-    //     set(newVal){
-    //         this.value = newVal;
-    //     }
-    //   }
-    // },
-
     methods:{
-      onClick(m){
-          this.dialog = false;
-          this.memo_text = m;
-          console.log(this.memo_text);
+      onClick_clear(){
+          this.input_text = "";
+          this.send_back();
       },
+      onClick_close(){
+          console.log(this.input_text);
+          this.dialog = false;
+      },
+      send_back(){
+        this.$emit("value-update", this.input_text)
+      }
       
     },
   }

@@ -11,13 +11,14 @@
             >
                 <PopupEdit 
                     class= "edit_btn_popup"
+                    @value-update = "getValFromChild"
                 />
         
                 <v-card
                     elevation = "2"
                     class = "note_card"
                 >
-                    {{text}}
+                    {{input_text}}
                 </v-card>
 
             </v-col>
@@ -58,19 +59,27 @@ import PopupEdit from "./PopupEdit.vue"
       props: {
         place: String,
         time: String,
-        text: String,
+        // input_text: String,
       },
       components: {
           PopupEdit,
       },
       data() {
         return {
+            input_text: "No Memo.",
             // place: "Taipei 10101",
             // time: "100 hour 23 minutes",
             // text: "my note my note my note...my note "
         }
       },
       methods:{
+        getValFromChild(val) {
+          this.input_text = val;
+
+          if(val == ""){
+              this.input_text = "No Memo.";
+          }
+        }
         
       },
   }
