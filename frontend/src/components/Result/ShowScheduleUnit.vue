@@ -8,14 +8,9 @@
             <v-col
                 cols = "4"
             >
-                <PopupEdit 
-                    class= "edit_btn_popup"
-                    @value-update = "getValFromChild"
-                />
-        
                 <v-card
                     elevation = "2"
-                    class = "note_card"
+                    class = "note_card_result"
                 >
                     {{input_text}}
                 </v-card>
@@ -51,33 +46,26 @@
 </template>
 
 <script>
-import PopupEdit from "./PopupEdit.vue"
 
   export default {
       name: "ScheduleUnit",
       props: {
         place: String,
         time: String,
+        input_text: String,
       },
       components: {
-          PopupEdit,
+
       },
       data() {
         return {
-            input_text: "No Memo.",
             // place: "Taipei 10101",
             // time: "100 hour 23 minutes",
-            // text: "my note my note my note...my note "
+            // input_text: "my note my note my note...my note "
         }
       },
       methods:{
-        getValFromChild(val) {
-          this.input_text = val;
-
-          if(val == ""){
-              this.input_text = "No Memo.";
-          }
-        }
+        
       },
   }
 </script>
@@ -98,14 +86,14 @@ import PopupEdit from "./PopupEdit.vue"
     position: relative;
 }
 
-.note_card{
+.note_card_result{
     /* display: none; */
     padding: 10px;
     padding-top: 15px;
     padding-bottom: 15px;
     margin-top: 10px;
     width: fill;
-    min-height: 90px;
+    min-height: 130px;
     height: auto;
     position: relative;
 }

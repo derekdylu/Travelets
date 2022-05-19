@@ -4,9 +4,9 @@ import HomeView from '../views/HomeView.vue'
 import SetupView from '../views/SetupView.vue'
 import AddView from '../views/AddView.vue'
 import ProgressBar from '../components/General/ProgressBar.vue'
+import AddNotesViewOld from '../views/AddNotesViewOld.vue'
 import AddNotesView from '../views/AddNotesView.vue'
-import AddNotesView2 from '../views/AddNotesView2.vue'
-import ShowResultsView from '../views/ShowResultsView.vue'
+import ShowResultView from '../views/ShowResultView.vue'
 import VoteView from '../views/VoteView.vue'
 import ScheduleUnit from '../components/AddNotes/ScheduleUnit.vue'
 import ScheduleCard from '../components/AddNotes/ScheduleCard.vue'
@@ -37,20 +37,20 @@ const routes = [
   },
   {
     
+    path: '/old',
+    name:'AddNotesViewOld',
+    component: AddNotesViewOld
+  },
+  {
     path: '/addnotes',
-    name:'AddNotesView',
+    name: 'AddNotesView',
     component: AddNotesView
   },
   {
-    path: '/2',
-    name: 'AddNotesView2',
-    component: AddNotesView2
-  },
-  {
     
-    path: '/results',
-    name:'ShowResultsView',
-    component: ShowResultsView
+    path: '/result',
+    name:'ShowResultView',
+    component: ShowResultView
   },
   {
     path: '/Votes',

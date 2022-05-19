@@ -1,5 +1,6 @@
 
 <template>
+  <h2 style = "margin: 40px;"> Google Map</h2>
   <gmap-map
     :center="center"
     :zoom="16"

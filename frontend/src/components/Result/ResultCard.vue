@@ -19,9 +19,10 @@
                 no-gutters
                 style="margin-top:5px;"
             >
-                <ScheduleUnit 
+                <ShowScheduleUnit 
                     :place= "pair.place"
                     :time= "pair.time"
+                    :input_text = "pair.note"
                 />
             </v-row>
             <v-row 
@@ -36,12 +37,12 @@
     </v-card>
 </template>
 <script>
-import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
+import ShowScheduleUnit from '../Result/ShowScheduleUnit.vue'
 
   export default {
-      name: "ScheduleCard",
+      name: "ResultCard",
       components: {
-        ScheduleUnit,
+        ShowScheduleUnit,
       },
       data() {
         return {
@@ -55,7 +56,7 @@ import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
                     { 
                         place: "Taipei 101", 
                         time: "1 hour 03 minutes",
-                        note: "",
+                        note: "123",
                     },
                     { 
                         place: "COMMUNE A7", 
@@ -66,12 +67,12 @@ import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
                     { 
                         place: "Xinyi District", 
                         time: "24 minutes",
-                        note: "",
+                        note: "eeeeeeeeee eeeeeeeeee",
                     },
                     { 
                         place: "NTU Park", 
                         time: "2 hour 44 minutes",
-                        note: "",
+                        note: "...",
                     },
                 ],
             },
@@ -82,12 +83,12 @@ import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
                     { 
                         place:"Ximen", 
                         time: "1 hour 53 minutes",
-                        note: "",
+                        note: "d d d",
                     },
                     { 
                         place:"Starbucks", 
                         time: "35 minutes",
-                        note: "",
+                        note: "444",
                     },
                     { 
                         place:"TPE Main Station", 
@@ -108,17 +109,17 @@ import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
                     { 
                         place:"COMMUNE B6", 
                         time: "1 hour 05 minutes",
-                        note: "",
+                        note: "asdadsas grgsfsgg yyyy",
                     },
                     { 
                         place:"DaAn District", 
                         time: "18 minutes",
-                        note: "",
+                        note: "12/11 4:03",
                     },
                     { 
                         place:"Miss Energy", 
                         time: "1 hour 40 minutes",
-                        note: "",
+                        note: "aaaaaaaaaaaaaaaaaaaaaaaaa",
                     },
                 ],
             },

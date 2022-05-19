@@ -38,7 +38,6 @@
               </v-col>
             </v-row>
           </v-container>
-          <!-- <p> {{input_text}} </p> -->
           <p class = "text_bottom">Automatically saved.</p>
         </v-card-text>
 
@@ -104,6 +103,7 @@
 </script>
 
 <style>
+
 .memoblc_title{
     font-size: 20px;
     margin: 10px;
