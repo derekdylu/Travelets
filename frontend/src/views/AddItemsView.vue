@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ProgressBar />
+    <ProgressBar primaryButton="test" />
     <BackMap />
     <ItemsCard />
   </div>

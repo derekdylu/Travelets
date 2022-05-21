@@ -54,7 +54,7 @@ const routes = [
     component: ShowResultView
   },
   {
-    path: '/Votes',
+    path: '/votes',
     name:'VoteView',
     component: VoteView
   },
