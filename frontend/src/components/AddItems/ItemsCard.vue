@@ -61,10 +61,11 @@
 
             <v-timeline side="end" align="start">
 
-              <template v-for="item in selectedItems" :key="item.id">
+              <template v-for="item in selectedItems">
 
                 <v-timeline-item
                   v-if="item.dayDivider===true"
+                  :key="item.text"
                   dot-color="white"
                   size="small"
                   width="286px"
@@ -80,6 +81,7 @@
 
                 <v-timeline-item
                   v-else
+                  :key="item.id"
                   dot-color="secondary"
                   size="small"
                   width="286px"

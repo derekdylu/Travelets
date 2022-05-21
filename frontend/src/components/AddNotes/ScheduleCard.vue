@@ -1,4 +1,5 @@
-<template >
+<template>
+    <div>
     <v-card 
         v-for = "day in days" 
         :key = "day" 
@@ -34,6 +35,7 @@
             </v-row>
         </v-card-text>
     </v-card>
+    </div>
 </template>
 <script>
 import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
