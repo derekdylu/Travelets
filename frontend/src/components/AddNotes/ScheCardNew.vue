@@ -11,18 +11,22 @@
             </div>
         </v-card-header>
         <v-card-text > 
-            <v-row 
-                v-for="pair in day.pairs"
-                :key="pair.id"
-                align="center"
-                justify="space-around"
-                no-gutters
-                style="margin-top:5px;"
-            >
-                <ScheduleUnit 
-                    :place= "pair.place"
-                    :time= "pair.time"
-                />
+            <v-row >
+                <v-col cols = "4">
+                    <v-row 
+                        v-for= "pair in day.pairs"
+                        :key= "pair"
+                        align="center"
+                        justify="space-around"
+                        no-gutters
+                        style="margin-top:5px;"
+                    >
+                        <MemoBlcUnit/>
+                    </v-row>
+                </v-col>
+                <v-col cols = "8">
+                    <TimeLine />
+                </v-col>
             </v-row>
             <v-row 
                 align="center"
@@ -36,12 +40,14 @@
     </v-card>
 </template>
 <script>
-import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
+import MemoBlcUnit from '../AddNotes/MemoBlcUnit.vue'
+import TimeLine from '../AddNotes/TimeLine.vue'
 
   export default {
-      name: "ScheduleCard",
+      name: "ScheCardNew",
       components: {
-        ScheduleUnit,
+        MemoBlcUnit,
+        TimeLine,
       },
       data() {
         return {

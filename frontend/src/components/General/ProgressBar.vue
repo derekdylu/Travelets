@@ -24,7 +24,13 @@
 
 <script>
 export default {
-  name: 'ProgressBar'
+  name: 'ProgressBar',
+  // data() {
+  //     return {
+  //         left_btn: "BACK",  
+  //         right_btn: "NEXT",  
+  //     }
+  //   },
 }
 </script>
 

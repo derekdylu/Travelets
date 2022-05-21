@@ -12,6 +12,7 @@ import ScheduleUnit from '../components/AddNotes/ScheduleUnit.vue'
 import ScheduleCard from '../components/AddNotes/ScheduleCard.vue'
 import PopupEdit from '../components/AddNotes/PopupEdit.vue'
 import MapTest from '../components/AddNotes/MapTest.vue'
+import NewTest from '../views/NewTest.vue'
 
 const routes = [
   {
@@ -76,6 +77,11 @@ const routes = [
     path: '/t',
     name:'MapTest',
     component: MapTest
+  },
+  {
+    path: '/new',
+    name:'NewTest',
+    component: NewTest
   },
 ]
 
