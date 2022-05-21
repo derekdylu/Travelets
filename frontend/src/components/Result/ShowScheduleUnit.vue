@@ -20,22 +20,22 @@
                 cols = "8"
             >
                 <v-timeline class = "time_line"
-                    align-top
-                    dense
+                    density="compact"
+                    side="end"
                 >
                     <v-timeline-item 
-                        color = "primary"
-                        small
+                        size = "20px"
+                        fill-dot
+                        dot-color = "#a9a9a9"
                         left
-                        class = "dot_place"
                     >
                         <p class = "place"> {{place}} </p>
                     </v-timeline-item>
                     <v-timeline-item
-                        color = "danger"
-                        small
+                        size = "20px"
+                        fill-dot
+                        dot-color = "#d3d3d3"
                         left
-                        class = "dot_time"
                     >
                         <p class = "time"> {{time}} </p>
                     </v-timeline-item>
@@ -79,12 +79,13 @@
 .time{
     font-size: 15px;
     color: rgb(116, 116, 116);
+    font-weight: 700;
 }
 
-.edit_btn_popup{
+/* .edit_btn_popup{
     width: 70px;
     position: relative;
-}
+} */
 
 .note_card_result{
     /* display: none; */
@@ -104,14 +105,6 @@
     padding: 0px;
     /* border: solid 1px; */
     margin-left: 10px;
-}
-
-.dot_place{
-
-}
-
-.dot_time{
-
 }
 
 </style>

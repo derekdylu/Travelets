@@ -13,6 +13,7 @@ import ScheduleCard from '../components/AddNotes/ScheduleCard.vue'
 import PopupEdit from '../components/AddNotes/PopupEdit.vue'
 import MapTest from '../components/AddNotes/MapTest.vue'
 import AddItemsView from '../views/AddItemsView.vue'
+import NewTest from '../views/NewTest.vue'
 
 const routes = [
   {
@@ -81,7 +82,12 @@ const routes = [
     path: '/additems',
     name: 'AddItems',
     component: AddItemsView
-  }
+  },
+  {
+    path: '/new',
+    name:'NewTest',
+    component: NewTest
+  },
 ]
 
 const router = createRouter({

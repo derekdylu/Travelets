@@ -25,26 +25,26 @@
                 align="start"
                 justify="start"
             >
-                <v-timeline class = "time_line"
-                    align="start"
-                    justify="start"
-                    dense
+                <v-timeline 
+                    class = "time_line"
                     density="compact"
                     side="end"
+                    align="start"
+                    truncate-line="start"
                 >
                     <v-timeline-item 
-                        color = "primary"
-                        small
+                        size = "20px"
+                        fill-dot
+                        dot-color = "#a9a9a9"
                         left
-                        class = "dot_place"
                     >
                         <p class = "place"> {{place}} </p>
                     </v-timeline-item>
                     <v-timeline-item
-                        color = "danger"
-                        small
+                        size = "20px"
+                        fill-dot
+                        dot-color = "#d3d3d3"
                         left
-                        class = "dot_time"
                     >
                         <p class = "time"> {{time}} </p>
                     </v-timeline-item>
@@ -87,19 +87,22 @@ import PopupEdit from "./PopupEdit.vue"
 </script>
 
 <style>
+
 .place{
     font-size: 15px;
     font-weight: 500;
-    color:rgb(0, 0, 0)
+    color:rgb(0, 0, 0);
 }
 .time{
     font-size: 15px;
-    color: rgb(116, 116, 116);
+    color: #a9a9a9;
+    font-weight: 700;
 }
 
 .edit_btn_popup{
     width: 70px;
     position: relative;
+    /* border: solid 1px red; */
 }
 
 .note_card{
@@ -112,22 +115,15 @@ import PopupEdit from "./PopupEdit.vue"
     min-height: 90px;
     height: auto;
     position: relative;
+    /* border: solid 1px red; */
 }
 
 .time_line{
     position: relative;
     left: 0px;
     padding: 0px;
-    /* border: solid 1px; */
+    /* border: solid 1px red; */
     margin-left: 10px;
+    min-height: 140px;
 }
-
-.dot_place{
-
-}
-
-.dot_time{
-
-}
-
 </style>
