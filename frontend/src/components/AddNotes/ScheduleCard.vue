@@ -15,7 +15,7 @@
                 v-for="pair in day.pairs"
                 :key="pair.id"
                 align="center"
-                justify="space-around"
+                justify="start"
                 no-gutters
                 style="margin-top:5px;"
             >

@@ -2,7 +2,6 @@
     <v-card-text> 
         <v-row 
             align="start"
-            justify = "center"
             no-gutters
         >
             <v-col
@@ -23,10 +22,15 @@
             </v-col>
             <v-col
                 cols = "8"
+                align="start"
+                justify="start"
             >
                 <v-timeline class = "time_line"
-                    align-top
+                    align="start"
+                    justify="start"
                     dense
+                    density="compact"
+                    side="end"
                 >
                     <v-timeline-item 
                         color = "primary"

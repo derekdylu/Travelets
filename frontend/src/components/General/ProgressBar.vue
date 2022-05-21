@@ -1,6 +1,5 @@
 <template>
-  <v-card class="pa-6 .bg-white rounded-b-xl">
-    
+  <v-card class="pa-6 .bg-white rounded-b-xl" elevation="4">
     <v-row
       align="center"
       justify="space-between"
@@ -15,7 +14,7 @@
         class = "bton"
         color="primary"
       >
-        NEXT
+        {{ primaryButton ? primaryButton : "NEXT"}}
       </v-btn>
     </v-row>
   
@@ -24,7 +23,8 @@
 
 <script>
 export default {
-  name: 'ProgressBar'
+  name: 'ProgressBar',
+  props: ['primaryButton']
 }
 </script>
 

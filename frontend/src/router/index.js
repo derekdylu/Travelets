@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import HomeView from '../views/HomeView.vue'
 import SetupView from '../views/SetupView.vue'
-import AddView from '../views/AddView.vue'
+import TestView from '../views/TestView.vue'
 import ProgressBar from '../components/General/ProgressBar.vue'
 import AddNotesViewOld from '../views/AddNotesViewOld.vue'
 import AddNotesView from '../views/AddNotesView.vue'
@@ -12,6 +12,7 @@ import ScheduleUnit from '../components/AddNotes/ScheduleUnit.vue'
 import ScheduleCard from '../components/AddNotes/ScheduleCard.vue'
 import PopupEdit from '../components/AddNotes/PopupEdit.vue'
 import MapTest from '../components/AddNotes/MapTest.vue'
+import AddItemsView from '../views/AddItemsView.vue'
 
 const routes = [
   {
@@ -25,12 +26,11 @@ const routes = [
     component: SetupView
   },
   {
-    path: '/add',
-    name: 'AddView',
-    component: AddView
+    path: '/test',
+    name: 'TestView',
+    component: TestView
   },
   {
-    // for testing only
     path: '/progress',
     name: 'progress',
     component: ProgressBar
@@ -77,6 +77,11 @@ const routes = [
     name:'MapTest',
     component: MapTest
   },
+  {
+    path: '/additems',
+    name: 'AddItems',
+    component: AddItemsView
+  }
 ]
 
 const router = createRouter({
