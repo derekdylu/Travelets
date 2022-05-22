@@ -7,15 +7,17 @@
       <v-btn 
         class = "bton"
         variant="text"
+        @click="prevPage()"
       >
         BACK
       </v-btn>
       <v-btn 
         class = "bton"
         color="primary"
-        :disabled = "NextStatus"
+        :disabled = "disabledPrimary"
+        @click="nextPage()"
       >
-        {{ primaryButton ? primaryButton : "NEXT"}}
+        {{ primaryButton }}
       </v-btn>
     </v-row>
   
@@ -23,17 +25,27 @@
 </template>
 
 <script>
+// import router from '../../router/index'
+
 export default {
   name: 'ProgressBar',
+  methods: {
+    prevPage(){
+     this.$router.push({ name: this.$router.currentRoute.value.meta.prev})
+    },
+    nextPage(){
+      this.$router.push({ name: this.$router.currentRoute.value.meta.next })
+    }
+  },
   props:{
-    'NextStatus':{
+    'disabledPrimary': {
       type: Boolean,
       default: false
     },
-    'primaryButton':{
-      type: String
+    'primaryButton': {
+      type: String,
+      default: "NEXT"
     }
-
   }
 }
 

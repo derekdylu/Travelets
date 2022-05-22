@@ -49,8 +49,8 @@
 </template>
 
 <script>
-import ScheduleUnit from '../components/Old/ScheduleUnit.vue'
-import ScheduleTitle from '../components/Old/ScheduleTitle.vue'
+import ScheduleUnit from '../../components/Old/ScheduleUnit.vue'
+import ScheduleTitle from '../../components/Old/ScheduleTitle.vue'
 
 export default {
   name: 'AddNotesView',

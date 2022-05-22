@@ -5,6 +5,7 @@
         :key = "day" 
         class = "c1"
         justify = "center"
+        width = "100%"
     >
         <v-card-header>     
             <div class="date_title">
@@ -66,13 +67,13 @@ import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
 
                     },
                     { 
-                        place: "Xinyi District", 
-                        time: "24 minutes",
+                        place: "NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park", 
+                        time: "2 hour 44 minutes",
                         note: "",
                     },
                     { 
-                        place: "NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park", 
-                        time: "2 hour 44 minutes",
+                        place: "Xinyi District", 
+                        time: "24 minutes",
                         note: "",
                     },
                 ],
@@ -133,7 +134,6 @@ import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
 <style>
 
 .c1{
-  width: 390px;
   height: fill;
   overflow: auto;
   box-shadow:2px 2px 10px -2px rgba(163, 163, 179, 0.5);

@@ -4,6 +4,7 @@
         :key = "day" 
         class = "c1"
         justify = "center"
+        width = "100%"
     >
         <v-card-header>     
             <div class="date_title">
@@ -17,7 +18,6 @@
                 align="center"
                 justify="space-around"
                 no-gutters
-                style="margin-top:5px;"
             >
                 <ShowScheduleUnit 
                     :place= "pair.place"
@@ -61,13 +61,12 @@ import ShowScheduleUnit from '../Result/ShowScheduleUnit.vue'
                     { 
                         place: "COMMUNE A7", 
                         time: "1 hour 35 minutes",
-                        note: "",
-
+                        note: "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
                     },
                     { 
                         place: "Xinyi District", 
                         time: "24 minutes",
-                        note: "eeeeeeeeee eeeeeeeeee",
+                        note: "eeeeeeeeee eeeeeeeeee eeeeeeeeee eeeeeeeeee eeeeeeeeee eeeeeeeeee eeeeeeeeee eeeeeeeeee eeeeeeeeee eeeeeeeeee",
                     },
                     { 
                         place: "NTU Park", 
@@ -132,7 +131,7 @@ import ShowScheduleUnit from '../Result/ShowScheduleUnit.vue'
 <style>
 
 .c1{
-  width: 390px;
+  /* width: 390px; */
   height: fill;
   overflow: auto;
   box-shadow:2px 2px 10px -2px rgba(163, 163, 179, 0.5);

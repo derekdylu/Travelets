@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import PopupEdit from "./PopupEdit.vue"
+import PopupEdit from "../AddNotes/PopupEdit.vue"
 
   export default {
       name: "MemoBlcUnit",
@@ -30,6 +30,7 @@ import PopupEdit from "./PopupEdit.vue"
       data() {
         return {
             input_text: "No Memo.",
+            curr_h: "0px",
         }
       },
       methods:{
@@ -39,7 +40,10 @@ import PopupEdit from "./PopupEdit.vue"
           if(val == ""){
               this.input_text = "No Memo.";
           }
-        }
+
+          this.curr_h = document.querySelector('.note_card2').getBoundingClientRect().height + "px";          
+          //   console.log(this.curr_h);
+        },
       },
   }
 </script>
@@ -53,15 +57,15 @@ import PopupEdit from "./PopupEdit.vue"
 }
 
 .note_card2{
-    /* display: none; */
     padding: 10px;
     padding-top: 15px;
     padding-bottom: 15px;
     margin-top: 10px;
+    min-width: 90px;
     width: fill;
     min-height: 90px;
     height: auto;
-    position: relative;
+    /* position: relative; */
     /* border: solid 1px red; */
 }
 </style>

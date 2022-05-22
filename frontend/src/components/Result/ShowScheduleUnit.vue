@@ -2,30 +2,41 @@
     <v-card-text> 
         <v-row 
             align="start"
-            justify = "center"
             no-gutters
         >
             <v-col
                 cols = "4"
+                sm = "4"
+                md = "4"
+                lg = "4"
             >
                 <v-card
-                    elevation = "2"
                     class = "note_card_result"
+                    elevation = "2"
+                    min-height = "130px"
                 >
-                    {{input_text}}
+                    <p style = "word-wrap: break-word;">{{input_text}}</p>
                 </v-card>
-
             </v-col>
             <v-col
                 cols = "8"
+                sm = "8"
+                md = "8"
+                lg = "8"
+                align="start"
+                justify="start"
             >
-                <v-timeline class = "time_line"
-                    density="compact"
+                <v-timeline 
+                    class = "time_line_show"
+                    density="comfortable"
                     side="end"
+                    align="start"
+                    truncate-line="start"
                 >
                     <v-timeline-item 
                         size = "20px"
                         fill-dot
+                        height = "45px"
                         dot-color = "#a9a9a9"
                         left
                     >
@@ -34,6 +45,7 @@
                     <v-timeline-item
                         size = "20px"
                         fill-dot
+                        height = "65px"
                         dot-color = "#d3d3d3"
                         left
                     >
@@ -48,7 +60,7 @@
 <script>
 
   export default {
-      name: "ScheduleUnit",
+      name: "ShowScheduleUnit",
       props: {
         place: String,
         time: String,
@@ -59,9 +71,7 @@
       },
       data() {
         return {
-            // place: "Taipei 10101",
-            // time: "100 hour 23 minutes",
-            // input_text: "my note my note my note...my note "
+            
         }
       },
       methods:{
@@ -71,35 +81,26 @@
 </script>
 
 <style>
+
 .place{
     font-size: 15px;
     font-weight: 500;
-    color:rgb(0, 0, 0)
+    color:rgb(0, 0, 0);
 }
 .time{
     font-size: 15px;
-    color: rgb(116, 116, 116);
+    color: #a9a9a9;
     font-weight: 700;
 }
 
-/* .edit_btn_popup{
-    width: 70px;
-    position: relative;
-} */
-
 .note_card_result{
-    /* display: none; */
     padding: 10px;
     padding-top: 15px;
     padding-bottom: 15px;
-    margin-top: 10px;
-    width: fill;
-    min-height: 130px;
-    height: auto;
     position: relative;
 }
 
-.time_line{
+.time_line_show{
     position: relative;
     left: 0px;
     padding: 0px;

@@ -1,30 +1,72 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import HomeView from '../views/HomeView.vue'
-import SetupView from '../views/SetupView.vue'
-import TestView from '../views/TestView.vue'
+
 import ProgressBar from '../components/General/ProgressBar.vue'
-import AddNotesViewOld from '../views/AddNotesViewOld.vue'
+import SetupView from '../views/SetupView.vue'
+import AddItemsView from '../views/AddItemsView.vue'
+import VoteView from '../views/VoteView.vue'
 import AddNotesView from '../views/AddNotesView.vue'
 import ShowResultView from '../views/ShowResultView.vue'
-import VoteView from '../views/VoteView.vue'
-import ScheduleUnit from '../components/AddNotes/ScheduleUnit.vue'
-import ScheduleCard from '../components/AddNotes/ScheduleCard.vue'
-import PopupEdit from '../components/AddNotes/PopupEdit.vue'
-import MapTest from '../components/AddNotes/MapTest.vue'
-import AddItemsView from '../views/AddItemsView.vue'
-import NewTest from '../views/NewTest.vue'
+
+// <<< testing >>>
+// import AddNotesViewOld from '../views/Old/AddNotesViewOld.vue'
+// import ScheduleCard from '../components/AddNotes/ScheduleCard.vue'
+// import PopupEdit from '../components/AddNotes/PopupEdit.vue'
+import TestView from '../views/TestView.vue'
+// import ScheduleUnit from '../components/AddNotes/ScheduleUnit.vue'
+// import NewTest from '../views/Old/NewTest.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     component: HomeView
   },
   {
     path: '/setup',
     name: 'SetupView',
-    component: SetupView
+    component: SetupView,
+    meta: {
+      prev: 'Home',
+      next: 'AddItemsView'
+    }
+  },
+  {
+    path: '/additems',
+    name: 'AddItemsView',
+    component: AddItemsView,
+    meta: {
+      prev: 'SetupView',
+      next: 'VoteView'
+    }
+  },
+  {
+    path: '/votes',
+    name:'VoteView',
+    component: VoteView,
+    meta: {
+      prev: 'AddItemsView',
+      next: 'AddNotesView'
+    }
+  },
+  {
+    path: '/addnotes',
+    name: 'AddNotesView',
+    component: AddNotesView,
+    meta: {
+      prev: 'VoteView',
+      next: 'ShowResultView'
+    }
+  }, 
+  {
+    path: '/result',
+    name:'ShowResultView',
+    component: ShowResultView,
+    meta: {
+      prev: 'AddNotesView',
+      next: 'Home'
+    }
   },
   {
     path: '/test',
@@ -35,58 +77,6 @@ const routes = [
     path: '/progress',
     name: 'progress',
     component: ProgressBar
-  },
-  {
-    
-    path: '/old',
-    name:'AddNotesViewOld',
-    component: AddNotesViewOld
-  },
-  {
-    path: '/addnotes',
-    name: 'AddNotesView',
-    component: AddNotesView
-  },
-  {
-    
-    path: '/result',
-    name:'ShowResultView',
-    component: ShowResultView
-  },
-  {
-    path: '/votes',
-    name:'VoteView',
-    component: VoteView
-  },
-  {
-    path: '/unit',
-    name:'ScheduleUnit',
-    component: ScheduleUnit
-  },
-  {
-    path: '/card',
-    name:'ScheduleCard',
-    component: ScheduleCard
-  },
-  {
-    path: '/pop',
-    name:'PopupEdit',
-    component: PopupEdit
-  },
-  {
-    path: '/t',
-    name:'MapTest',
-    component: MapTest
-  },
-  {
-    path: '/additems',
-    name: 'AddItems',
-    component: AddItemsView
-  },
-  {
-    path: '/new',
-    name:'NewTest',
-    component: NewTest
   },
 ]
 

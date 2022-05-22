@@ -1,8 +1,7 @@
 <template>
     <div>
-        <GoogleMap />
-    </div>
-    <div >
+        <ProgressBar />
+        <BackMap />
         <ScheduleCard />
     </div>
   
@@ -10,13 +9,15 @@
 
 
 <script>
-import GoogleMap from '../components/AddNotes/GoogleMap.vue'
+import ProgressBar from '@/components/General/ProgressBar.vue'
+import BackMap from '@/components/AddItems/BackMap.vue'
 import ScheduleCard from '../components/AddNotes/ScheduleCard.vue'
 
 export default {
   name: 'AddNotesView2',
   components: {
-    GoogleMap,
+    ProgressBar,
+    BackMap,
     ScheduleCard,
   },
   data() {

@@ -1,7 +1,8 @@
 <template>
   <div>
-    <ProgressBar primaryButton="test" />
-    <BackMap />
+    <ProgressBar />
+    <BackMap :lat="lat" :lng="lng" />
+    <!-- has to use : to v-bind -->
     <ItemsCard />
   </div>
 </template>
@@ -17,7 +18,13 @@
       ProgressBar,
       ItemsCard,
       BackMap
-    }
+    },
+    data() {
+      return {
+        lat: 51.4934,
+        lng: 0,
+      }
+    },
   }
 </script>
 

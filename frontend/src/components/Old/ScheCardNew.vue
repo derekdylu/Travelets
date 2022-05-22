@@ -19,13 +19,14 @@
                         align="center"
                         justify="space-around"
                         no-gutters
-                        style="margin-top:5px;"
                     >
                         <MemoBlcUnit/>
                     </v-row>
                 </v-col>
                 <v-col cols = "8">
-                    <TimeLine />
+                    <TimeLine 
+                        :schedules= "day.pairs"
+                    />
                 </v-col>
             </v-row>
             <v-row 
@@ -40,8 +41,8 @@
     </v-card>
 </template>
 <script>
-import MemoBlcUnit from '../AddNotes/MemoBlcUnit.vue'
-import TimeLine from '../AddNotes/TimeLine.vue'
+import MemoBlcUnit from './MemoBlcUnit.vue'
+import TimeLine from './TimeLine.vue'
 
   export default {
       name: "ScheCardNew",
@@ -137,7 +138,7 @@ import TimeLine from '../AddNotes/TimeLine.vue'
 <style>
 
 .c1{
-  width: 390px;
+  width: 100%;
   height: fill;
   overflow: auto;
   box-shadow:2px 2px 10px -2px rgba(163, 163, 179, 0.5);
