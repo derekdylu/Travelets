@@ -12,8 +12,8 @@
     >
       Wait for participants to vote ...
     </v-btn>
-    <div class = "text_up2" v-if = "nextMode">Now they’re all ended!</div>
-    
+    <div class = "text_up2" v-if = "(nextMode) & (!allAdopted)">Now they’re all ended!</div>
+    <div class = "text_up2" v-if = "allAdopted">You’re ready to go!</div>
     
     <div v-if = "!nextMode">
         <VoteCard />
@@ -23,7 +23,7 @@
     </div>
 
     <div class = "text_2" v-if = "!nextMode">You can also discard or adopt the poll to go next.</div>
-    <div class = "text_2" v-if = "nextMode">Adopt or ignore the results ...</div>
+    <div class = "text_2" v-if = "(nextMode) & (!allAdopted)">Adopt or ignore the results ...</div>
 </template>
 
 
@@ -49,7 +49,9 @@ export default {
   methods:{
     clickButton (){
       this.nextMode = true;
-    }
+    },
+
+
   }
 }
 </script>
