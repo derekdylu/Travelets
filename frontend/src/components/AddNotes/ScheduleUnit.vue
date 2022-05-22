@@ -1,5 +1,6 @@
 <template >
     <v-card-text> 
+        <v-container >
         <v-row 
             align="start"
             no-gutters
@@ -58,6 +59,7 @@
                 </v-timeline>
             </v-col>
         </v-row>
+        </v-container>
     </v-card-text>
 </template>
 

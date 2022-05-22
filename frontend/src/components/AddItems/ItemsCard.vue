@@ -1,9 +1,11 @@
 <template>
-  <div>
+
     <v-card
-      class="pa-3 .bg-white rounded-t-xl"
+      class="pa-3 .bg-white rounded-t-xl flex-column flex-grow"
       elevation="4"
       max-height="100%"
+      max-width="750px"
+      min-width="300px"
     >
       <v-tabs
         v-model="tab"
@@ -59,7 +61,7 @@
             align-content="start"
           >
 
-            <v-timeline side="end" align="start">
+            <v-timeline side="end" align="start" density="comfortable">
 
               <template v-for="item in selectedItems">
 
@@ -73,7 +75,7 @@
                   hide-opposite
                 >
                   <div class="d-flex justify-space-between flex-grow-1">
-                    <div>
+                    <div class="pb-3">
                       {{ item.text }}
                     </div>
                   </div>
@@ -83,10 +85,10 @@
                   v-else
                   :key="item.id"
                   dot-color="secondary"
-                  size="small"
+                  size="20px"
                   width="286px"
                   fill-dot
-                  icon="place"
+                  
                   hide-opposite
                 >
                   <div class="d-flex justify-space-between flex-grow-1">
@@ -183,7 +185,7 @@
       </v-window>
     
     </v-card>
-  </div>
+
 </template>
 
 <script>
