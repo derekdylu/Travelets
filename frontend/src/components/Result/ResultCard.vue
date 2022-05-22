@@ -4,6 +4,7 @@
         :key = "day" 
         class = "c1"
         justify = "center"
+        width = "100%"
     >
         <v-card-header>     
             <div class="date_title">
@@ -130,7 +131,7 @@ import ShowScheduleUnit from '../Result/ShowScheduleUnit.vue'
 <style>
 
 .c1{
-  width: 390px;
+  /* width: 390px; */
   height: fill;
   overflow: auto;
   box-shadow:2px 2px 10px -2px rgba(163, 163, 179, 0.5);

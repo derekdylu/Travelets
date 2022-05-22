@@ -1,5 +1,6 @@
 <template>
     <div>
+        <ProgressBar />
         <BackMap />
         <ScheduleCard />
     </div>
@@ -8,12 +9,14 @@
 
 
 <script>
+import ProgressBar from '@/components/General/ProgressBar.vue'
 import BackMap from '@/components/AddItems/BackMap.vue'
 import ScheduleCard from '../components/AddNotes/ScheduleCard.vue'
 
 export default {
   name: 'AddNotesView2',
   components: {
+    ProgressBar,
     BackMap,
     ScheduleCard,
   },
