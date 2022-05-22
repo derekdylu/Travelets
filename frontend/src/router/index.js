@@ -10,13 +10,12 @@ import AddNotesView from '../views/AddNotesView.vue'
 import ShowResultView from '../views/ShowResultView.vue'
 
 // <<< testing >>>
-import AddNotesViewOld from '../views/AddNotesViewOld.vue'
+import AddNotesViewOld from '../views/Old/AddNotesViewOld.vue'
 import ScheduleCard from '../components/AddNotes/ScheduleCard.vue'
 import PopupEdit from '../components/AddNotes/PopupEdit.vue'
-import MapTest from '../components/AddNotes/MapTest.vue'
 import TestView from '../views/TestView.vue'
 import ScheduleUnit from '../components/AddNotes/ScheduleUnit.vue'
-import NewTest from '../views/NewTest.vue'
+import NewTest from '../views/Old/NewTest.vue'
 
 const routes = [
   {
@@ -103,11 +102,6 @@ const routes = [
     path: '/pop',
     name:'PopupEdit',
     component: PopupEdit
-  },
-  {
-    path: '/t',
-    name:'MapTest',
-    component: MapTest
   },
 ]
 
