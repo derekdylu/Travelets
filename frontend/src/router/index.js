@@ -16,6 +16,7 @@ import PopupEdit from '../components/AddNotes/PopupEdit.vue'
 import TestView from '../views/TestView.vue'
 import ScheduleUnit from '../components/AddNotes/ScheduleUnit.vue'
 import NewTest from '../views/Old/NewTest.vue'
+import ProfileHeader from '../components/Home/ProfileHeader.vue'
 
 const routes = [
   {
@@ -103,6 +104,11 @@ const routes = [
     name:'PopupEdit',
     component: PopupEdit
   },
+  {
+    path: '/profileheader',
+    name: 'ProfileHeader',
+    component: ProfileHeader
+  }
 ]
 
 const router = createRouter({

@@ -1,9 +1,19 @@
 <template>
-  <div>home</div>
+  <div>
+    <ProfileHeader />
+    <TripsList />
+  </div>
 </template>
 
 <script>
-export default ({
-  name: 'HomeView'
-});
+import ProfileHeader from '@/components/Home/ProfileHeader.vue'
+import TripsList from '@/components/Home/TripsList.vue'
+
+export default {
+  name: 'HomeView',
+  components: {
+    ProfileHeader,
+    TripsList,
+  }
+};
 </script>
