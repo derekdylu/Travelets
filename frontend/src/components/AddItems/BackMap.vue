@@ -12,15 +12,32 @@
 </template>
 
 <script>
-  import { defineComponent } from 'vue'
+  import { defineComponent, ref } from 'vue'
   import { GoogleMap, Marker } from 'vue3-google-map'
 
   export default defineComponent({
-    components: { GoogleMap, Marker },
-    setup() {
-      const center = { lat: 25.023035, lng: 121.529572 }
+    components: {
+      GoogleMap,
+      Marker 
+    },
+    setup(props) {
+      let glat = ref(props.lat)
+      let glng = ref(props.lng)
+      console.log(glat.value, glng.value)
+      
+      const center = { lat: glat.value, lng: glng.value }
 
       return { center }
+    },
+    props: {
+      lat: {
+        type: Number,
+        default: 25.015733
+      },
+      lng: {
+        type: Number,
+        default: 121.530448
+      },
     },
   })
 </script>
