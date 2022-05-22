@@ -7,15 +7,12 @@
     >
       <template v-slot:activator="{ on, attrs }">
         <v-btn
-          color="primary"
+          color = "primary"
           @click.stop= "dialog = true"
           dark
           v-bind="attrs"
           v-on="on"
         >
-          <v-icon dark >
-            mdi-Pencil
-          </v-icon>
           EDIT
         </v-btn>
       </template>

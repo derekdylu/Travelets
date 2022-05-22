@@ -60,13 +60,12 @@ import ShowScheduleUnit from '../Result/ShowScheduleUnit.vue'
                     { 
                         place: "COMMUNE A7", 
                         time: "1 hour 35 minutes",
-                        note: "",
-
+                        note: "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
                     },
                     { 
                         place: "Xinyi District", 
                         time: "24 minutes",
-                        note: "eeeeeeeeee eeeeeeeeee",
+                        note: "eeeeeeeeee eeeeeeeeee eeeeeeeeee eeeeeeeeee eeeeeeeeee eeeeeeeeee eeeeeeeeee eeeeeeeeee eeeeeeeeee eeeeeeeeee",
                     },
                     { 
                         place: "NTU Park", 

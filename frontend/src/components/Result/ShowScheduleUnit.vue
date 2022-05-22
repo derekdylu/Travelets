@@ -11,8 +11,9 @@
                 lg = "4"
             >
                 <v-card
-                    elevation = "2"
                     class = "note_card_result"
+                    elevation = "2"
+                    min-height = "130px"
                 >
                     <p style = "word-wrap: break-word;">{{input_text}}</p>
                 </v-card>
@@ -35,7 +36,7 @@
                     <v-timeline-item 
                         size = "20px"
                         fill-dot
-                        height = "fill"
+                        height = "45px"
                         dot-color = "#a9a9a9"
                         left
                     >
@@ -44,7 +45,7 @@
                     <v-timeline-item
                         size = "20px"
                         fill-dot
-                        height = "fill"
+                        height = "65px"
                         dot-color = "#d3d3d3"
                         left
                     >
@@ -96,10 +97,6 @@
     padding: 10px;
     padding-top: 15px;
     padding-bottom: 15px;
-    margin-top: 10px;
-    width: fill;
-    min-height: 130px;
-    height: auto;
     position: relative;
 }
 

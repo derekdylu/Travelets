@@ -6,9 +6,6 @@
         >
             <v-col
                 cols = "4"
-                sm = "4"
-                md = "4"
-                lg = "4"
             >
                 <PopupEdit 
                     class= "edit_btn_popup"
@@ -18,6 +15,8 @@
                 <v-card
                     elevation = "2"
                     class = "note_card"
+                    min-height = "90px"
+                    max-width = "fill"
                 >
                     <p style = "word-wrap: break-word;">{{input_text}}</p>
                 </v-card>
@@ -41,7 +40,7 @@
                     <v-timeline-item 
                         size = "20px"
                         fill-dot
-                        height = "fill"
+                        min-height = "40px"
                         dot-color = "#a9a9a9"
                         left
                     >
@@ -50,7 +49,7 @@
                     <v-timeline-item
                         size = "20px"
                         fill-dot
-                        height = "fill"
+                        min-height = "50px"
                         dot-color = "#d3d3d3"
                         left
                     >
@@ -109,7 +108,7 @@ import PopupEdit from "./PopupEdit.vue"
 }
 
 .edit_btn_popup{
-    width: 70px;
+    width: fill;
     position: relative;
     /* border: solid 1px red; */
 }
@@ -119,17 +118,9 @@ import PopupEdit from "./PopupEdit.vue"
     padding-top: 15px;
     padding-bottom: 15px;
     margin-top: 10px;
-    width: fill;
-    min-height: 90px;
-    height: auto;
-    position: relative;
+    /* position: relative; */
     /* border: solid 1px red; */
 }
-
-/* .input_text_inblc{
-    border: solid 1px;
-    height: fill;
-} */
 
 .time_line{
     position: relative;
