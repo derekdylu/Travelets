@@ -1,21 +1,36 @@
 <template>
 
     <div>
-        <ProgressBar class = "ProgressBar"/>
+        <ProgressBar class = "ProgressBar" :NextStatus = "!allAdopted"/>
     </div>
-    <div class = "text">Wait for participants to vote ...</div>
-    <div >
+    <v-btn 
+      class = "text_up1"
+      plain 
+      elevation="0"
+      @click = "clickButton"
+      v-if = "!nextMode"
+    >
+      Wait for participants to vote ...
+    </v-btn>
+    <div class = "text_up2" v-if = "nextMode">Now they’re all ended!</div>
+    
+    
+    <div v-if = "!nextMode">
         <VoteCard />
     </div>
-    <div class = "text_2">You can also discard or adopt the poll to go next.</div>
-  
+    <div v-if = "nextMode">
+        <VoteCardModeB @FinishVote = "allAdopted = true"/>
+    </div>
+
+    <div class = "text_2" v-if = "!nextMode">You can also discard or adopt the poll to go next.</div>
+    <div class = "text_2" v-if = "nextMode">Adopt or ignore the results ...</div>
 </template>
 
 
 <script>
 import ProgressBar from '../components/General/ProgressBar.vue'
 import VoteCard from '../components/Vote/VoteCard.vue'
-
+import VoteCardModeB from '../components/Vote/VoteCardModeB.vue'
 
 
 export default {
@@ -23,7 +38,18 @@ export default {
   components: {
     ProgressBar,
     VoteCard,
-    
+    VoteCardModeB
+  },
+  data() {
+    return{
+      nextMode: false,
+      allAdopted: false
+    }
+  },
+  methods:{
+    clickButton (){
+      this.nextMode = true;
+    }
   }
 }
 </script>
@@ -48,7 +74,13 @@ body {
     margin-left: 40px;
     
 }
-.text{
+.text_up1{
+    margin-top: 20px;
+    max-width: 360px;
+    margin-left: 45px;
+    
+}
+.text_up2{
     margin-top: 25px;
     max-width: 360px;
     margin-left: 55px;
@@ -59,18 +91,7 @@ body {
     margin-left: 55px;
     font-size: 12px;
 }
-.container_2 {
-  max-width: 390px;
-  height: 4.5cm;
-  overflow: auto;
-  box-shadow:2px 2px 10px -2px rgba(163, 163, 179, 0.5);
-  border: 1px solid rgb(253, 254, 255);
-  background-color: rgb(255, 255, 255);
-  padding: 80px;
-  border-radius: 20px;
-  margin-left: 40px;
-  margin-top: 25px;
-}
+
 
 
 

@@ -19,12 +19,14 @@
             height="10"
             color="primary"
             rounded
+            v-if = "!card.finish_adopt"
         ></v-progress-linear>
         <v-row 
             align="center"
             justify="space-between"
             no-gutters
             style="margin-top:5px"
+            v-if = "!card.finish_adopt"
         >
             <span class="text-subtitle-2 font-weight-bold">{{card.voteItems[1]}}</span>
             <span class="text-subtitle-2 font-weight-bold">{{card.voteNumbers[1]}}</span>
@@ -34,12 +36,14 @@
             height="10"
             color="primary"
             rounded
+            v-if = "!card.finish_adopt"
         ></v-progress-linear>
         <v-row 
             align="center"
             justify="space-between"
             no-gutters
             style="margin-top:10px; margin-bottom:10px"
+            v-if = "!card.finish_adopt"
         >
             <span class="text-sm-body-2 ">ends in 24 hours</span>
             <span class="text-sm-body-2 ">{{card.voteTotal}}/10 people voted</span>
@@ -48,9 +52,10 @@
           align="center"
           justify="end"
           no-gutters
+          v-if = "!card.finish_adopt"
         >
-          <PopupDiscard class= "bton_2"/>
-          <PopupAdopt class= "bton_2" :finish = "card" :disableBtn = "card.disable"/>
+          <PopupIgnore class= "bton_2"/>
+          <PopupAdopt class= "bton_2" @update = "close(card)" :disableBtn = "card.disable"/>
           
         </v-row>
     </v-card-text>
@@ -59,12 +64,13 @@
 </template>
 
 <script>
-  import PopupDiscard from "./PopupDiscard.vue"
+  import PopupIgnore from "./PopupIgnore.vue"
   import PopupAdopt from "./PopupAdopt.vue"
+
   export default {
-      name: "VoteCard",
+      name: "VoteCardModeB",
       components: {
-        PopupDiscard,
+        PopupIgnore,
         PopupAdopt
       },
       data() {
@@ -72,26 +78,45 @@
           cards: [
             {
               voteItems: ["Taipei 101", "COMMUNE A7"],
-              voteNumbers: [0, 0],
-              voteProgress: ["0", "0"],
-              voteTotal:0,
-              disable: true,
+              voteNumbers: [6, 2],
+              voteProgress: ["60", "20"],
+              voteTotal:8,
+              disable: false,
               finish_adopt: false
             },
             {
               voteItems: ["A Train", "Placebo"],
-              voteNumbers: [1, 0],
-              voteProgress: ["10", "0"],
-              voteTotal:1,
+              voteNumbers: [7, 2],
+              voteProgress: ["70", "20"],
+              voteTotal:9,
               disable: false,
               finish_adopt: false
             },
-
+            
           ],
           
         }
       },
-      
+      methods:{
+          close(card) {
+              card.finish_adopt = true;
+              this.CheckAllFinished()
+          },
+          CheckAllFinished(){
+              let count = 0;
+              for(var i = 0; i < this.cards.length; i++){
+                  if(!this.cards[i].finish_adopt){ //not yet finish
+                    count++;
+                  }
+              }
+              
+              if(count == 0){
+                this.$emit('FinishVote');
+              }
+              
+            
+          }
+      }
   }
 </script>
 

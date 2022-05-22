@@ -13,6 +13,7 @@
       <v-btn 
         class = "bton"
         color="primary"
+        :disabled = "NextStatus"
       >
         {{ primaryButton ? primaryButton : "NEXT"}}
       </v-btn>
@@ -24,8 +25,18 @@
 <script>
 export default {
   name: 'ProgressBar',
-  props: ['primaryButton']
+  props:{
+    'NextStatus':{
+      type: Boolean,
+      default: false
+    },
+    'primaryButton':{
+      type: String
+    }
+
+  }
 }
+
 </script>
 
 <style>

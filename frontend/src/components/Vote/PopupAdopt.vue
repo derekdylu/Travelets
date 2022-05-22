@@ -2,7 +2,7 @@
   <div>
     <v-btn
       color="primary"
-      
+      :disabled = "disableBtn"
       @click.stop="dialog = true"
     >
       ADOPT
@@ -29,7 +29,7 @@
             no-gutters
           >
             <v-btn
-              
+              style = "width: 80px"
               text
               @click="dialog = false"
             >
@@ -37,8 +37,11 @@
             </v-btn>
 
             <v-btn
+              variant="contained"
               color="primary"
-              @click="dialog = false"
+              style = "width: 80px"
+              @click="adoption"
+              
             >
               ADOPT
             </v-btn>
@@ -57,6 +60,19 @@
         dialog: false,
       }
     },
+    props:{
+      'disableBtn':{
+        type: Boolean,
+        default:false
+      },
+    },
+    methods:{
+      adoption(){
+        this.dialog = false;
+        this.$emit('update')
+        
+      }
+    }
   }
 </script>
 

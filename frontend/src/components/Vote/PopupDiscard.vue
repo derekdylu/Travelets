@@ -29,7 +29,7 @@
             no-gutters
           >
             <v-btn
-              
+              style = "width: 80px;margin-right:5px"
               text
               @click="dialog = false"
             >
@@ -37,6 +37,8 @@
             </v-btn>
 
             <v-btn
+              style = "width: 80px;margin-right:5px"
+              variant="contained"
               color="danger"
               @click="dialog = false"
             >
