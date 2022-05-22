@@ -1,7 +1,7 @@
 <template>
 
     <div>
-        <ProgressBar class = "ProgressBar" :NextStatus = "!allAdopted"/>
+        <ProgressBar class = "ProgressBar" :disabledPrimary = "!allAdopted"/>
     </div>
     <v-btn 
       class = "text_up1"
@@ -71,26 +71,22 @@ body {
 }
 
 
-.ProgressBar,.text{
-    max-width: 390px;
-    margin-left: 40px;
-    
-}
+
 .text_up1{
     margin-top: 20px;
     max-width: 360px;
-    margin-left: 45px;
+    margin-left: 5px;
     
 }
 .text_up2{
     margin-top: 25px;
     max-width: 360px;
-    margin-left: 55px;
+    margin-left: 20px;
 }
 .text_2{
     margin-top: 25px;
     max-width: 360px;
-    margin-left: 55px;
+    margin-left: 20px;
     font-size: 12px;
 }
 

@@ -40,7 +40,7 @@
               style = "width: 80px;margin-right:5px"
               variant="contained"
               color="danger"
-              @click="dialog = false"
+              @click="Discard"
             >
               DISCARD
             </v-btn>
@@ -59,6 +59,13 @@
         dialog: false,
       }
     },
+    methods:{
+      Discard(){
+        this.dialog = false;
+        this.$emit('discard')
+    
+       }
+    }
   }
 </script>
 
