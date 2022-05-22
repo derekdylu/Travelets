@@ -3,6 +3,7 @@
     <v-timeline-item 
         size = "20px"
         fill-dot
+        height= "95px"
         dot-color = "#a9a9a9"
         left
     >
@@ -11,6 +12,7 @@
     <v-timeline-item
         size = "20px"
         fill-dot
+        height = "50px"
         dot-color = "#d3d3d3"
         left
     >

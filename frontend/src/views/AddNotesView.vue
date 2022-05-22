@@ -1,8 +1,6 @@
 <template>
     <div>
-        <GoogleMap />
-    </div>
-    <div >
+        <BackMap />
         <ScheduleCard />
     </div>
   
@@ -10,13 +8,13 @@
 
 
 <script>
-import GoogleMap from '../components/AddNotes/GoogleMap.vue'
+import BackMap from '@/components/AddItems/BackMap.vue'
 import ScheduleCard from '../components/AddNotes/ScheduleCard.vue'
 
 export default {
   name: 'AddNotesView2',
   components: {
-    GoogleMap,
+    BackMap,
     ScheduleCard,
   },
   data() {
