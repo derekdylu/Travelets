@@ -2,6 +2,7 @@
   <div>
     <v-dialog
       v-model = "dialog"
+      min-width = "500px"
       persistent
     >
       <template v-slot:activator="{ on, attrs }">
@@ -12,8 +13,8 @@
           v-bind="attrs"
           v-on="on"
         >
-          <v-icon dark>
-            mdi-pencil
+          <v-icon dark >
+            mdi-Pencil
           </v-icon>
           EDIT
         </v-btn>
@@ -66,23 +67,18 @@
 <script>
   export default {
     name: "PopupEdit",
-
     props: {
         
     },
-
     components: {
 
     },
-
     data () {
       return {
         dialog: false,
         input_text: "",
-
       }
     },
-
     methods:{
       onClick_clear(){
           this.input_text = "";

@@ -17,7 +17,6 @@
                 align="center"
                 justify="space-around"
                 no-gutters
-                style="margin-top:5px;"
             >
                 <ShowScheduleUnit 
                     :place= "pair.place"

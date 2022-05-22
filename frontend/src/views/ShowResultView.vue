@@ -1,9 +1,6 @@
 <template>
     <div> 
-        <ProgressBar 
-            primaryButton = "SAVE" 
-            class = "bar"
-        /> 
+        <ProgressBar primaryButton = "SAVE" /> 
     </div>
     <p class = "title"> Congrats! <span class = "green">{{trip_name}}</span> is ready now!</p>
     <div>
@@ -32,17 +29,11 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 
-* {
+/* * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-.bar{
-    max-width: 390px;
-    margin-left: 40px;   
-    border-radius: 0px 0px 20px 20px; 
-}
+} */
 
 .title{
     margin: 20px;

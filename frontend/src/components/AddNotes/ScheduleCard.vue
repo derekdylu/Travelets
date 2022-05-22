@@ -66,13 +66,13 @@ import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
 
                     },
                     { 
-                        place: "Xinyi District", 
-                        time: "24 minutes",
+                        place: "NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park", 
+                        time: "2 hour 44 minutes",
                         note: "",
                     },
                     { 
-                        place: "NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park", 
-                        time: "2 hour 44 minutes",
+                        place: "Xinyi District", 
+                        time: "24 minutes",
                         note: "",
                     },
                 ],

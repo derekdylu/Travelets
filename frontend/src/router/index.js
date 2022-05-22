@@ -4,16 +4,15 @@ import HomeView from '../views/HomeView.vue'
 import SetupView from '../views/SetupView.vue'
 import TestView from '../views/TestView.vue'
 import ProgressBar from '../components/General/ProgressBar.vue'
-import AddNotesViewOld from '../views/AddNotesViewOld.vue'
+import AddNotesViewOld from '../views/Old/AddNotesViewOld.vue'
 import AddNotesView from '../views/AddNotesView.vue'
 import ShowResultView from '../views/ShowResultView.vue'
 import VoteView from '../views/VoteView.vue'
 import ScheduleUnit from '../components/AddNotes/ScheduleUnit.vue'
 import ScheduleCard from '../components/AddNotes/ScheduleCard.vue'
 import PopupEdit from '../components/AddNotes/PopupEdit.vue'
-import MapTest from '../components/AddNotes/MapTest.vue'
 import AddItemsView from '../views/AddItemsView.vue'
-import NewTest from '../views/NewTest.vue'
+import NewTest from '../views/Old/NewTest.vue'
 
 const routes = [
   {
@@ -72,11 +71,6 @@ const routes = [
     path: '/pop',
     name:'PopupEdit',
     component: PopupEdit
-  },
-  {
-    path: '/t',
-    name:'MapTest',
-    component: MapTest
   },
   {
     path: '/additems',

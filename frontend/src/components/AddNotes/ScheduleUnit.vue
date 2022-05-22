@@ -6,6 +6,9 @@
         >
             <v-col
                 cols = "4"
+                sm = "4"
+                md = "4"
+                lg = "4"
             >
                 <PopupEdit 
                     class= "edit_btn_popup"
@@ -16,18 +19,21 @@
                     elevation = "2"
                     class = "note_card"
                 >
-                    {{input_text}}
+                    <p style = "word-wrap: break-word;">{{input_text}}</p>
                 </v-card>
 
             </v-col>
             <v-col
                 cols = "8"
+                sm = "8"
+                md = "8"
+                lg = "8"
                 align="start"
                 justify="start"
             >
                 <v-timeline 
                     class = "time_line"
-                    density="compact"
+                    density="comfortable"
                     side="end"
                     align="start"
                     truncate-line="start"
@@ -35,6 +41,7 @@
                     <v-timeline-item 
                         size = "20px"
                         fill-dot
+                        height = "fill"
                         dot-color = "#a9a9a9"
                         left
                     >
@@ -43,6 +50,7 @@
                     <v-timeline-item
                         size = "20px"
                         fill-dot
+                        height = "fill"
                         dot-color = "#d3d3d3"
                         left
                     >
@@ -69,9 +77,7 @@ import PopupEdit from "./PopupEdit.vue"
       data() {
         return {
             input_text: "No Memo.",
-            // place: "Taipei 10101",
-            // time: "100 hour 23 minutes",
-            // text: "my note my note my note...my note "
+            blc_h: "",
         }
       },
       methods:{
@@ -81,6 +87,9 @@ import PopupEdit from "./PopupEdit.vue"
           if(val == ""){
               this.input_text = "No Memo.";
           }
+
+          this.blc_h = document.querySelector('.note_card').getBoundingClientRect().height + "px";
+          console.log(this.blc_h)
         }
       },
   }
@@ -106,7 +115,6 @@ import PopupEdit from "./PopupEdit.vue"
 }
 
 .note_card{
-    /* display: none; */
     padding: 10px;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -117,6 +125,11 @@ import PopupEdit from "./PopupEdit.vue"
     position: relative;
     /* border: solid 1px red; */
 }
+
+/* .input_text_inblc{
+    border: solid 1px;
+    height: fill;
+} */
 
 .time_line{
     position: relative;
