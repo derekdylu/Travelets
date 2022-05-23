@@ -1,8 +1,20 @@
 <template>
     <div>
-      <ProgressBar primaryButton = "SAVE" /> 
-      <p class = "title"> Congrats! <span class = "green">{{trip_name}}</span> is ready now!</p>
-      <ResultCard />
+      <v-container class="pa-0">
+        <v-col align="center" class="pa-0">
+          <ProgressBar primaryButton = "SAVE" /> 
+        </v-col>
+      </v-container>
+      <v-container class="pa-0">
+        <v-col align="center" class="pa-0">
+          <p class = "title"> Congrats! <span class = "green">{{trip_name}}</span> is ready now!</p>
+        </v-col>
+      </v-container>
+      <v-container class="pa-0">
+        <v-col align="center">
+          <ResultCard />
+        </v-col>
+      </v-container>
     </div>
 </template>
 
@@ -34,8 +46,8 @@ export default {
 } */
 
 .title{
-    margin: 20px;
-    margin-left: 60px;
+    margin-top: 20px;
+    margin-bottom: 5px;
 }
 
 .green{

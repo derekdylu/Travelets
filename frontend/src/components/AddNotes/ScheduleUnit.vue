@@ -1,6 +1,5 @@
 <template >
     <v-card-text> 
-        <v-container >
         <v-row 
             align="start"
             no-gutters
@@ -8,6 +7,7 @@
             <v-col
                 cols = "4"
                 max-width = "fill"
+                align = "left"
             >
                 <PopupEdit 
                     class= "edit_btn_popup"
@@ -26,10 +26,7 @@
             </v-col>
             <v-col
                 cols = "8"
-                sm = "8"
-                md = "8"
-                lg = "8"
-                align="start"
+                align="left"
                 justify="start"
             >
                 <v-timeline 
@@ -46,6 +43,7 @@
                         min-height = "30px"
                         dot-color = "#a9a9a9"
                         left
+                        v-bind:height = "t1_h"
                     >
                         <p class = "place"> {{place}} </p>
                     </v-timeline-item>
@@ -56,13 +54,13 @@
                         min-height = "50px"
                         dot-color = "#d3d3d3"
                         left
+                        v-bind:height = "t2_h"
                     >
                         <p class = "time"> {{time}} </p>
                     </v-timeline-item>
                 </v-timeline>
             </v-col>
         </v-row>
-        </v-container>
     </v-card-text>
 </template>
 
@@ -82,16 +80,30 @@ export default {
         return {
             input_text: "No Memo.",
             blc_h: "",
+            t1_h: "",
+            t2_h: "",
+        }
+    },
+    watch: {
+        blc_h : function(){
+            this.t1_h = 40 + parseInt((this.blc_h - 90)/2) + "px"
+            console.log("t1: ", this.t1_h);
+            this.t2_h = 55 + parseInt((this.blc_h - 90)/2) + "px"
+            console.log("t2: ", this.t2_h);
         }
     },
     methods:{
         getValFromChild(val) {
+            this.updateBlcHeight();
+            console.log("update");
             this.input_text = val;
             if(val == ""){
                 this.input_text = "No Memo.";
             }
-            this.blc_h = document.querySelector('.note_card').getBoundingClientRect().height + "px";
-            console.log(this.blc_h)
+        },
+        updateBlcHeight(){
+            this.blc_h = document.querySelector('.note_card').getBoundingClientRect().height;
+            console.log(this.blc_h);
         }
     },
 }

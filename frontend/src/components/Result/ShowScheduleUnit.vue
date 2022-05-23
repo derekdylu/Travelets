@@ -9,6 +9,7 @@
                 sm = "4"
                 md = "4"
                 lg = "4"
+                align = "left"
             >
                 <v-card
                     class = "note_card_result"

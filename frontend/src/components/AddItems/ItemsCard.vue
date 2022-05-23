@@ -280,6 +280,9 @@
       this.searchResultsTest();
       this.writeDays();
     },
+    // onUpdated() {
+    //   this.updateBlcHeight()
+    // },
   }
 </script>
 

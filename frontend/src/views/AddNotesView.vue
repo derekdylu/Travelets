@@ -1,8 +1,21 @@
 <template>
     <div>
-      <ProgressBar />
-      <BackMap />
-      <ScheduleCard />
+      <v-container class="pa-0">
+        <v-col align="center" class="pa-0">
+          <ProgressBar />
+        </v-col>
+      </v-container>
+      <v-container class="pa-0">
+        <v-col align="center" class="pa-0">
+          <BackMap :lat="lat" :lng="lng" />
+          <!-- has to use : to v-bind -->
+        </v-col>
+      </v-container>
+      <v-container class="pa-0">
+        <v-col align="center">
+          <ScheduleCard />
+        </v-col>
+      </v-container>
     </div>
   
 </template>

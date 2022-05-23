@@ -2,9 +2,11 @@
     <v-card 
         v-for = "day in days" 
         :key = "day" 
-        class="pa-3 .bg-white rounded-t-xl"
-        justify = "center"
-        width = "100%"
+        class="pa-3 .bg-white rounded-xl flex-column flex-grow mb-5"
+        elevation="4"
+        max-height="100%"
+        max-width="750px"
+        min-width="300px"
     >
         <v-card-header>     
             <div class="date_title">
