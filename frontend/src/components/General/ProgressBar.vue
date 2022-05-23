@@ -1,5 +1,5 @@
 <template>
-  <v-card class="pa-6 .bg-white rounded-b-xl" elevation="4">
+  <v-card class="pa-6 .bg-white rounded-b-xl flex-column flex-grow" elevation="4" max-width="750px" min-width="300px">
     <v-row
       align="center"
       justify="space-between"
@@ -25,8 +25,6 @@
 </template>
 
 <script>
-// import router from '../../router/index'
-
 export default {
   name: 'ProgressBar',
   methods: {

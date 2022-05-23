@@ -2,7 +2,7 @@
   <div>
     <GoogleMap
     api-key="AIzaSyANrwaZvz-cZ9uepOzw6w9anBZaSNqP96w"
-    style="width: 100%; height: 200px"
+    style="max-width: 750px; height: 200px"
     :center="center"
     :zoom="15"
     >
