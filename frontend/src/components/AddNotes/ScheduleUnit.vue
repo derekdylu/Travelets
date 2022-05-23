@@ -6,14 +6,15 @@
         >
             <v-col
                 cols = "4"
+                max-width = "fill"
             >
                 <PopupEdit 
                     class= "edit_btn_popup"
+                    :spot_name = "place"
                     @value-update = "getValFromChild"
                 />
         
                 <v-card
-                    elevation = "2"
                     class = "note_card"
                     min-height = "90px"
                     max-width = "fill"
@@ -38,15 +39,17 @@
                     truncate-line="start"
                 >
                     <v-timeline-item 
+                        class = "t1"
                         size = "20px"
                         fill-dot
-                        min-height = "40px"
+                        min-height = "30px"
                         dot-color = "#a9a9a9"
                         left
                     >
                         <p class = "place"> {{place}} </p>
                     </v-timeline-item>
                     <v-timeline-item
+                        class = "t2"
                         size = "20px"
                         fill-dot
                         min-height = "50px"
@@ -64,34 +67,32 @@
 <script>
 import PopupEdit from "./PopupEdit.vue"
 
-  export default {
-      name: "ScheduleUnit",
-      props: {
+export default {
+    name: "ScheduleUnit",
+    props: {
         place: String,
         time: String,
-      },
-      components: {
-          PopupEdit,
-      },
-      data() {
+    },
+    components: {
+        PopupEdit,
+    },
+    data() {
         return {
             input_text: "No Memo.",
             blc_h: "",
         }
-      },
-      methods:{
+    },
+    methods:{
         getValFromChild(val) {
-          this.input_text = val;
-
-          if(val == ""){
-              this.input_text = "No Memo.";
-          }
-
-          this.blc_h = document.querySelector('.note_card').getBoundingClientRect().height + "px";
-          console.log(this.blc_h)
+            this.input_text = val;
+            if(val == ""){
+                this.input_text = "No Memo.";
+            }
+            this.blc_h = document.querySelector('.note_card').getBoundingClientRect().height + "px";
+            console.log(this.blc_h)
         }
-      },
-  }
+    },
+}
 </script>
 
 <style>
@@ -129,5 +130,9 @@ import PopupEdit from "./PopupEdit.vue"
     /* border: solid 1px red; */
     margin-left: 10px;
     min-height: 140px;
+}
+
+.t1{
+    height: 100px;
 }
 </style>

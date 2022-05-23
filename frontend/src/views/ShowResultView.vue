@@ -1,9 +1,7 @@
 <template>
-    <div> 
-        <ProgressBar primaryButton = "SAVE" /> 
-    </div>
-    <p class = "title"> Congrats! <span class = "green">{{trip_name}}</span> is ready now!</p>
     <div>
+      <ProgressBar primaryButton = "SAVE" /> 
+      <p class = "title"> Congrats! <span class = "green">{{trip_name}}</span> is ready now!</p>
       <ResultCard />
     </div>
 </template>

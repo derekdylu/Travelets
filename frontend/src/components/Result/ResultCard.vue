@@ -2,7 +2,7 @@
     <v-card 
         v-for = "day in days" 
         :key = "day" 
-        class = "c1"
+        class="pa-3 .bg-white rounded-t-xl"
         justify = "center"
         width = "100%"
     >

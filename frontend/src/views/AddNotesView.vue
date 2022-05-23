@@ -1,8 +1,8 @@
 <template>
     <div>
-        <ProgressBar />
-        <BackMap />
-        <ScheduleCard />
+      <ProgressBar />
+      <BackMap />
+      <ScheduleCard />
     </div>
   
 </template>

@@ -3,7 +3,7 @@
     <v-card 
         v-for = "day in days" 
         :key = "day" 
-        class = "c1"
+        class="pa-3 .bg-white rounded-t-xl"
         justify = "center"
         width = "100%"
     >
@@ -14,8 +14,8 @@
         </v-card-header>
         <v-card-text > 
             <v-row 
-                v-for="pair in day.pairs"
-                :key="pair.id"
+                v-for="(pair, i) in day.pairs"
+                :key="i"
                 align="center"
                 justify="start"
                 no-gutters
@@ -38,6 +38,7 @@
     </v-card>
     </div>
 </template>
+
 <script>
 import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
 
@@ -141,9 +142,9 @@ import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
   background-color: rgb(255, 255, 255);
   
   border-radius: 20px;
-  margin-left: 40px;
+  /* margin-left: 40px;
   margin-right: 40px;
-  margin-top: 25px;
+  margin-top: 25px; */
   
 }
 

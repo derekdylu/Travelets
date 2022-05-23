@@ -2,7 +2,6 @@
   <div>
     <v-dialog
       v-model = "dialog"
-      min-width = "500px"
       persistent
     >
       <template v-slot:activator="{ on, attrs }">
@@ -13,26 +12,29 @@
           v-bind="attrs"
           v-on="on"
         >
+          <v-icon icon="edit" />
           EDIT
         </v-btn>
       </template>
 
-      <v-card>
+      <v-card
+        width = "339px"
+      >
         <v-card-title>
-          <span class="memoblc_title">Add Memo for this spot</span>
+          <span class="memoblc_title">Add Memo for {{spot_name}}</span>
         </v-card-title>
         <v-card-text >
           <v-container>
             <v-row>
               <v-col cols="12">
-                <v-text-field
+                <v-textarea
                     class = "input_memo"
                     label="Add Memo..."
                     required
                     v-model = "input_text"
                     @input="send_back"
                 >
-                </v-text-field>
+                </v-textarea>
               </v-col>
             </v-row>
           </v-container>
@@ -65,6 +67,7 @@
   export default {
     name: "PopupEdit",
     props: {
+      spot_name: String,
         
     },
     components: {
