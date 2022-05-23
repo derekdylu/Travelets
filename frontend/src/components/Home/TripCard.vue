@@ -13,11 +13,11 @@
     <v-card-text style="font-size: 0.75em;">
       <v-conatiner>
 
-        <v-row>
-          <v-col cols="8" align="start">
+        <v-row justify="space-between">
+          <v-col cols="auto" align="start">
             created by {{ tripProps.host }}
           </v-col>
-          <v-col cols="4" align="right">
+          <v-col cols="auto" align="right">
             <v-img
               :src="writeStatusSrc(tripProps.status)"
               height="20px"
@@ -26,11 +26,11 @@
           </v-col>
         </v-row>
 
-        <v-row>
-          <v-col cols="9" align="start">
+        <v-row justify="space-between">
+          <v-col cols="auto" align="start">
             {{ tripProps.startDate }} - {{ tripProps.endDate }}
           </v-col>
-          <v-col cols="3" align="center">
+          <v-col cols="auto" align="center" class="mr-1">
             {{ tripProps.area }}
           </v-col>
         </v-row>
