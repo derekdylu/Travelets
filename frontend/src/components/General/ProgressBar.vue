@@ -25,8 +25,6 @@
 </template>
 
 <script>
-// import router from '../../router/index'
-
 export default {
   name: 'ProgressBar',
   methods: {

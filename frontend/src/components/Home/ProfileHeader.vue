@@ -1,13 +1,14 @@
 <template>
   <v-card class="pa-6 .bg-white rounded-b-xl" elevation="4">
+    
     <v-container class="pa-0">
       <v-row align="center" no-gutters style="height: 48px;">
         <v-col cols="8">
-          <v-btn icon flat>
+          <v-btn icon flat @click.stop="$emit('clickDrawer', 1)">
             <v-icon icon="menu" />
           </v-btn>
         </v-col>
-        <v-col align="end" cols="4">
+        <v-col align="right" cols="4">
           <v-img
             src="Logo_wordmark.png"
             alt="Travelets"
@@ -62,7 +63,12 @@ export default {
       trips: 12,
       followers: 999,
     }
-  }
+  },
+  watch: {
+    group () {
+      this.drawer = false
+    },
+  },
 }
 </script>
 
