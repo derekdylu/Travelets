@@ -12,19 +12,23 @@
             nav
           >
             <v-list-item>
-              <v-list-item-title>Foo</v-list-item-title>
+              <v-list-item-title>Feeds</v-list-item-title>
             </v-list-item>
 
             <v-list-item>
-              <v-list-item-title>Bar</v-list-item-title>
+              <v-list-item-title>Explore</v-list-item-title>
             </v-list-item>
 
             <v-list-item>
-              <v-list-item-title>Fizz</v-list-item-title>
+              <v-list-item-title>Notifications</v-list-item-title>
             </v-list-item>
 
             <v-list-item>
-              <v-list-item-title>Buzz</v-list-item-title>
+              <v-list-item-title>Profile</v-list-item-title>
+            </v-list-item>
+
+            <v-list-item>
+              <v-list-item-title>Logout</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-navigation-drawer>

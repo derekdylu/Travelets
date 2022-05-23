@@ -34,7 +34,7 @@
             <v-col align="left" cols="9">
               <h4>{{ username }}</h4>
             </v-col>
-            <v-col align="end">
+            <v-col align="right">
               <v-btn icon flat>
                 <v-icon icon="settings" />
               </v-btn>
