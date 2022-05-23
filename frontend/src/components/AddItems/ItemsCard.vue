@@ -86,9 +86,8 @@
                   :key="item.id"
                   dot-color="secondary"
                   size="20px"
-                  width="286px"
+                  width="95%"
                   fill-dot
-                  
                   hide-opposite
                 >
                   <div class="d-flex justify-space-between flex-grow-1">
@@ -204,6 +203,9 @@
         days: [],
         moveDay: "",
       }
+    },
+    components: {
+      
     },
     watch: {
       serchField: {
