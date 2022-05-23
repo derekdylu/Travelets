@@ -1,9 +1,9 @@
 <template>
-  <v-card class="pa-6 .bg-white rounded-b-xl" elevation="4">
+  <v-card class="pa-6 .bg-white rounded-b-xl flex-column flex-grow" elevation="4" max-width="750px" min-width="300px">
     
     <v-container class="pa-0">
       <v-row align="center" no-gutters style="height: 48px;">
-        <v-col cols="8">
+        <v-col align="left" cols="8">
           <v-btn icon flat @click.stop="$emit('clickDrawer', 1)">
             <v-icon icon="menu" />
           </v-btn>
@@ -19,7 +19,7 @@
     </v-container>
     <v-container class="pa-0">
       <v-row align="center">
-        <v-col cols="4" class="pl-5">
+        <v-col align="left" ols="4" class="pl-5">
           <v-avatar
             size="72"
           >
@@ -31,7 +31,7 @@
         </v-col>
         <v-col cols="8">
           <v-row justify="end" align="center" no-gutters>
-            <v-col cols="9">
+            <v-col align="left" cols="9">
               <h4>{{ username }}</h4>
             </v-col>
             <v-col align="end">
@@ -41,10 +41,10 @@
             </v-col>
           </v-row>
           <v-row justify="space-between" no-gutters>
-            <v-col>
+            <v-col align="left">
               <h4>{{ trips }} trips</h4>
             </v-col>
-            <v-col>
+            <v-col align="right">
               <h4>{{ followers }} followers</h4>
             </v-col>
           </v-row>

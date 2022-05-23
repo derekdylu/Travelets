@@ -1,5 +1,5 @@
 <template>
-  <v-container class="flex-column flex-grow">
+  <v-container fluid class="flex-column flex-grow" style="width: 750px">
     <v-row align="center" justify="space-between" class="mx-4">
       <v-btn-toggle>
         <v-icon icon="more_verti" color="secondary" class="my-3" />

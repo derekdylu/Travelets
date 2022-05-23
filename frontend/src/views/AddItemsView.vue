@@ -2,16 +2,16 @@
   <div>
     <v-container class="pa-0">
       <v-col align="center" class="pa-0">
-    <ProgressBar />
+        <ProgressBar />
       </v-col>
     </v-container>
-    <v-container>
-      <v-col align="center">
-    <BackMap :lat="lat" :lng="lng" />
+    <v-container class="pa-0">
+      <v-col align="center" class="pa-0">
+        <BackMap :lat="lat" :lng="lng" />
+        <!-- has to use : to v-bind -->
       </v-col>
     </v-container>
-    <!-- has to use : to v-bind -->
-    <v-container>
+    <v-container class="pa-0">
       <v-col align="center">
         <ItemsCard />
       </v-col>
