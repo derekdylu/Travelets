@@ -97,14 +97,15 @@
 
 <style>
 .container_1{
-  max-width: 360px;
+  
   overflow: auto;
   box-shadow:2px 2px 10px -2px rgba(163, 163, 179, 0.5);
   border: 1px solid rgb(255, 255, 255);
   background-color: rgb(255, 255, 255);
   
   border-radius: 20px;
-  margin-left: 55px;
+  margin-left: 20px;
+  margin-right: 20px;
   margin-top: 25px;
   
 }

@@ -1,0 +1,71 @@
+<template>
+  <v-card class="pa-6 .bg-white rounded-b-xl" elevation="4">
+    <v-container class="pa-0">
+      <v-row align="center" no-gutters style="height: 48px;">
+        <v-col cols="8">
+          <v-btn icon flat>
+            <v-icon icon="menu" />
+          </v-btn>
+        </v-col>
+        <v-col align="end" cols="4">
+          <v-img
+            src="Logo_wordmark.png"
+            alt="Travelets"
+            width="102px"
+          ></v-img>
+        </v-col>
+      </v-row>
+    </v-container>
+    <v-container class="pa-0">
+      <v-row align="center">
+        <v-col cols="4" class="pl-5">
+          <v-avatar
+            size="72"
+          >
+            <v-img
+              src="https://cdn.vuetifyjs.com/images/john.jpg"
+              alt="avatar"
+            ></v-img>
+          </v-avatar>
+        </v-col>
+        <v-col cols="8">
+          <v-row justify="end" align="center" no-gutters>
+            <v-col cols="9">
+              <h4>{{ username }}</h4>
+            </v-col>
+            <v-col align="end">
+              <v-btn icon flat>
+                <v-icon icon="settings" />
+              </v-btn>
+            </v-col>
+          </v-row>
+          <v-row justify="space-between" no-gutters>
+            <v-col>
+              <h4>{{ trips }} trips</h4>
+            </v-col>
+            <v-col>
+              <h4>{{ followers }} followers</h4>
+            </v-col>
+          </v-row>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-card>
+</template>
+
+<script>
+export default {
+  name: "ProfileHeader",
+  data() {
+    return {
+      username: "derekdylu",
+      trips: 12,
+      followers: 999,
+    }
+  }
+}
+</script>
+
+<style>
+
+</style>
