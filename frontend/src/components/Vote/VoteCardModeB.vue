@@ -135,7 +135,7 @@
   box-shadow:2px 2px 10px -2px rgba(163, 163, 179, 0.5);
   border: 1px solid rgb(255, 255, 255);
   background-color: rgb(255, 255, 255);
-  
+  min-width:300px;
   border-radius: 20px;
   margin-left: 20px;
   margin-right: 20px;
