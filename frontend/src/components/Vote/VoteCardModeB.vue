@@ -118,10 +118,11 @@
             
           }, 
           DeleteCard(card){
-              let index = this.cards.indexOf(card)
-              if (index > -1) {
-                this.cards.splice(index, 1);
-              }
+              // let index = this.cards.indexOf(card)
+              // if (index > -1) {
+              //   this.cards.splice(index, 1);
+              // }
+              card.finish_adopt = true;
               this.CheckAllFinished();
           }
       }
