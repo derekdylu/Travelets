@@ -54,7 +54,7 @@
           no-gutters
           v-if = "!card.finish_adopt"
         >
-          <PopupIgnore class= "bton_2"/>
+          <PopupIgnore class= "bton_2" @delete = "DeleteCard(card)"/>
           <PopupAdopt class= "bton_2" @update = "close(card)" :disableBtn = "card.disable"/>
           
         </v-row>
@@ -100,7 +100,8 @@
       methods:{
           close(card) {
               card.finish_adopt = true;
-              this.CheckAllFinished()
+              // console.log(this.cards.indexOf(card));
+              this.CheckAllFinished();
           },
           CheckAllFinished(){
               let count = 0;
@@ -115,6 +116,13 @@
               }
               
             
+          }, 
+          DeleteCard(card){
+              let index = this.cards.indexOf(card)
+              if (index > -1) {
+                this.cards.splice(index, 1);
+              }
+              this.CheckAllFinished();
           }
       }
   }

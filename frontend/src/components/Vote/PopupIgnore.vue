@@ -40,7 +40,7 @@
               style = "width: 80px;margin-right:5px"
               variant="contained"
               color="danger"
-              @click="dialog = false"
+              @click="ignore"
             >
               IGNORE
             </v-btn>
@@ -59,6 +59,13 @@
         dialog: false,
       }
     },
+    methods:{
+      ignore(){
+        this.dialog = false;
+        this.$emit('delete')
+        
+      }
+    }
   }
 </script>
 

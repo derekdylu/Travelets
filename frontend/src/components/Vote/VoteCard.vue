@@ -49,7 +49,7 @@
           justify="end"
           no-gutters
         >
-          <PopupDiscard class= "bton_2"/>
+          <PopupDiscard  class= "bton_2"/>
           <PopupAdopt class= "bton_2" :finish = "card" :disableBtn = "card.disable"/>
           
         </v-row>
