@@ -55,14 +55,14 @@
   cursor:pointer;
   outline:none;
   border:var(--ms-border-width,1px) solid var(--ms-border-color,#d1d5db);
-  border-radius: 20px;
+  border-radius: 3px;
   background:var(--ms-bg,rgb(255, 255, 255));
   font-size:var(--ms-font-size,1rem);
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .multiselect.is-open{
-  border-radius:var(--ms-radius,4px) var(--ms-radius,4px) 0 0
+  border-radius:var(--ms-radius,4px) var(--ms-radius,2px) 0 0
 }
 
 .multiselect.is-open-top{
