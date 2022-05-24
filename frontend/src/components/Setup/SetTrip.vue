@@ -2,11 +2,14 @@
     <form class="add-form">
         <div class="form-control">
             <label>Trip Name</label>
-            <input type="text" v-model="tripname" name="tripname" placeholder="Trip Name"/>
+            <v-text-field v-model="tripname" placeholder="Trip Name" name="tripname"
+            ></v-text-field>
+  
         </div>
         <div class="form-control">
             <label>Location</label>
-            <input type="text" v-model="search" placeholder="Taipei">
+            <v-text-field v-model="location" placeholder="Taipei" name="location"
+            ></v-text-field>
         </div>
         <div class="form-control">
             <label>Vehicle</label>
@@ -18,11 +21,13 @@
         </div>
         <div class="form-control">
             <label>Start Date</label>
-            <input type="text" v-model="startdate" name="startdate" placeholder="2022/05/08"/>
+            <v-text-field v-model="startdate" placeholder="2022/05/08" name="startdate"
+            ></v-text-field>
         </div>
         <div class="form-control">
             <label>End Date</label>
-            <input type="text" v-model="duration" name="duration" placeholder="2022/05/08"/>
+            <v-text-field v-model="enddate" placeholder="2022/05/08" name="enddate"
+            ></v-text-field>
         </div>
     
     </form>
@@ -38,8 +43,8 @@
             return{
                 tripname: '',
                 startdate: '',
-                duration: '',
-                search: '',
+                enddate: '',
+                location: '',
                 value: null,
                 options: ['Car']
             }
@@ -65,7 +70,7 @@
 }
 
 .form-control input {
-  width: 90%;
+  width: 95%;
   height: 28px;
   margin: 4px;
   margin-left: 15px;
@@ -85,8 +90,8 @@
 .multiselect{
   position:relative;
   margin:0 auto;
-  width:90%;
-  height: 28px;
+  width:100%;
+  height: 53px;
   align-items:center;
   display:flex;
   justify-content:flex-end;
@@ -94,20 +99,20 @@
   cursor:pointer;
   outline:none;
   border:var(--ms-border-width,1px) solid var(--ms-border-color,rgb(228, 230, 231));
-  border-radius: 20px;
-  background:var(--ms-bg,rgb(228, 230, 231));
-  font-size:14px;
+  border-radius: 3px;
+  background:var(--ms-bg,rgba(230, 230, 230, 0.319));
+  font-size:16px;
   text-align: center;
   margin-top: 5px;
-  margin-left: 15px;
+  margin-bottom: 40px;
 }
 
 .multiselect.is-open{
-  border-radius:var(--ms-radius,15px) var(--ms-radius,15px) 0 0
+  border-radius:var(--ms-radius,3px) var(--ms-radius,3px) 0 0
 }
 
 .multiselect.is-open-top{
-  border-radius:0 0 var(--ms-radius,10px) var(--ms-radius,15px)
+  border-radius:0 0 var(--ms-radius,3px) var(--ms-radius,3px)
 }
 
 .multiselect.is-disabled{
