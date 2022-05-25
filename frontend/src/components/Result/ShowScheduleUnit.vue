@@ -1,34 +1,30 @@
 <template >
     <v-card-text> 
         <v-row 
-            align="start"
+            align="stretch"
             no-gutters
         >
             <v-col
                 cols = "4"
-                sm = "4"
-                md = "4"
-                lg = "4"
+                max-width = "fill"
                 align = "left"
             >
                 <v-card
                     class = "note_card_result"
-                    elevation = "2"
                     min-height = "130px"
+                    max-height = 'fill'
+                    width = '180px'
                 >
-                    <p style = "word-wrap: break-word;">{{input_text}}</p>
+                    <p style = "word-wrap: break-word;">{{text}}</p>
                 </v-card>
             </v-col>
             <v-col
                 cols = "8"
-                sm = "8"
-                md = "8"
-                lg = "8"
-                align="start"
+                align="left"
                 justify="start"
             >
                 <v-timeline 
-                    class = "time_line_show"
+                    class = "time_line"
                     density="comfortable"
                     side="end"
                     align="start"
@@ -37,7 +33,6 @@
                     <v-timeline-item 
                         size = "20px"
                         fill-dot
-                        height = "45px"
                         dot-color = "#a9a9a9"
                         left
                     >
@@ -46,7 +41,6 @@
                     <v-timeline-item
                         size = "20px"
                         fill-dot
-                        height = "65px"
                         dot-color = "#d3d3d3"
                         left
                     >
@@ -65,7 +59,7 @@
       props: {
         place: String,
         time: String,
-        input_text: String,
+        text: String,
       },
       components: {
 

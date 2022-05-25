@@ -1,30 +1,31 @@
 <template >
     <v-card 
-        v-for = "day in days" 
-        :key = "day" 
-        class="pa-3 .bg-white rounded-xl flex-column flex-grow mb-5"
-        elevation="4"
-        max-height="100%"
-        max-width="750px"
-        min-width="300px"
+        v-for = "(item, n) in howManyDays" 
+        :key = "n" 
+        class = "pa-3 .bg-white rounded-xl flex-column flex-grow mb-5"
+        elevation = "4"
+        max-height = "100%"
+        max-width = "750px"
+        min-width = "300px"
     >
         <v-card-header>     
             <div class="date_title">
-                {{month}} {{day.date}} {{year}} (Day {{parseInt(day.id) + 1}})
+                {{month_str[n]}} {{date_str[n]}} {{year}} (Day {{n + 1}})
             </div>
         </v-card-header>
         <v-card-text > 
             <v-row 
-                v-for="pair in day.pairs"
-                :key="pair.id"
+                v-for= "(item, i) in place[n]"
+                :key= "i"
                 align="center"
-                justify="space-around"
+                justify="start"
                 no-gutters
+                style="margin-top:5px;"
             >
                 <ShowScheduleUnit 
-                    :place= "pair.place"
-                    :time= "pair.time"
-                    :input_text = "pair.note"
+                    :place= "place[n][i]"
+                    :time= "time[n][i]"
+                    :text = "text[n][i]"
                 />
             </v-row>
             <v-row 
@@ -33,7 +34,7 @@
                 no-gutters
                 style="margin-top:10px; margin-bottom:10px"
             >
-                <span class="text_bottom">Schedule for day {{parseInt(day.id) + 1}}</span>
+                <span class="text_bottom">Schedule for day {{n + 1}}</span>
             </v-row>
         </v-card-text>
     </v-card>
@@ -46,87 +47,31 @@ import ShowScheduleUnit from '../Result/ShowScheduleUnit.vue'
       components: {
         ShowScheduleUnit,
       },
+      props: {
+        howManyDays: Number,
+        year: Number,
+        month: [],
+        date: [],
+        place: [],
+        time: [],
+        text: [],
+      },
       data() {
         return {
-          month: "May",
-          year: "2023",
-          days: [
-            {
-                id: "0",
-                date: "12",
-                pairs: [
-                    { 
-                        place: "Taipei 101", 
-                        time: "1 hour 03 minutes",
-                        note: "123",
-                    },
-                    { 
-                        place: "COMMUNE A7", 
-                        time: "1 hour 35 minutes",
-                        note: "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
-                    },
-                    { 
-                        place: "Xinyi District", 
-                        time: "24 minutes",
-                        note: "eeeeeeeeee eeeeeeeeee eeeeeeeeee eeeeeeeeee eeeeeeeeee eeeeeeeeee eeeeeeeeee eeeeeeeeee eeeeeeeeee eeeeeeeeee",
-                    },
-                    { 
-                        place: "NTU Park", 
-                        time: "2 hour 44 minutes",
-                        note: "...",
-                    },
-                ],
-            },
-            {
-                id: "1",
-                date: "13",
-                pairs: [
-                    { 
-                        place:"Ximen", 
-                        time: "1 hour 53 minutes",
-                        note: "d d d",
-                    },
-                    { 
-                        place:"Starbucks", 
-                        time: "35 minutes",
-                        note: "444",
-                    },
-                    { 
-                        place:"TPE Main Station", 
-                        time: "17 minutes",
-                        note: "",
-                    },
-                ],
-            },
-            {
-                id: "2",
-                date: "14",
-                pairs: [
-                    { 
-                        place:"H Hotel", 
-                        time: "3 hour 08 minutes",
-                        note: "",
-                    },
-                    { 
-                        place:"COMMUNE B6", 
-                        time: "1 hour 05 minutes",
-                        note: "asdadsas grgsfsgg yyyy",
-                    },
-                    { 
-                        place:"DaAn District", 
-                        time: "18 minutes",
-                        note: "12/11 4:03",
-                    },
-                    { 
-                        place:"Miss Energy", 
-                        time: "1 hour 40 minutes",
-                        note: "aaaaaaaaaaaaaaaaaaaaaaaaa",
-                    },
-                ],
-            },
-          ],
+            month_str: [this.monthToString(5), this.monthToString(5), this.monthToString(5)],
+            date_str: [12, 13, 14],
         }
       },
+      methods:{
+          monthToString(num){
+            const monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+            return monthNames[num - 1];
+
+          },
+      },
+      created: function(){
+        
+      }
   }
 </script>
 

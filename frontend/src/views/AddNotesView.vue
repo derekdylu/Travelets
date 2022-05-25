@@ -14,10 +14,10 @@
       <v-container class="pa-0">
         <v-col align="center">
           <ScheduleCard 
-            :month = "m"
             :year = "y"
-            :days = "d"
-          
+            :howManyDays = "duration"
+            :place = "attractions"
+            :time = "travel_time"
           />
         </v-col>
       </v-container>
@@ -47,16 +47,29 @@ export default {
         end_date: "2023-05-14",
         duration: 3,
         vehicle: "Car",
-        attractions: [["Taipei 101", "COMMUNE A7", "NTU Park"],["Ximen", "Starbucks"],["H Hotel", "COMMUNE B6"]],
-        travel_time: [["1 hour 03 minutes", "1 hour 35 minutes"],["1 hour 53 minutes"],["3 hour 08 minutes"]],
-        notes: [["", "", ""],["", ""],["", ""]],
+        attractions: [
+          ["Taipei 101", "COMMUNE A7", "NTU Park", "Xinyi District"],["Ximen", "Starbucks", "TPE Main Station"],
+          ["H Hotel", "COMMUNE B6"]
+        ],
+        travel_time: [
+          ["1 hour 03 minutes", "1 hour 35 minutes","2 hour 44 minutes"],["1 hour 53 minutes", "35 minutes"],
+          ["3 hour 08 minutes"]
+        ],
+        notes: [
+          ["", "", "", ""],
+          ["", "", ""],
+          ["", ""]
+        ],
         host: "0012",
         participants: ["0034", "0055", "0100", "0003"],
         invitees: ["0014", "0033", "0076"],
 
         // tempt usage 
-        m: "May",
-        y: "2023",
+        y: 2023,
+        m: [5, 5, 5],
+        dateee: [12, 13, 14],
+        
+        // old
         d: [
             {
                 id: "0",

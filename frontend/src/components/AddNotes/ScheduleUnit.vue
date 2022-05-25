@@ -1,7 +1,7 @@
 <template >
     <v-card-text> 
         <v-row 
-            align="start"
+            align="stretch"
             no-gutters
         >
             <v-col
@@ -9,6 +9,7 @@
                 max-width = "fill"
                 align = "left"
             >
+                <!-- <p>test</p> -->
                 <PopupEdit 
                     class= "edit_btn_popup"
                     :spot_name = "place"
@@ -16,11 +17,10 @@
                 />
         
                 <v-card
-                    class = "note_card"
-                    ref="nc"
-                    min-height = "90px"
-                    max-height = "fill"
-                    width = "220px"
+                    class = 'note_card'
+                    min-height = '90px'
+                    max-height = 'fill'
+                    width = '180px'
                 >
                     <p style = "word-wrap: break-word;">{{text}}</p>
                 </v-card>
@@ -39,24 +39,18 @@
                     truncate-line="start"
                 >
                     <v-timeline-item 
-                        class = "t1"
                         size = "20px"
                         fill-dot
-                        min-height = "30px"
                         dot-color = "#a9a9a9"
                         left
-                        v-bind:height = "t1_h"
                     >
                         <p class = "place"> {{place}} </p>
                     </v-timeline-item>
                     <v-timeline-item
-                        class = "t2"
                         size = "20px"
                         fill-dot
-                        min-height = "50px"
                         dot-color = "#d3d3d3"
                         left
-                        v-bind:height = "t2_h"
                     >
                         <p class = "time"> {{time}} </p>
                     </v-timeline-item>
@@ -81,35 +75,19 @@ export default {
     data() {
         return {
             text: "No Memo.",
-            blc_h: "",
-            t1_h: "",
-            t2_h: "",
         }
     },
     watch: {
-        blc_h : function(){
-            this.t1_h = 40 + parseInt((this.blc_h - 90)/2 + 10) + "px"
-            // console.log("t1: ", this.t1_h);
-            this.t2_h = 55 + parseInt((this.blc_h - 90)/2 + 10) + "px"
-            // console.log("t2: ", this.t2_h);
-        }
+        
     },
     methods:{
         getValFromChild(val) {
-            this.updateBlcHeight();
-            // console.log("update");
             this.text = val;
             if(val == ""){
                 this.text = "No Memo.";
-                this.blc_h = 90;
             }
-            this.updateBlcHeight();
+            
         },
-        updateBlcHeight(){
-            this.blc_h = document.querySelector('.note_card').getBoundingClientRect().height;
-            // this.blc_h = this.$refs.nc[0].style.height;
-            console.log(this.blc_h);
-        }
     },
 }
 </script>
