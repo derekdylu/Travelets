@@ -5,9 +5,6 @@
 
     <div class="container">
       <SetTrip />
-    </div>
-    
-    <div class="container2">
       <InviteFriend />
     </div>
   
@@ -44,6 +41,8 @@ body {
 }
 
 .container {
+  max-width: 740px; 
+  min-width: 300px;
   width: 95%;
   overflow: auto;
   box-shadow:2px 2px 10px -2px rgba(163, 163, 179, 0.5);
@@ -53,12 +52,14 @@ body {
   border-radius: 20px;
   margin-top: 25px;
   margin-left: 10px;
-  height: 18cm;
+  height: 20cm;
 }
 
 .container2 {
+  max-width: 740px; 
+  min-width: 300px;
   width: 95%;
-  height: 5.5cm;
+  height: 6cm;
   overflow: auto;
   box-shadow:2px 2px 10px -2px rgba(163, 163, 179, 0.5);
   border: 1px solid rgb(253, 254, 255);
