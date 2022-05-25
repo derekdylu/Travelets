@@ -9,7 +9,6 @@
                 max-width = "fill"
                 align = "left"
             >
-                <!-- <p>test</p> -->
                 <PopupEdit 
                     class= "edit_btn_popup"
                     :spot_name = "place"
@@ -26,14 +25,11 @@
                 </v-card>
 
             </v-col>
-            <!-- <v-col
+            <v-col
                 cols = "8"
                 align="left"
                 justify="start"
-                fluid
-                class="fill-height"
-            > -->
-            <v-row class="fill-height">
+            >
                 <v-timeline 
                     class = "time_line"
                     density="comfortable"
@@ -46,28 +42,19 @@
                         fill-dot
                         dot-color = "#a9a9a9"
                         left
-<<<<<<< HEAD
-=======
-                        height="100%"
->>>>>>> b7e8be663f86cac0a2761f1b37aab2b046026214
                     >
                         <p class = "place"> {{place}} </p>
                     </v-timeline-item>
                     <v-timeline-item
                         size = "20px"
                         fill-dot
-<<<<<<< HEAD
-=======
-                        height="100%"
->>>>>>> b7e8be663f86cac0a2761f1b37aab2b046026214
                         dot-color = "#d3d3d3"
                         left
                     >
                         <p class = "time"> {{time}} </p>
                     </v-timeline-item>
                 </v-timeline>
-            </v-row>
-            <!-- </v-col> -->
+            </v-col>
         </v-row>
     </v-card-text>
 </template>
