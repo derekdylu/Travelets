@@ -17,10 +17,12 @@
         
                 <v-card
                     class = "note_card"
+                    ref="nc"
                     min-height = "90px"
-                    max-width = "fill"
+                    max-height = "fill"
+                    width = "220px"
                 >
-                    <p style = "word-wrap: break-word;">{{input_text}}</p>
+                    <p style = "word-wrap: break-word;">{{text}}</p>
                 </v-card>
 
             </v-col>
@@ -78,7 +80,7 @@ export default {
     },
     data() {
         return {
-            input_text: "No Memo.",
+            text: "No Memo.",
             blc_h: "",
             t1_h: "",
             t2_h: "",
@@ -86,23 +88,26 @@ export default {
     },
     watch: {
         blc_h : function(){
-            this.t1_h = 40 + parseInt((this.blc_h - 90)/2) + "px"
-            console.log("t1: ", this.t1_h);
-            this.t2_h = 55 + parseInt((this.blc_h - 90)/2) + "px"
-            console.log("t2: ", this.t2_h);
+            this.t1_h = 40 + parseInt((this.blc_h - 90)/2 + 10) + "px"
+            // console.log("t1: ", this.t1_h);
+            this.t2_h = 55 + parseInt((this.blc_h - 90)/2 + 10) + "px"
+            // console.log("t2: ", this.t2_h);
         }
     },
     methods:{
         getValFromChild(val) {
             this.updateBlcHeight();
-            console.log("update");
-            this.input_text = val;
+            // console.log("update");
+            this.text = val;
             if(val == ""){
-                this.input_text = "No Memo.";
+                this.text = "No Memo.";
+                this.blc_h = 90;
             }
+            this.updateBlcHeight();
         },
         updateBlcHeight(){
             this.blc_h = document.querySelector('.note_card').getBoundingClientRect().height;
+            // this.blc_h = this.$refs.nc[0].style.height;
             console.log(this.blc_h);
         }
     },
