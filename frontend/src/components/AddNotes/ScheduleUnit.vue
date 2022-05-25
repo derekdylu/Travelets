@@ -21,7 +21,7 @@
                     max-height = 'fill'
                     width = '180px'
                 >
-                    <p style = "word-wrap: break-word;">{{text}}</p>
+                    <p style = "word-wrap: break-word;white-space: pre-line;">{{text}}</p>
                 </v-card>
 
             </v-col>
@@ -70,7 +70,6 @@
                         <p class = "place"> {{place}} </p>
                     </v-timeline-item>
                 </v-timeline>
-
             </v-col>
         </v-row>
     </v-card-text>
