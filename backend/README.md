@@ -13,3 +13,12 @@ Note:
 Don't forget to activate the following Google API's
 
 reCAPTURE Places API Maps Javascript API Directions API Distance Matrix API Geocoding API
+
+
+
+super user
+username:sad
+password:sad
+
+npm install axios
+npm install vue-router
