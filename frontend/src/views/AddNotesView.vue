@@ -39,6 +39,22 @@ export default {
   },
   data() {
       return {
+        // DB
+        itinerary_id: "2314",
+        title: "Taipei Trip",
+        area: "Taipei",
+        start_date: "2023-05-12",
+        end_date: "2023-05-14",
+        duration: 3,
+        vehicle: "Car",
+        attractions: [["Taipei 101", "COMMUNE A7", "NTU Park"],["Ximen", "Starbucks"],["H Hotel", "COMMUNE B6"]],
+        travel_time: [["1 hour 03 minutes", "1 hour 35 minutes"],["1 hour 53 minutes"],["3 hour 08 minutes"]],
+        notes: [["", "", ""],["", ""],["", ""]],
+        host: "0012",
+        participants: ["0034", "0055", "0100", "0003"],
+        invitees: ["0014", "0033", "0076"],
+
+        // tempt usage 
         m: "May",
         y: "2023",
         d: [
