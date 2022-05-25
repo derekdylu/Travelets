@@ -30,7 +30,7 @@
                 align="left"
                 justify="start"
             >
-                <v-timeline 
+                <v-timeline v-if = "notLast"
                     class = "time_line"
                     density="comfortable"
                     side="end"
@@ -45,7 +45,7 @@
                     >
                         <p class = "place"> {{place}} </p>
                     </v-timeline-item>
-                    <v-timeline-item
+                    <v-timeline-item 
                         size = "20px"
                         fill-dot
                         dot-color = "#d3d3d3"
@@ -54,6 +54,23 @@
                         <p class = "time"> {{time}} </p>
                     </v-timeline-item>
                 </v-timeline>
+                <v-timeline v-else
+                    class = "time_line"
+                    density="comfortable"
+                    side="end"
+                    align="start"
+                    truncate-line="end"
+                >
+                    <v-timeline-item 
+                        size = "20px"
+                        fill-dot
+                        dot-color = "#a9a9a9"
+                        left
+                    >
+                        <p class = "place"> {{place}} </p>
+                    </v-timeline-item>
+                </v-timeline>
+
             </v-col>
         </v-row>
     </v-card-text>
@@ -67,6 +84,7 @@ export default {
     props: {
         place: String,
         time: String,
+        notLast: Boolean,
     },
     components: {
         PopupEdit,
@@ -74,6 +92,7 @@ export default {
     data() {
         return {
             text: "No Memo.",
+            // notLast: true,
         }
     },
     watch: {
@@ -85,6 +104,8 @@ export default {
             if(val == ""){
                 this.text = "No Memo.";
             }
+
+            console.log(this.time);
             
         },
     },

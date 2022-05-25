@@ -23,7 +23,7 @@
                 align="left"
                 justify="start"
             >
-                <v-timeline 
+                <v-timeline v-if = "notLast"
                     class = "time_line"
                     density="comfortable"
                     side="end"
@@ -38,13 +38,29 @@
                     >
                         <p class = "place"> {{place}} </p>
                     </v-timeline-item>
-                    <v-timeline-item
+                    <v-timeline-item 
                         size = "20px"
                         fill-dot
                         dot-color = "#d3d3d3"
                         left
                     >
                         <p class = "time"> {{time}} </p>
+                    </v-timeline-item>
+                </v-timeline>
+                <v-timeline v-else
+                    class = "time_line"
+                    density="comfortable"
+                    side="end"
+                    align="start"
+                    truncate-line="end"
+                >
+                    <v-timeline-item 
+                        size = "20px"
+                        fill-dot
+                        dot-color = "#a9a9a9"
+                        left
+                    >
+                        <p class = "place"> {{place}} </p>
                     </v-timeline-item>
                 </v-timeline>
             </v-col>
@@ -60,6 +76,7 @@
         place: String,
         time: String,
         text: String,
+        notLast: Boolean,
       },
       components: {
 

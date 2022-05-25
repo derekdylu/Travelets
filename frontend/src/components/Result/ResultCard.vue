@@ -26,6 +26,7 @@
                     :place= "place[n][i]"
                     :time= "time[n][i]"
                     :text = "text[n][i]"
+                    :notLast = "typeof(time[n][i]) !== 'undefined'"
                 />
             </v-row>
             <v-row 
