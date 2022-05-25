@@ -30,7 +30,7 @@ export default {
   },
   data() {
       return {
-          trip_name: "Taepei Trip",  
+          trip_name: "Taipei Trip",  
       }
     },
 }

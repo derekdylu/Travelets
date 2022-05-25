@@ -1,17 +1,16 @@
 <template>
-    <form class="add-form">
-        <div class="form-control">
-            <label>Trip Name</label>
+        <div>
+            <label class="form-control label">Trip Name</label>
             <v-text-field v-model="tripname" placeholder="Trip Name" name="tripname"
             ></v-text-field>
   
         </div>
-        <div class="form-control">
+        <div>
             <label>Location</label>
             <v-text-field v-model="location" placeholder="Taipei" name="location"
             ></v-text-field>
         </div>
-        <div class="form-control">
+        <div>
             <label>Vehicle</label>
             <Multiselect 
             v-model="value" 
@@ -19,18 +18,16 @@
             :options="options"
             />
         </div>
-        <div class="form-control">
+        <div >
             <label>Start Date</label>
             <v-text-field v-model="startdate" placeholder="2022/05/08" name="startdate"
             ></v-text-field>
         </div>
-        <div class="form-control">
+        <div >
             <label>End Date</label>
             <v-text-field v-model="enddate" placeholder="2022/05/08" name="enddate"
             ></v-text-field>
         </div>
-    
-    </form>
 </template>
 
 <script>
@@ -55,9 +52,6 @@
 </script>
 
 <style scoped>
-.add-form {
-  margin-bottom: 15px;
-}
 
 .form-control {
   margin: 12px 0;;
@@ -67,19 +61,6 @@
   display: block;
   font-size: 15px;
   margin-left: 10px;
-}
-
-.form-control input {
-  width: 95%;
-  height: 28px;
-  margin: 4px;
-  margin-left: 15px;
-  padding: 3px 8px;
-  font-size: 14px;
-  align-items: center;
-  border: 1px solid rgb(228, 230, 231);
-  background-color: rgb(228, 230, 231);
-  border-radius: 20px;
 }
 
 .word{
@@ -103,7 +84,7 @@
   background:var(--ms-bg,rgba(230, 230, 230, 0.319));
   font-size:16px;
   text-align: center;
-  margin-top: 5px;
+  margin-top: 3px;
   margin-bottom: 40px;
 }
 

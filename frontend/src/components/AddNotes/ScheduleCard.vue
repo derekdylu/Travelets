@@ -1,7 +1,7 @@
 <template>
     <v-card 
         v-for = "day in days" 
-        :key = "day" 
+        :key = "day.id" 
         class="pa-3 .bg-white rounded-xl flex-column flex-grow mb-5"
         elevation="4"
         max-height="100%"
@@ -15,8 +15,8 @@
         </v-card-header>
         <v-card-text > 
             <v-row 
-                v-for="(pair, i) in day.pairs"
-                :key="i"
+                v-for= "pair in day.pairs"
+                :key= "pair.id"
                 align="center"
                 justify="start"
                 no-gutters
@@ -47,86 +47,15 @@ import ScheduleUnit from '../AddNotes/ScheduleUnit.vue'
       components: {
         ScheduleUnit,
       },
+      props: {
+        year: String,
+        month: String,
+        days: [],
+
+      },
       data() {
         return {
-          month: "May",
-          year: "2023",
-          days: [
-            {
-                id: "0",
-                date: "12",
-                pairs: [
-                    { 
-                        place: "Taipei 101", 
-                        time: "1 hour 03 minutes",
-                        note: "",
-                    },
-                    { 
-                        place: "COMMUNE A7", 
-                        time: "1 hour 35 minutes",
-                        note: "",
-
-                    },
-                    { 
-                        place: "NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park NTU Park", 
-                        time: "2 hour 44 minutes",
-                        note: "",
-                    },
-                    { 
-                        place: "Xinyi District", 
-                        time: "24 minutes",
-                        note: "",
-                    },
-                ],
-            },
-            {
-                id: "1",
-                date: "13",
-                pairs: [
-                    { 
-                        place:"Ximen", 
-                        time: "1 hour 53 minutes",
-                        note: "",
-                    },
-                    { 
-                        place:"Starbucks", 
-                        time: "35 minutes",
-                        note: "",
-                    },
-                    { 
-                        place:"TPE Main Station", 
-                        time: "17 minutes",
-                        note: "",
-                    },
-                ],
-            },
-            {
-                id: "2",
-                date: "14",
-                pairs: [
-                    { 
-                        place:"H Hotel", 
-                        time: "3 hour 08 minutes",
-                        note: "",
-                    },
-                    { 
-                        place:"COMMUNE B6", 
-                        time: "1 hour 05 minutes",
-                        note: "",
-                    },
-                    { 
-                        place:"DaAn District", 
-                        time: "18 minutes",
-                        note: "",
-                    },
-                    { 
-                        place:"Miss Energy", 
-                        time: "1 hour 40 minutes",
-                        note: "",
-                    },
-                ],
-            },
-          ],
+        
         }
       },
   }
