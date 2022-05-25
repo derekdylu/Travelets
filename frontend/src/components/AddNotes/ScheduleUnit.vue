@@ -18,17 +18,20 @@
                 <v-card
                     class = "note_card"
                     min-height = "90px"
-                    max-width = "fill"
+                    max-width = "220px"
                 >
                     <p style = "word-wrap: break-word;">{{input_text}}</p>
                 </v-card>
 
             </v-col>
-            <v-col
+            <!-- <v-col
                 cols = "8"
                 align="left"
                 justify="start"
-            >
+                fluid
+                class="fill-height"
+            > -->
+            <v-row class="fill-height">
                 <v-timeline 
                     class = "time_line"
                     density="comfortable"
@@ -40,10 +43,9 @@
                         class = "t1"
                         size = "20px"
                         fill-dot
-                        min-height = "30px"
                         dot-color = "#a9a9a9"
                         left
-                        v-bind:height = "t1_h"
+                        height="100%"
                     >
                         <p class = "place"> {{place}} </p>
                     </v-timeline-item>
@@ -51,15 +53,15 @@
                         class = "t2"
                         size = "20px"
                         fill-dot
-                        min-height = "50px"
+                        height="100%"
                         dot-color = "#d3d3d3"
                         left
-                        v-bind:height = "t2_h"
                     >
                         <p class = "time"> {{time}} </p>
                     </v-timeline-item>
                 </v-timeline>
-            </v-col>
+            </v-row>
+            <!-- </v-col> -->
         </v-row>
     </v-card-text>
 </template>
