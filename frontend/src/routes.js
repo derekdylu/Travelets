@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import TripsList from './components/Home/TripsList'
+import ProfileList from './components/Home/ProfileList'
 
 //Next you need to call Vue.use(Router) to make sure that Router is added as a middleware to our Vue project.
 Vue.use(VueRouter)
@@ -14,7 +14,7 @@ export default new VueRouter({
         {
         path: '/',
         name: 'itinerary',  // url
-        component: TripsList,  //refer to TripList.vue
+        component: ProfileList,  //refer to ProfileList.vue
         },
     ]
 })
