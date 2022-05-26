@@ -35,7 +35,7 @@
             <p class = "intro">{{ post.foreword }}</p> 
             <PostPage
                 class="my-2"
-                :postProps="post"    
+                :tripProps="post"    
             />  
         </v-card>
         
@@ -55,62 +55,55 @@ import PostPage from '@/components/Post/PostPage.vue'
 import BottomBar from '@/components/Post/BottomBar.vue'
 
 export default {
-  name: 'PostView',
-  components: {
-    TripCard,
-    PostPage,
-    BottomBar,
-  },
-  data() {
-      return {
-        trip: {
-            id: 0,
-            invited: false,
-            picture: "https://cdn.vuetifyjs.com/images/cards/house.jpg",
-            title: "taipei trip",
-            host: "derekdylu",
-            status: "ongoing",
-            startDate: "2023/08/12",
-            endDate: "2023/08/15",
-            area: "Taipei",
-        },
-        post: {
-            id: 0,
-            creator: 102, //random
-            trip: 51022, //random
-            content: [],
-            creator_name: "derekdylu", 
-            trip_title: "taipei trip",
-            picture: "https://cdn.vuetifyjs.com/images/cards/house.jpg",
-            foreword: "This is the brief introduction of this travel post... post... post... . . . . post... post... post... post...",
-            photos_src: [
-                "https://www.treksplorer.com/wp-content/uploads/things-to-do-in-taipei-taiwan-1-1024x683.jpg",
-                "https://www.treksplorer.com/wp-content/uploads/ximending-taipei-taiwan-night.jpg",
-                "https://images.chinatimes.com/newsphoto/2022-01-19/1024/20220119001717.jpg",
-            ],
-            photos_title: [
-                "xxx temple",
-                "Ximending",
-                "NTU Park",
-            ],
-            texts: [
-                [
-                    "123Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
-                    "next Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
-                ],
-                [
-                    "456Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
-                    "next Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
-                    "next Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
-                    "next Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
-                ],
-                [
-                    "789Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
-                    "next Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
-                ],
-            ],
-        },
-      }
-    },
-};
+   name: 'PostView',
+   components: {
+     TripCard,
+     PostPage,
+     BottomBar,
+   },
+   data() {
+       return {
+         trip: {
+             id: 0,
+             invited: false,
+         },
+         post: {
+             id: 0,
+             creator: 102,
+             trip: 51022,
+             content: [],
+             creator_name: "derekdylu",
+             trip_title: "taipei trip",
+             picture: "https://cdn.vuetifyjs.com/images/cards/house.jpg",
+             foreword: "This is the brief introduction of this travel post... post... post... . . . . post... post... post... post...",
+             photos_src: [
+                 "https://www.treksplorer.com/wp-content/uploads/things-to-do-in-taipei-taiwan-1-1024x683.jpg",
+                 "https://www.treksplorer.com/wp-content/uploads/ximending-taipei-taiwan-night.jpg",
+                 "https://images.chinatimes.com/newsphoto/2022-01-19/1024/20220119001717.jpg",
+             ],
+             photos_title: [
+                 "xxx temple",
+                 "Ximending",
+                 "NTU Park",
+             ],
+             texts: [
+                 [
+                     "123Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
+                     "next Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
+                 ],
+                 [
+                     "456Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
+                     "next Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
+                     "next Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
+                     "next Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
+                 ],
+                 [
+                     "789Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
+                     "next Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
+                 ],
+             ],
+         },
+       }
+     },
+ };
 </script>
