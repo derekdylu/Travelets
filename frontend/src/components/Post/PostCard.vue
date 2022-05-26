@@ -7,16 +7,35 @@
     max-width = "750px"
     cover
   >
-    <v-card-title style="color: white">{{ tripProps.title }}</v-card-title>
+    <!-- <v-card-title style="color: white">{{ tripProps.title }}</v-card-title> -->
      <!-- <v-card-text style="color: white"> created by {{ tripProps.host }}</v-card-text> -->
   </v-img>
   <v-card
-    class = "pa-3 .bg-white rounded-xl flex-column flex-grow mt-1"
+    class = "pa-3 .bg-white rounded-b-xl flex-column flex-grow mt-1"
     elevation = "4"
     max-height = "100%"
     max-width = "750px"
     min-width = "300px"
   >
+    <v-row 
+        class = "mt-3 ml-2"
+        align = "center"
+    >
+        <v-avatar
+            size="72"
+        >
+            <v-img
+                src="https://cdn.vuetifyjs.com/images/john.jpg"
+                alt="avatar"
+            ></v-img>
+        </v-avatar>
+        <v-col
+            align = "start"
+        >
+            <p class = "name"> {{ tripProps.host }}</p>
+            <p class = "trip_name"> {{ tripProps.title }}</p>
+        </v-col>
+    </v-row>
     <p class = "intro">{{foreword}}</p>
     <PostItem 
         v-for="(item, i) in items"
@@ -28,6 +47,7 @@
   </v-card>
   <BottomBar
         :author = "tripProps.host"
+        date = "2023-08-19"
   />
 </template>
 
@@ -96,6 +116,14 @@ import BottomBar from './BottomBar.vue'
 </script>
 
 <style>
+.name{
+    font-weight: 900;
+}
+.trip_name{
+    color: rgb(107, 107, 107);
+    font-weight: 500;
+
+}
 .intro{
     max-width: 650px;
     margin-top: 30px; 
