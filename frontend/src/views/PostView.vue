@@ -35,10 +35,9 @@
             <p class = "intro">{{ post.foreword }}</p> 
             <PostPage
                 class="my-2"
-                :tripProps="post"    
+                :postProps="post"    
             />  
         </v-card>
-        
         <BottomBar
             :author = "post.creator_name"
             date = "2023-08-19"
@@ -53,7 +52,6 @@
 import TripCard from '@/components/Home/TripCard.vue'
 import PostPage from '@/components/Post/PostPage.vue'
 import BottomBar from '@/components/Post/BottomBar.vue'
-
 export default {
    name: 'PostView',
    components: {
@@ -64,18 +62,25 @@ export default {
    data() {
        return {
          trip: {
-             id: 0,
-             invited: false,
+            id: 0,
+            invited: false,
+            picture: "https://cdn.vuetifyjs.com/images/cards/house.jpg",
+            title: "taipei trip",
+            host: "derekdylu",
+            status: "ongoing",
+            startDate: "2023/08/12",
+            endDate: "2023/08/15",
+            area: "Taipei",
          },
          post: {
-             id: 0,
+             id: 13,
              creator: 102,
              trip: 51022,
              content: [],
-             creator_name: "derekdylu",
-             trip_title: "taipei trip",
+             creator_name: "derekdylu", // query
+             trip_title: "taipei trip", //query
              picture: "https://cdn.vuetifyjs.com/images/cards/house.jpg",
-             foreword: "This is the brief introduction of this travel post... post... post... . . . . post... post... post... post...",
+             foreword: "This is the brief introduction of this travel post... post... post... . . . . post... post... post... post..!",
              photos_src: [
                  "https://www.treksplorer.com/wp-content/uploads/things-to-do-in-taipei-taiwan-1-1024x683.jpg",
                  "https://www.treksplorer.com/wp-content/uploads/ximending-taipei-taiwan-night.jpg",

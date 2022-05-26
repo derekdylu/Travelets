@@ -20,7 +20,7 @@
 
 <script>
   export default {
-    name: 'PostItem',
+    name: 'ProfileList',
     components: {
         
     },

@@ -53,7 +53,7 @@
                 class="my-2"
                 v-for="(trip, i) in trips"
                 :key="i"
-                :tripProps="trip"
+                :trip="trip"
               />
             </v-col>
           </v-container>
@@ -119,6 +119,28 @@
             startDate: "2023/09/16",
             endDate: "2023/10/22",
             area: "Kaoshiung",
+          },
+          {
+            id: 4,
+            invited: false,
+            picture: "https://a.cdn-hotels.com/gdcs/production5/d320/a0c5a994-d99a-4278-a1b1-8a3b652461ac.jpg",
+            title: "長灘島之旅",
+            host: "Allen Lin",
+            status: "past",
+            startDate: "2021/09/16",
+            endDate: "2021/10/22",
+            area: "Boracay",
+          },
+          {
+            id: 5,
+            invited: false,
+            picture: "https://www.aljazeera.com/wp-content/uploads/2021/12/000_9AP79Q.jpg?resize=770%2C513",
+            title: "香港之旅",
+            host: "光復香港時代革命",
+            status: "past",
+            startDate: "2021/09/16",
+            endDate: "2021/10/22",
+            area: "HongKong, HK",
           },
         ]
       }
