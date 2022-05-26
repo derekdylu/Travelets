@@ -1,4 +1,5 @@
 <template>
+    <div>
         <div>
             <label class="form-control label">Trip Name</label>
             <v-text-field v-model="tripname" placeholder="Trip Name" name="tripname"
@@ -28,6 +29,7 @@
             <v-text-field v-model="enddate" placeholder="2022/05/08" name="enddate"
             ></v-text-field>
         </div>
+    </div>
 </template>
 
 <script>

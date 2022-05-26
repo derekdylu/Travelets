@@ -1,13 +1,14 @@
 <template>
     <div>
-      <ProgressBar />
+      <div>
+        <ProgressBar />
+      </div>
+      <v-btn @click.prevent="sendTrip()">jajajja</v-btn>
+      <div class="container">
+        <SetTrip />
+        <InviteFriend />
+      </div>
     </div>
-
-    <div class="container">
-      <SetTrip />
-      <InviteFriend />
-    </div>
-  
 </template>
 
 
@@ -15,6 +16,7 @@
 import ProgressBar from '../components/General/ProgressBar.vue'
 import SetTrip from '../components/Setup/SetTrip.vue'
 import InviteFriend from '../components/Setup/Invite.vue'
+import axios from 'axios'
 
 export default {
   name: 'SetupView',
@@ -22,6 +24,20 @@ export default {
     ProgressBar,
     SetTrip,
     InviteFriend
+  },
+  methods: {
+    sendTrip() {
+      const tripData = { 
+        tripname: this.tripname,
+        startdate: this.startdate,
+        enddate: this.enddate,
+        location: this.location,
+        value: this.value,
+        options: this.options      
+      }
+      axios
+        .post()
+    }
   }
 }
 </script>
