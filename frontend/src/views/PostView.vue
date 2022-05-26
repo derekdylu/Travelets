@@ -2,42 +2,7 @@
   <div>
     <v-container class="pa-0">
       <v-col align="center" class="pa-0">
-        <v-navigation-drawer
-          v-model="drawer"
-          absolute
-          bottom
-          temporary
-        >
-          <v-list
-            nav
-          >
-            <v-list-item>
-              <v-list-item-title>Feeds</v-list-item-title>
-            </v-list-item>
-
-            <v-list-item>
-              <v-list-item-title>Explore</v-list-item-title>
-            </v-list-item>
-
-            <v-list-item>
-              <v-list-item-title>Notifications</v-list-item-title>
-            </v-list-item>
-
-            <v-list-item>
-              <v-list-item-title>Profile</v-list-item-title>
-            </v-list-item>
-
-            <v-list-item>
-              <v-list-item-title>Logout</v-list-item-title>
-            </v-list-item>
-          </v-list> 
-        </v-navigation-drawer>
-        <ProfileHeader @click-drawer="drawer = !drawer"/>
-      </v-col>
-    </v-container>
-    <v-container class="pa-0">
-      <v-col align="center" class="pa-0">
-        <PostCard 
+        <PostPage 
             class="my-2"
             :tripProps="trip"    
         />
@@ -48,14 +13,12 @@
 </template>
 
 <script>
-import ProfileHeader from '@/components/Home/ProfileHeader.vue'
-import PostCard from '@/components/Post/PostCard.vue'
+import PostPage from '@/components/Post/PostPage.vue'
 
 export default {
   name: 'PostView',
   components: {
-    ProfileHeader,
-    PostCard,
+    PostPage
   },
   data() {
       return {

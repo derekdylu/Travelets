@@ -1,107 +1,66 @@
 <template>
-  <v-img
-    :src="tripProps.picture"
-    class="white--text align-end"
-    gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-    max-height="250px"
-    max-width = "750px"
-    cover
-  >
-    <v-card-title style="color: white">{{ tripProps.title }}</v-card-title>
-     <!-- <v-card-text style="color: white"> created by {{ tripProps.host }}</v-card-text> -->
-  </v-img>
-  <v-card
-    class = "pa-3 .bg-white rounded-xl flex-column flex-grow mt-1"
-    elevation = "4"
-    max-height = "100%"
-    max-width = "750px"
-    min-width = "300px"
-  >
-    <p class = "intro">{{foreword}}</p>
-    <PostItem 
-        v-for="(item, i) in items"
-        :key="i"
-        :picture="item.pic"
-        :attr_name="item.name"
-        :text="item.text"
-    />
-  </v-card>
-  <BottomBar
-        :author = "tripProps.host"
-  />
+  <div>
+    <v-card class="rounded.lg pt-2" max-width="370px">
+      <v-card-title>
+        <v-avatar
+          size="36px"
+        >
+          <v-img
+            alt="Avatar"
+            src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"
+          ></v-img>
+        </v-avatar>
+        {{ creator }}
+      </v-card-title>
+      <TripCard :tripProps="trip" attachedPost/>
+      <v-card-text align="left">
+        {{ text }}
+      </v-card-text>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+          <v-btn icon flat>
+            <v-icon color="secondary" icon="favorite" />
+          </v-btn>
+          {{ likes }}
+          <v-btn icon flat>
+            <v-icon color="secondary" icon="more_horiz" />
+          </v-btn>
+      </v-card-actions>
+    </v-card>
+  </div>
 </template>
 
 <script>
-import PostItem from './PostItem.vue'
-import BottomBar from './BottomBar.vue'
+  import TripCard from '../Home/TripCard.vue'
 
   export default {
     name: 'PostCard',
     components: {
-        PostItem,
-        BottomBar
+      TripCard,
     },
-    data(){
-        return {
-          foreword: "This is the brief introduction of this travel post... post... post... . . . . post... post... post... post...",
-          items: [
-              {
-                  pic: "https://www.treksplorer.com/wp-content/uploads/things-to-do-in-taipei-taiwan-1-1024x683.jpg",
-                  name: "xxx temple",
-                  text: [
-                      "123Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
-                      "next Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
-                  ]
+    data() {
 
-              },
-              {
-                  pic: "https://www.treksplorer.com/wp-content/uploads/ximending-taipei-taiwan-night.jpg",
-                  name: "Ximending",
-                  text: [
-                      "456Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
-                      "next Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
-                      "next Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
-                      "next Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
-                  ]
-
-              },
-              {
-                  pic: "https://images.chinatimes.com/newsphoto/2022-01-19/1024/20220119001717.jpg",
-                  name: "NTU Park",
-                  text: [
-                      "789Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
-                      "next Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, urna non sodales aliquam, est ex tempus nunc, a porttitor nisl erat congue mi.",
-                  ]
-              },
-          ],
-      }
     },
     props: {
-      'tripProps': {
-        type: Object,
-        default(){
-          return {
-            
-          }
-        }
+      text: {
+        type: String
+      },
+      creator: {
+        type: String
+      },
+      trip: {
+        type: Object
+      },
+      likes: {
+        type: Number
+      },
+      link: {
+        type: String
       }
-    },
-    methods: {
-      
-    },
-    mounted() {
-      
     }
   }
 </script>
 
-<style>
-.intro{
-    max-width: 650px;
-    margin-top: 30px; 
-    margin-bottom: 30px;
-    font-size: 20px;
-    font-weight: 500;
-    text-align: left;
-}
+<style lang="scss" scoped>
+
 </style>
