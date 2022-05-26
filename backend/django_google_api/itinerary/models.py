@@ -3,7 +3,7 @@ from django.db import models
 
 # Create your models here.
 class Itinerary(models.Model):
-    id = models.UUIDFeild(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     trip_name = models.CharField(max_length=100, null=True, blank=True)
     location = models.CharField(max_length=100, null=True, blank=True)
     vehicle = models.CharField(max_length=100, null=True, blank=True)
@@ -14,4 +14,4 @@ class Itinerary(models.Model):
     notes = models.JSONField(null=True, blank=True, editable=True)
     
     def __str__(self):
-        return f'{self.title}'
+        return f'{self.trip_name}'
