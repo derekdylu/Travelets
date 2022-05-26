@@ -35,7 +35,7 @@
             <p class = "intro">{{ post.foreword }}</p> 
             <PostPage
                 class="my-2"
-                :tripProps="post"    
+                :postProps="post"    
             />  
         </v-card>
         
@@ -76,10 +76,10 @@ export default {
         },
         post: {
             id: 0,
-            creator: 102,
-            trip: 51022,
+            creator: 102, //random
+            trip: 51022, //random
             content: [],
-            creator_name: "derekdylu",
+            creator_name: "derekdylu", 
             trip_title: "taipei trip",
             picture: "https://cdn.vuetifyjs.com/images/cards/house.jpg",
             foreword: "This is the brief introduction of this travel post... post... post... . . . . post... post... post... post...",
