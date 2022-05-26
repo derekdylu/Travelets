@@ -40,20 +40,16 @@
       <v-window v-model="tab">
         <v-window-item value="post">
           <v-container fluid class="flex-column flex-grow" style="width: 750px">
-            <v-row align="center" justify="space-between" class="mx-4">
-              <v-btn-toggle>
-                <v-icon icon="more_verti" color="secondary" class="my-3" />
-              </v-btn-toggle>
-              <v-btn variant="outlined" color="primary" @click="this.$router.push({ path: '/setup' })">
-                new trip
-              </v-btn>
-            </v-row>
+            
             <v-col align="center">
               <PostCard
                 class="my-2"
-                v-for="(trip, i) in trips"
+                v-for="(post, i) in posts"
                 :key="i"
-                :trip="trip"
+                :trip="post.trip"
+                :text="post.text"
+                :creator="post.creator"
+                :likes="post.likes"
               />
             </v-col>
           </v-container>
@@ -142,6 +138,44 @@
             endDate: "2021/10/22",
             area: "HongKong, HK",
           },
+        ],
+        posts: [
+          {
+            id: 0,
+            text: "Lorem ipsum",
+            creator: "derekdylu",
+            trip: {
+              id: 4,
+              invited: false,
+              picture: "https://a.cdn-hotels.com/gdcs/production5/d320/a0c5a994-d99a-4278-a1b1-8a3b652461ac.jpg",
+              title: "長灘島之旅",
+              host: "Allen Lin",
+              status: "past",
+              startDate: "2021/09/16",
+              endDate: "2021/10/22",
+              area: "Boracay",
+            },
+            likes: 12,
+            link: "/post"
+          },
+          {
+            id: 1,
+            text: "Lorem ipsum lalaland",
+            creator: "derekdylu",
+            trip: {
+              id: 5,
+              invited: false,
+              picture: "https://www.aljazeera.com/wp-content/uploads/2021/12/000_9AP79Q.jpg?resize=770%2C513",
+              title: "香港之旅",
+              host: "光復香港時代革命",
+              status: "past",
+              startDate: "2021/09/16",
+              endDate: "2021/10/22",
+              area: "HongKong, HK",
+            },
+            likes: 99,
+            link: "/post"
+          }
         ]
       }
     }
