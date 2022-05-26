@@ -21,7 +21,7 @@
           <v-btn icon flat>
             <v-icon color="secondary" icon="favorite" />
           </v-btn>
-          {{ likes }}
+          <p>{{ likes }}</p>
           <v-btn icon flat>
             <v-icon color="secondary" icon="more_horiz" />
           </v-btn>
@@ -49,7 +49,19 @@
         type: String
       },
       trip: {
-        type: Object
+        type: Object,
+        default() {
+          return {
+            invited: false,
+            picture: "",
+            title: "untitled trip",
+            host: "unknown",
+            status: "draft",
+            startDate: "2022/08/12",
+            endDate: "2022/08/14",
+            area: "unknown"
+          }
+        }
       },
       likes: {
         type: Number
@@ -57,6 +69,9 @@
       link: {
         type: String
       }
+    },
+    mounted() {
+      console.log(this.trip)
     }
   }
 </script>
