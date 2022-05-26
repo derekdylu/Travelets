@@ -36,20 +36,25 @@
                     side="end"
                     align="start"
                     truncate-line="start"
+                    line-thickness = "2.5"
                 >
                     <v-timeline-item 
-                        size = "20px"
+                        size = "25px"
                         fill-dot
                         dot-color = "#a9a9a9"
                         left
+                        icon="place"
+                        icon-color = "white"
                     >
                         <p class = "place"> {{place}} </p>
                     </v-timeline-item>
                     <v-timeline-item 
-                        size = "20px"
+                        size = "25px"
                         fill-dot
                         dot-color = "#d3d3d3"
                         left
+                        icon="schedule"
+                        icon-color = "white"
                     >
                         <p class = "time"> {{time}} </p>
                     </v-timeline-item>
@@ -60,12 +65,15 @@
                     side="end"
                     align="start"
                     truncate-line="end"
+                    line-thickness = "2.5"
                 >
                     <v-timeline-item 
-                        size = "20px"
+                        size = "25px"
                         fill-dot
                         dot-color = "#a9a9a9"
                         left
+                        icon="place"
+                        icon-color = "white"
                     >
                         <p class = "place"> {{place}} </p>
                     </v-timeline-item>
@@ -114,12 +122,10 @@ export default {
 <style>
 
 .place{
-    font-size: 15px;
     font-weight: 500;
     color:rgb(0, 0, 0);
 }
 .time{
-    font-size: 15px;
     color: #a9a9a9;
     font-weight: 700;
 }

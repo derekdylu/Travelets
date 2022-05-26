@@ -15,7 +15,22 @@
                     max-height = 'fill'
                     width = '180px'
                 >
-                    <p style = "word-wrap: break-word;">{{text}}</p>
+                    <v-row v-if = "tooLong">
+                        <v-col cols = "9"></v-col>
+                        <v-col cols = "3">
+                            <v-btn 
+                                icon flat
+                                @click= "onClick_open()"
+                                size = "25px"
+                            >
+                                <v-icon 
+                                    :icon = "open? 'expand_less' : 'expand_more'"
+                                    size = "20px"
+                                />
+                            </v-btn>
+                        </v-col>
+                    </v-row>
+                    <p style = "word-wrap: break-word;">{{show_text}}</p>
                 </v-card>
             </v-col>
             <v-col
@@ -29,20 +44,25 @@
                     side="end"
                     align="start"
                     truncate-line="start"
+                    line-thickness = "2.5"
                 >
                     <v-timeline-item 
-                        size = "20px"
+                        size = "25px"
                         fill-dot
                         dot-color = "#a9a9a9"
                         left
+                        icon="place"
+                        icon-color = "white"
                     >
                         <p class = "place"> {{place}} </p>
                     </v-timeline-item>
                     <v-timeline-item 
-                        size = "20px"
+                        size = "25px"
                         fill-dot
                         dot-color = "#d3d3d3"
                         left
+                        icon="schedule"
+                        icon-color = "white"
                     >
                         <p class = "time"> {{time}} </p>
                     </v-timeline-item>
@@ -53,12 +73,15 @@
                     side="end"
                     align="start"
                     truncate-line="end"
+                    line-thickness = "2.5"
                 >
                     <v-timeline-item 
-                        size = "20px"
+                        size = "25px"
                         fill-dot
                         dot-color = "#a9a9a9"
                         left
+                        icon="place"
+                        icon-color = "white"
                     >
                         <p class = "place"> {{place}} </p>
                     </v-timeline-item>
@@ -83,11 +106,48 @@
       },
       data() {
         return {
+            open: true,
+            tooLong: false,
+            show_text: "",
             
         }
       },
+      watch: {
+        open: {
+            handler() {
+                console.log('check');
+                if(!this.open){
+                    this.hideBlock();
+                }
+                else{
+                    this.recoverText();
+                }
+            },
+        },
+      },
       methods:{
-        
+        onClick_open(){
+            this.open = !this.open;
+        },
+        hideBlock(){
+            this.show_text = this.text.substr(0,80) + '...';
+        },
+        recoverText(){
+            this.show_text = this.text;
+        },
+        checkLength(){
+            if(this.text.length > 80){
+                this.tooLong = true;
+            }
+        }
+      },
+      mounted(){
+          this.checkLength();
+          this.show_text = this.text;
+          if(this.tooLong){
+              this.hideBlock();
+              this.open = !this.open;
+          }
       },
   }
 </script>

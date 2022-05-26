@@ -1,5 +1,4 @@
 <template>
-
     <v-card
       class="pa-3 .bg-white rounded-t-xl flex-column flex-grow"
       elevation="4"
