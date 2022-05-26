@@ -32,7 +32,6 @@
         picture: String,
         attr_name: String,
         text: [],
-      
     },
     methods: {
       
