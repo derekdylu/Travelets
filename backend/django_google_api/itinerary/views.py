@@ -1,5 +1,5 @@
 import imp
-from django.shortcuts import render
+from django.shorgittcuts import render
 
 from rest_framework.response import Response
 from rest_framework import generics
@@ -14,3 +14,14 @@ class ItineraryView(generics.RetrieveAPIView):
         queryset = self.get_queryset()
         serializer = ItinerarySerializer(queryset, many = True)
         return Response(serializer.data)
+
+    def createTrip(self, request, *args, **kwargs):
+        if request.method == 'POST':
+            tripname = request.POST.get('tripname')
+            startdate = request.POST.get('startdate')
+            enddate = request.POST.get('enddate')
+            location = request.POST.get('location')
+            value = request.POST.get('value')
+            options = request.POST.get('options')
+            # TODO get data
+            pass
