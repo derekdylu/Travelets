@@ -21,7 +21,7 @@ class ItineraryView(generics.RetrieveAPIView):
             startdate = request.POST.get('startdate')
             enddate = request.POST.get('enddate')
             location = request.POST.get('location')
-            value = request.POST.get('value')
-            options = request.POST.get('options')
+            vehicle = request.POST.get('vehicle')
             # TODO get data
+            
             pass
