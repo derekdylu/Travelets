@@ -1,26 +1,29 @@
 <template>
     <div>
-      <v-continer class="pa-0">
-        <v-col align="center" class="pa-0">
-          <ProgressBar />
-        </v-col>
-      </v-continer>
-      <v-container class="pa-0">
-        <v-col align="center" class="pa-0">
-          <v-card
-            class="my-3 pa-3 .bg-white rounded-xl flex-column flex-grow"
-            elevation="4"
-            max-height="100%"
-            max-width="750px"
-            min-width="300px"
-          >
-            <SetTrip />
-            <InviteFriend />
-          </v-card>
-        </v-col>
-      </v-container>
+      <v-col align="center">
+        <v-continer class="pa-0">
+          <v-col align="center" class="pa-0">
+            <ProgressBar />
+          </v-col>
+        </v-continer>
+        <v-container class="pa-0">
+          <v-col align="center" class="pa-0">
+            <v-card
+              class="my-3 pa-3 .bg-white rounded-xl flex-column flex-grow"
+              elevation="4"
+              max-height="100%"
+              max-width="750px"
+              min-width="300px"
+            >
+              <SetTrip />
+              <InviteFriend />
+            </v-card>
+          </v-col>
+        </v-container>
+      </v-col>
       
-      <v-btn @click.prevent="sendTrip(); emitTripID()">jajajja</v-btn>
+      <v-btn @click.prevent="sendTrip()">jajaja</v-btn>
+      <p>{{ $store.state.test }}</p>
     </div>
 </template>
 

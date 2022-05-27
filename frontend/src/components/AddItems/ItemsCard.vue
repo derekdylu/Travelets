@@ -4,8 +4,8 @@
       elevation="4"
       max-height="100%"
       max-width="750px"
-      min-width="300px"
-    >
+      min-width="300px">
+    
       <v-tabs
         v-model="tab"
         center-active
@@ -52,8 +52,6 @@
 
           </v-col>
         </v-window-item>
-
-        <!-- #DIV -->
 
         <v-window-item value="selected">
           <v-col
