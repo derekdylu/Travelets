@@ -16,5 +16,6 @@ export default new VueRouter({
         name: 'itinerary',  // url
         component: ProfileList,  //refer to ProfileList.vue
         },
+        //  other routes
     ]
 })

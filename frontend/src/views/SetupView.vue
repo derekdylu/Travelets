@@ -26,6 +26,7 @@ export default {
     InviteFriend
   },
   methods: {
+<<<<<<< HEAD
     // sendTrip() {
     //   const tripData = { 
     //     tripname: this.tripname,
@@ -38,6 +39,20 @@ export default {
     //   axios
     //     .post()
     // }
+=======
+    sendTrip() {
+      // const tripData = { 
+      //   tripname: this.tripname,
+      //   startdate: this.startdate,
+      //   enddate: this.enddate,
+      //   location: this.location,
+      //   value: this.value,
+      //   options: this.options      
+      // }
+      axios
+        .post()
+    }
+>>>>>>> fd34820e9a3be33b3bb061d273ec6f6236df1e05
   }
 }
 </script>
