@@ -24,7 +24,7 @@
             size="72"
           >
             <v-img
-              src="https://cdn.vuetifyjs.com/images/john.jpg"
+              src="https://lh3.googleusercontent.com/KS1sYInErw661ZGjoIeAgyVTkP1--vCHw7Hq4m1TLvVqtapqMudCSIB_1KttRMzOcBoDgJJC67L2UYNyG0X4J9owzSYuASWEUpDQzw=w600"
               alt="avatar"
             ></v-img>
           </v-avatar>

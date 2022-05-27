@@ -11,7 +11,7 @@
               >
                 <v-img
                   alt="Avatar"
-                  src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"
+                  src="https://lh3.googleusercontent.com/KS1sYInErw661ZGjoIeAgyVTkP1--vCHw7Hq4m1TLvVqtapqMudCSIB_1KttRMzOcBoDgJJC67L2UYNyG0X4J9owzSYuASWEUpDQzw=w600"
                 ></v-img>
               </v-avatar>
               <span>

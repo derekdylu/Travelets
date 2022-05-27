@@ -1,7 +1,7 @@
 <template>
   <v-card class="rounded-xl" max-width="338px" :elevation="elevation" :style="style">
     <v-img
-      :src="tripProps.picture"
+      :src="tripProps.picture ? tripProps.picture : defaultImgSrc"
       class="white--text align-end rounded-t-xl"
       gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
       max-height="125px"
@@ -59,6 +59,7 @@
         statusWitdth: "",
         style: "",
         elevation: "",
+        defaultImgSrc: "https://travel.home.sndimg.com/content/dam/images/travel/stock/2017/1/9/0/GettyImages-127046314_DOELANYann_Maldives.jpg.rend.hgtvcom.966.644.suffix/1491841349407.jpeg",
       }
     },
     props: {

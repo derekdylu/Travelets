@@ -19,7 +19,7 @@
                     class = 'note_card'
                     min-height = '90px'
                     max-height = 'fill'
-                    width = '180px'
+                    max-width = '180px'
                 >
                     <p style = "word-wrap: break-word;white-space: pre-line;">{{text}}</p>
                 </v-card>
