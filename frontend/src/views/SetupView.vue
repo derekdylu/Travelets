@@ -16,7 +16,7 @@
 import ProgressBar from '../components/General/ProgressBar.vue'
 import SetTrip from '../components/Setup/SetTrip.vue'
 import InviteFriend from '../components/Setup/Invite.vue'
-import axios from 'axios'
+// import axios from 'axios'
 
 export default {
   name: 'SetupView',
@@ -26,18 +26,18 @@ export default {
     InviteFriend
   },
   methods: {
-    sendTrip() {
-      const tripData = { 
-        tripname: this.tripname,
-        startdate: this.startdate,
-        enddate: this.enddate,
-        location: this.location,
-        value: this.value,
-        options: this.options      
-      }
-      axios
-        .post()
-    }
+    // sendTrip() {
+    //   const tripData = { 
+    //     tripname: this.tripname,
+    //     startdate: this.startdate,
+    //     enddate: this.enddate,
+    //     location: this.location,
+    //     value: this.value,
+    //     options: this.options      
+    //   }
+    //   axios
+    //     .post()
+    // }
   }
 }
 </script>
