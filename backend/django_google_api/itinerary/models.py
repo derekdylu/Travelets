@@ -1,5 +1,6 @@
 import uuid
 from django.db import models
+import datetime
 
 # Create your models here.
 class Itinerary(models.Model):
@@ -12,6 +13,13 @@ class Itinerary(models.Model):
     attractions = models.JSONField(null=True, blank=True, editable=True)
     travel_time = models.JSONField(null=True, blank=True, editable=True)
     notes = models.JSONField(null=True, blank=True, editable=True)
+    status = models.CharField(max_length=10, blank=True, default="ongoing") #, null=True
+    host = models.CharField(max_length=100, null=True, blank=True)
     
     def __str__(self):
         return f'{self.title}'
+
+    def save(self, *args, **kwargs):
+        if self.endDate < datetime.date.today():
+            self.status = "ended"
+        super().save(*args, **kwargs)
