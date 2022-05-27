@@ -19,7 +19,7 @@
     </v-container>
     <v-container class="pa-0">
       <v-row align="center">
-        <v-col align="left" ols="4" class="pl-5">
+        <v-col align="left" cols="4" class="pl-5">
           <v-avatar
             size="72"
           >

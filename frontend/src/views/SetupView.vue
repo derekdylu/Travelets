@@ -1,16 +1,14 @@
 <template>
     <div>
-      <ProgressBar />
+      <div>
+        <ProgressBar />
+      </div>
+      <v-btn @click.prevent="sendTrip()">jajajja</v-btn>
+      <div class="container">
+        <SetTrip />
+        <InviteFriend />
+      </div>
     </div>
-
-    <div class="container">
-      <SetTrip />
-    </div>
-    
-    <div class="container2">
-      <InviteFriend />
-    </div>
-  
 </template>
 
 
@@ -18,6 +16,7 @@
 import ProgressBar from '../components/General/ProgressBar.vue'
 import SetTrip from '../components/Setup/SetTrip.vue'
 import InviteFriend from '../components/Setup/Invite.vue'
+import axios from 'axios'
 
 export default {
   name: 'SetupView',
@@ -25,6 +24,20 @@ export default {
     ProgressBar,
     SetTrip,
     InviteFriend
+  },
+  methods: {
+    sendTrip() {
+      // const tripData = { 
+      //   tripname: this.tripname,
+      //   startdate: this.startdate,
+      //   enddate: this.enddate,
+      //   location: this.location,
+      //   value: this.value,
+      //   options: this.options      
+      // }
+      axios
+        .post()
+    }
   }
 }
 </script>
@@ -44,6 +57,8 @@ body {
 }
 
 .container {
+  max-width: 740px; 
+  min-width: 300px;
   width: 95%;
   overflow: auto;
   box-shadow:2px 2px 10px -2px rgba(163, 163, 179, 0.5);
@@ -53,12 +68,14 @@ body {
   border-radius: 20px;
   margin-top: 25px;
   margin-left: 10px;
-  height: 18cm;
+  height: 20cm;
 }
 
 .container2 {
+  max-width: 740px; 
+  min-width: 300px;
   width: 95%;
-  height: 5.5cm;
+  height: 6cm;
   overflow: auto;
   box-shadow:2px 2px 10px -2px rgba(163, 163, 179, 0.5);
   border: 1px solid rgb(253, 254, 255);

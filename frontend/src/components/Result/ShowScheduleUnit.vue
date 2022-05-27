@@ -1,56 +1,89 @@
 <template >
     <v-card-text> 
         <v-row 
-            align="start"
+            align="stretch"
             no-gutters
         >
             <v-col
                 cols = "4"
-                sm = "4"
-                md = "4"
-                lg = "4"
+                max-width = "fill"
                 align = "left"
             >
                 <v-card
                     class = "note_card_result"
-                    elevation = "2"
                     min-height = "130px"
+                    max-height = 'fill'
+                    width = '180px'
                 >
-                    <p style = "word-wrap: break-word;">{{input_text}}</p>
+                    <v-row v-if = "tooLong">
+                        <v-col cols = "9"></v-col>
+                        <v-col cols = "3">
+                            <v-btn 
+                                icon flat
+                                @click= "onClick_open()"
+                                size = "25px"
+                            >
+                                <v-icon 
+                                    :icon = "open? 'expand_less' : 'expand_more'"
+                                    size = "20px"
+                                />
+                            </v-btn>
+                        </v-col>
+                    </v-row>
+                    <p style = "word-wrap: break-word;">{{show_text}}</p>
                 </v-card>
             </v-col>
             <v-col
                 cols = "8"
-                sm = "8"
-                md = "8"
-                lg = "8"
-                align="start"
+                align="left"
                 justify="start"
             >
-                <v-timeline 
-                    class = "time_line_show"
+                <v-timeline v-if = "notLast"
+                    class = "time_line"
                     density="comfortable"
                     side="end"
                     align="start"
                     truncate-line="start"
+                    line-thickness = "2.5"
                 >
                     <v-timeline-item 
-                        size = "20px"
+                        size = "25px"
                         fill-dot
-                        height = "45px"
                         dot-color = "#a9a9a9"
                         left
+                        icon="place"
+                        icon-color = "white"
                     >
                         <p class = "place"> {{place}} </p>
                     </v-timeline-item>
-                    <v-timeline-item
-                        size = "20px"
+                    <v-timeline-item 
+                        size = "25px"
                         fill-dot
-                        height = "65px"
                         dot-color = "#d3d3d3"
                         left
+                        icon="schedule"
+                        icon-color = "white"
                     >
                         <p class = "time"> {{time}} </p>
+                    </v-timeline-item>
+                </v-timeline>
+                <v-timeline v-else
+                    class = "time_line"
+                    density="comfortable"
+                    side="end"
+                    align="start"
+                    truncate-line="end"
+                    line-thickness = "2.5"
+                >
+                    <v-timeline-item 
+                        size = "25px"
+                        fill-dot
+                        dot-color = "#a9a9a9"
+                        left
+                        icon="place"
+                        icon-color = "white"
+                    >
+                        <p class = "place"> {{place}} </p>
                     </v-timeline-item>
                 </v-timeline>
             </v-col>
@@ -65,18 +98,56 @@
       props: {
         place: String,
         time: String,
-        input_text: String,
+        text: String,
+        notLast: Boolean,
       },
       components: {
 
       },
       data() {
         return {
+            open: true,
+            tooLong: false,
+            show_text: "",
             
         }
       },
+      watch: {
+        open: {
+            handler() {
+                console.log('check');
+                if(!this.open){
+                    this.hideBlock();
+                }
+                else{
+                    this.recoverText();
+                }
+            },
+        },
+      },
       methods:{
-        
+        onClick_open(){
+            this.open = !this.open;
+        },
+        hideBlock(){
+            this.show_text = this.text.substr(0,80) + '...';
+        },
+        recoverText(){
+            this.show_text = this.text;
+        },
+        checkLength(){
+            if(this.text.length > 80){
+                this.tooLong = true;
+            }
+        }
+      },
+      mounted(){
+          this.checkLength();
+          this.show_text = this.text;
+          if(this.tooLong){
+              this.hideBlock();
+              this.open = !this.open;
+          }
       },
   }
 </script>

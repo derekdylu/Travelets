@@ -29,8 +29,7 @@
               <v-col cols="12">
                 <v-textarea
                     class = "input_memo"
-                    label="Add Memo..."
-                    required
+                    label = "Add Memo..."
                     v-model = "input_text"
                     @input="send_back"
                 >
@@ -95,7 +94,6 @@
     },
   }
 
-  
 </script>
 
 <style>

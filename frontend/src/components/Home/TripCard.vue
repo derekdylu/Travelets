@@ -1,5 +1,5 @@
 <template>
-  <v-card class="rounded-xl" max-width="338px" elevation="2" :style="style">
+  <v-card class="rounded-xl" max-width="338px" :elevation="elevation" :style="style">
     <v-img
       :src="tripProps.picture"
       class="white--text align-end rounded-t-xl"
@@ -58,6 +58,7 @@
         statusSrc: "",
         statusWitdth: "",
         style: "",
+        elevation: "",
       }
     },
     props: {
@@ -75,6 +76,10 @@
             area: "unknown"
           }
         }
+      },
+      'attachedPost': {
+        type: Boolean,
+        default: false
       }
     },
     methods: {
@@ -99,10 +104,19 @@
         if (this.tripProps.status === "ongoing"){
           this.style = "border: 3px solid #76C450"
         }
+      },
+      writeElevation(){
+        if (this.attachedPost){
+          this.elevation = "0"
+          this.style = "border: 1px solid #ababab"
+        } else {
+          this.elevation = "2"
+        }
       }
     },
     mounted() {
       this.writeStyle()
+      this.writeElevation()
     }
   }
 </script>

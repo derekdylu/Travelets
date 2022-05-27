@@ -1,7 +1,7 @@
 <template >
     <v-card-text> 
         <v-row 
-            align="start"
+            align="stretch"
             no-gutters
         >
             <v-col
@@ -16,11 +16,12 @@
                 />
         
                 <v-card
-                    class = "note_card"
-                    min-height = "90px"
-                    max-width = "fill"
+                    class = 'note_card'
+                    min-height = '90px'
+                    max-height = 'fill'
+                    width = '180px'
                 >
-                    <p style = "word-wrap: break-word;">{{input_text}}</p>
+                    <p style = "word-wrap: break-word;white-space: pre-line;">{{text}}</p>
                 </v-card>
 
             </v-col>
@@ -29,34 +30,52 @@
                 align="left"
                 justify="start"
             >
-                <v-timeline 
+                <v-timeline v-if = "notLast"
                     class = "time_line"
                     density="comfortable"
                     side="end"
                     align="start"
                     truncate-line="start"
+                    line-thickness = "2.5"
                 >
                     <v-timeline-item 
-                        class = "t1"
-                        size = "20px"
+                        size = "25px"
                         fill-dot
-                        min-height = "30px"
                         dot-color = "#a9a9a9"
                         left
-                        v-bind:height = "t1_h"
+                        icon="place"
+                        icon-color = "white"
                     >
                         <p class = "place"> {{place}} </p>
                     </v-timeline-item>
-                    <v-timeline-item
-                        class = "t2"
-                        size = "20px"
+                    <v-timeline-item 
+                        size = "25px"
                         fill-dot
-                        min-height = "50px"
                         dot-color = "#d3d3d3"
                         left
-                        v-bind:height = "t2_h"
+                        icon="schedule"
+                        icon-color = "white"
                     >
                         <p class = "time"> {{time}} </p>
+                    </v-timeline-item>
+                </v-timeline>
+                <v-timeline v-else
+                    class = "time_line"
+                    density="comfortable"
+                    side="end"
+                    align="start"
+                    truncate-line="end"
+                    line-thickness = "2.5"
+                >
+                    <v-timeline-item 
+                        size = "25px"
+                        fill-dot
+                        dot-color = "#a9a9a9"
+                        left
+                        icon="place"
+                        icon-color = "white"
+                    >
+                        <p class = "place"> {{place}} </p>
                     </v-timeline-item>
                 </v-timeline>
             </v-col>
@@ -72,39 +91,30 @@ export default {
     props: {
         place: String,
         time: String,
+        notLast: Boolean,
     },
     components: {
         PopupEdit,
     },
     data() {
         return {
-            input_text: "No Memo.",
-            blc_h: "",
-            t1_h: "",
-            t2_h: "",
+            text: "No Memo.",
+            // notLast: true,
         }
     },
     watch: {
-        blc_h : function(){
-            this.t1_h = 40 + parseInt((this.blc_h - 90)/2) + "px"
-            console.log("t1: ", this.t1_h);
-            this.t2_h = 55 + parseInt((this.blc_h - 90)/2) + "px"
-            console.log("t2: ", this.t2_h);
-        }
+        
     },
     methods:{
         getValFromChild(val) {
-            this.updateBlcHeight();
-            console.log("update");
-            this.input_text = val;
+            this.text = val;
             if(val == ""){
-                this.input_text = "No Memo.";
+                this.text = "No Memo.";
             }
+
+            console.log(this.time);
+            
         },
-        updateBlcHeight(){
-            this.blc_h = document.querySelector('.note_card').getBoundingClientRect().height;
-            console.log(this.blc_h);
-        }
     },
 }
 </script>
@@ -112,12 +122,10 @@ export default {
 <style>
 
 .place{
-    font-size: 15px;
     font-weight: 500;
     color:rgb(0, 0, 0);
 }
 .time{
-    font-size: 15px;
     color: #a9a9a9;
     font-weight: 700;
 }

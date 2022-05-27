@@ -1,18 +1,24 @@
 <template>
-<div class="word">
-  <label>Participants</label>
-</div>
+    <div>
+      <label>Participants</label>
+    </div>
+
   <div>
-    <Multiselect v-model="value" mode="tags" placeholder="Invite Friends"
+     <Multiselect v-model="value" mode="tags" placeholder="Invite Friends"
     :close-on-select="false"
     :searchable="true"
     :create-option="true"
     :options="options"
-    />
+    :selected="multiValue"
+    :multiple="true"
+    :limit="2"
+    taggable="true"
+    @tag="addTag"
+    ></multiselect>
   </div>
 </template>
 
-<script>
+<script scoped>
   import Multiselect from '@vueform/multiselect'
 
   export default {
@@ -25,20 +31,53 @@
       return {
         value: null,
         options: [
-          'Pony Cheng',
-          'Isabelle Huang',
-          'Derek Lu',
-          'Alan Lin',
-          'Brandon Yeh',
-          'Timmy Chu',
-          'Jenna Huang'
+          'Pony',
+          'Isabelle',
+          'Derek',
+          'Alan',
+          'Brandon',
+          'Timmy',
+          'Jenna'
         ]
       }
+    },
+    methods: {
+        addTag(newTag) {
+            const tag = { name: newTag, code: newTag.substring(0, 2) + Math.floor((Math.random() * 10000000)) }
+            this.options.push(tag)
+            this.value.push(tag)
+        }
     }
   }
 </script>
 
 <style>
+.add-form {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  margin: 12px 0;;
+}
+
+.form-control label {
+  display: block;
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.form-control input {
+  width: 95%;
+  height: 28px;
+  margin: 4px;
+  margin-left: 15px;
+  padding: 3px 8px;
+  font-size: 14px;
+  align-items: center;
+  border: 1px solid rgb(228, 230, 231);
+  background-color: rgb(228, 230, 231);
+  border-radius: 20px;
+}
 .word{
   font-size: 17px;
   margin-left: -55px;
@@ -58,7 +97,7 @@
   border-radius: 3px;
   background:var(--ms-bg,rgb(255, 255, 255));
   font-size:var(--ms-font-size,1rem);
-  margin-top: 30px;
+  margin-top: 5px;
 }
 
 .multiselect.is-open{

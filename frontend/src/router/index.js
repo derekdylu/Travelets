@@ -8,6 +8,7 @@ import AddItemsView from '../views/AddItemsView.vue'
 import VoteView from '../views/VoteView.vue'
 import AddNotesView from '../views/AddNotesView.vue'
 import ShowResultView from '../views/ShowResultView.vue'
+import PostView from '../views/PostView.vue'
 
 // <<< testing >>>
 // import AddNotesViewOld from '../views/Old/AddNotesViewOld.vue'
@@ -77,6 +78,11 @@ const routes = [
     path: '/progress',
     name: 'progress',
     component: ProgressBar
+  },
+  {
+    path: '/post',
+    name: 'PostView',
+    component: PostView
   },
 ]
 

@@ -37,7 +37,7 @@
     </v-container>
     <v-container class="pa-0">
       <v-col align="center" class="pa-0">
-        <TripsList />
+        <ProfileList />
       </v-col>
     </v-container>
     
@@ -46,7 +46,7 @@
 
 <script>
 import ProfileHeader from '@/components/Home/ProfileHeader.vue'
-import TripsList from '@/components/Home/TripsList.vue'
+import ProfileList from '@/components/Home/ProfileList.vue'
 
 export default {
   name: 'HomeView',
@@ -58,7 +58,7 @@ export default {
   },
   components: {
     ProfileHeader,
-    TripsList,
+    ProfileList,
   }
 };
 </script>
