@@ -48,11 +48,10 @@ export default {
         vehicle: this.vehicle      
       }
       axios
-        .post('itinerary/', tripData)
+        .post('/itinerary', tripData)
         .then(response => this.tripId = response.data.id)
         .catch(error => {
           console.log(error)
-
         })
     }
   }
