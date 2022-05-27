@@ -7,8 +7,8 @@
   
         </div>
         <div>
-            <label>Location</label>
-            <v-text-field v-model="location" placeholder="Taipei" name="location"
+            <label>area</label>
+            <v-text-field v-model="area" placeholder="Taipei" name="area"
             ></v-text-field>
         </div>
         <div>
@@ -33,24 +33,57 @@
 </template>
 
 <script>
-    import Multiselect from '@vueform/multiselect'
+  import Multiselect from '@vueform/multiselect'
 
-    export default{
-        name: 'SetTrip',
+  export default{
+    name: 'SetTrip',
 
-        data() {
-            return{
-                tripname: '',
-                startdate: '',
-                enddate: '',
-                location: '',
-                vehicle: null,
-                options: ['Car']
-            }
+    data() {
+      return{
+          // tripname: '',
+          // startdate: '',
+          // enddate: '',
+          // area: '',
+          vehicle: null,
+          options: ['Car']
+      }
+    },
+    components: { Multiselect },
+    computed: {
+      tripname: {
+        get() {
+          return this.$store.state.trip.title
         },
-        components: { Multiselect },
-    
+        set(newTitle) {
+          this.$store.dispatch('setTripTitle', newTitle)
+        }
+      },
+      startdate: {
+        get() {
+          return this.$store.state.trip.startDate
+        },
+        set(newStartDate) {
+          this.$store.dispatch('setStartDate', newStartDate)
+        }
+      },
+      enddate: {
+        get() {
+          return this.$store.state.trip.endDate
+        },
+        set(newEndDate) {
+          this.$store.dispatch('setEndDate', newEndDate)
+        }
+      },
+      area: {
+        get() {
+          return this.$store.state.trip.area
+        },
+        set(newArea) {
+          this.$store.dispatch('setArea', newArea)
+        }
+      },
     }
+  }
 </script>
 
 <style scoped>

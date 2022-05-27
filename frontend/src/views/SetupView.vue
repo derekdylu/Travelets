@@ -23,7 +23,6 @@
       </v-col>
       
       <v-btn @click.prevent="sendTrip()">jajaja</v-btn>
-      <p>{{ $store.state.test }}</p>
     </div>
 </template>
 
@@ -44,31 +43,27 @@ export default {
   },
   data() {
     return {
-      tripID: -1, // defulat to be -1
+      
     }
   },
   methods: {
     async sendTrip() {
-      const tripData = { 
-        tripname: this.tripname,
-        startdate: this.startdate,
-        enddate: this.enddate,
-        location: this.location,
-        vehicle: this.vehicle      
+      var tripData = { 
+        tripname: this.$store.state.trip.title,
+        startdate: this.$store.state.trip.startDate,
+        enddate: this.$store.state.trip.endDate,
+        location: this.$store.state.trip.area,
+        vehicle: this.$store.state.trip.vehicle,     
       }
+      console.log("check payload before sending", tripData)
       await axios.post('http://127.0.0.1:8000/itinerary/', tripData)
-        .then(response => this.tripId = response.data.id)
+        .then(response => {
+          this.$store.dispatch('updateID', response.data.id) // #BUG api not sending correctly
+        })
         .catch(error => {
           console.log(error)
         })
     },
-  },
-  watch: {
-    tripID: {
-      handler() {
-        console.log(this.tripID)
-      }
-    }
   },
 }
 </script>

@@ -5,6 +5,12 @@
       max-height="100%"
       max-width="750px"
       min-width="300px">
+
+      <p>trip id = {{ $store.state.trip.id }}</p>
+      <p>trip area = {{ $store.state.trip.area }}</p>
+      <p>trip duration = {{ $store.state.trip.duration }}</p>
+      <v-btn @click="$store.dispatch('writeAttractions')">writeAttractions</v-btn>
+      <span>{{ $store.state.trip.attractions }}</span>
     
       <v-tabs
         v-model="tab"
@@ -34,14 +40,14 @@
             ></v-text-field>
 
             <v-list density="compact">
-              <v-list-subheader>{{ selectedItems.length - duration }} selected, tap to add</v-list-subheader>
+              <v-list-subheader>{{ $store.state.selectedItems.length - duration }} selected, tap to add</v-list-subheader>
               <v-list-item
                 v-for="(item, i) in items"
                 :key="i"
                 :value="item"
                 active-color="primary"
                 class="pa-0"
-                @click="selectItem(item)"
+                @click="$store.dispatch('selectItem', item)"
               >
                 <v-list-item-avatar start>
                   <v-icon icon="place" />
@@ -62,7 +68,7 @@
 
             <v-timeline side="end" align="start" density="comfortable">
 
-              <template v-for="item in selectedItems">
+              <template v-for="item in $store.state.selectedItems">
 
                 <v-timeline-item
                   v-if="item.dayDivider===true"
@@ -99,14 +105,14 @@
                         <v-menu activator="parent" anchor="bottom end" origin="auto" :close-on-content-click="true">
                           <v-list density="compact" class="rounded-lg">
 
-                            <v-list-item @click="moveUpItem(selectedItems.findIndex(x => x.id === item.id.toString()))">
+                            <v-list-item @click="$store.dispatch('moveUpItem', $store.state.selectedItems.findIndex(x => x.id === item.id.toString()) )">
                               <v-list-item-avatar start>
                                 <v-icon icon="arrow_upward" />
                               </v-list-item-avatar>
                               <v-list-item-title>Move up</v-list-item-title>
                             </v-list-item>
 
-                            <v-list-item @click="moveDownItem(selectedItems.findIndex(x => x.id === item.id.toString()))">
+                            <v-list-item @click="$store.dispatch('moveDownItem', $store.state.selectedItems.findIndex(x => x.id === item.id.toString()) )">
                               <v-list-item-avatar start>
                                 <v-icon icon="arrow_downward" />
                               </v-list-item-avatar>
@@ -159,7 +165,9 @@
                               </v-card>
                             </v-dialog>
 
-                            <v-list-item @click="removeItem(selectedItems.findIndex(x => x.id === item.id.toString()))">
+                            <v-list-item @click="$store.dispatch('removeItem', 
+                                                                  $store.state.selectedItems.findIndex( 
+                                                                    x => x.id === item.id.toString()) )">
                               <v-list-item-avatar start>
                                 <v-icon icon="delete" />
                               </v-list-item-avatar>
@@ -196,15 +204,10 @@
         tab: null,
         serchField: "",
         dialog: false,
-        selectedItems: [],
-        duration: 3,
         items: [],
         days: [],
         moveDay: "",
       }
-    },
-    components: {
-      
     },
     watch: {
       serchField: {
@@ -214,59 +217,17 @@
       },
     },
     methods: {
-      selectItem(obj) {
-        obj['id'] = this.selectedItems.length.toString()
-        this.selectedItems.push(obj)
-        console.log(this.selectedItems)
-      },
-      removeItem(idx) {
-        console.log(idx)
-        this.selectedItems.splice(idx, 1);
-      },
-      moveUpItem(idx) {
-        if (idx > 1) {
-          var tmp = this.selectedItems[idx-1];
-          this.selectedItems[idx-1] = this.selectedItems[idx];
-          this.selectedItems[idx] = tmp;
-        }
-      },
-      moveDownItem(idx) {
-        if (idx < this.selectedItems.length - 1){
-          var tmp = this.selectedItems[idx+1];
-          this.selectedItems[idx+1] = this.selectedItems[idx];
-          this.selectedItems[idx] = tmp;
-        }
-      },
-      // pollItem(a, b){
-
-      // },
-      moveItem(itemId, day){
-        var itemIdx = this.selectedItems.findIndex(x => x.id === itemId.toString())
-        var dayIdx = this.selectedItems.findIndex(x => x.text === day)
-        var tmp = this.selectedItems[itemIdx]
-        this.removeItem(itemIdx)
-        this.selectedItems.splice(dayIdx+1, 0, tmp)
-        this.dialog = false
-      },
-      returnValue(st){
-        console.log(st)
-      },
-      writeDuration(){
-        for (var i = 1; i < this.duration + 1; i++){
-          var tmp = { dayDivider: true, text: "DAY" + i}
-          this.selectItem(tmp) // why no push???
-        }
-        console.log(this.selectedItems)
-      },
       writeDays(){
-        for (var i = 1; i < this.duration + 1; i++){
+        for (var i = 1; i < this.$store.state.trip.duration + 1; i++){
           var tmp = "DAY" + i
           this.days.push(tmp)
         }
         console.log(this.days)
       },
-      async searchResults() {
-        
+      moveItem(id, d){
+        console.log("id=", id, ", movedDat = ", d)
+        this.$store.dispatch('moveItem', {itemId: id, day: d})
+        this.dialog=false
       },
       async searchResultsTest(){
         // var parsedResults = JSON.parse(JSONResults.results); // no need to parse?
@@ -277,13 +238,11 @@
       },
     },
     mounted() {
-      this.writeDuration();
+      this.$store.dispatch('updateDuration')
+      this.$store.dispatch('writeDuration')
       this.searchResultsTest();
       this.writeDays();
     },
-    // onUpdated() {
-    //   this.updateBlcHeight()
-    // },
   }
 </script>
 
