@@ -60,7 +60,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
-    # "http://127.0.0.1:9000"
+    "http://10.135.185.48:8080"
 ]
 
 ROOT_URLCONF = 'django_google_api.urls'

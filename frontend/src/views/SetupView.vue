@@ -27,14 +27,14 @@ export default {
   },
   methods: {
     sendTrip() {
-      const tripData = { 
-        tripname: this.tripname,
-        startdate: this.startdate,
-        enddate: this.enddate,
-        location: this.location,
-        value: this.value,
-        options: this.options      
-      }
+      // const tripData = { 
+      //   tripname: this.tripname,
+      //   startdate: this.startdate,
+      //   enddate: this.enddate,
+      //   location: this.location,
+      //   value: this.value,
+      //   options: this.options      
+      // }
       axios
         .post()
     }
