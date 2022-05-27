@@ -23,5 +23,6 @@ class ItineraryView(generics.RetrieveAPIView):
             location = request.POST.get('location')
             vehicle = request.POST.get('vehicle')
             # TODO get data
-            
-            pass
+            newTrip = Itinerary.objects.create(title=tripname, area=location,vehicle=vehicle, startDate=startdate, endDate=enddate)
+            newTrip.save()
+            return Response(newTrip.id)
