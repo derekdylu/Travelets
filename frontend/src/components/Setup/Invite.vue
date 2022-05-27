@@ -11,7 +11,7 @@
     :options="options"
     :selected="multiValue"
     :multiple="true"
-    :limit="2"
+    :limit="5"
     taggable="true"
     @tag="addTag"
     ></multiselect>

@@ -13,7 +13,7 @@
       persistent
       max-width="360"
     >
-      <v-card class = "rounded-xl">
+      <v-card class = "rounded-lg">
         <v-card-title class="text-subtitle-2 font-weight-bold">
           Discard this poll
         </v-card-title>

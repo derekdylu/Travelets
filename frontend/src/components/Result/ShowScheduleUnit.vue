@@ -178,6 +178,6 @@
     padding: 0px;
     /* border: solid 1px; */
     margin-left: 10px;
-}https://meet.google.com/rbg-ocwo-mpz
+}
 
 </style>
