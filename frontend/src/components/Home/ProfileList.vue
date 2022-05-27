@@ -2,19 +2,16 @@
 
   <div>
     <v-tabs
-      v-model="tab"
-      center-active
+      v-model="defaultTab"
       grow
       color="primary"
       class="mb-1"
       style="max-width: 750px"
     >
-      <v-tab value="trip">trip</v-tab>
-      <v-tab value="post">post</v-tab>
-      <v-tab value="saved">saved</v-tab>
+      <v-tab v-for="tab of tabs" :key="tab.index" :value="tab.name">{{ tab.name }}</v-tab>
     </v-tabs>
 
-      <v-window v-model="tab">
+      <v-window v-model="defaultTab">
         <v-window-item value="trip">
           <v-container fluid class="flex-column flex-grow" style="width: 750px">
             <v-row align="center" justify="space-between" class="mx-4">
@@ -37,7 +34,7 @@
         </v-window-item>
       </v-window>
 
-      <v-window v-model="tab">
+      <v-window v-model="defaultTab">
         <v-window-item value="post">
           <v-container fluid class="flex-column flex-grow" style="width: 750px">
             
@@ -68,6 +65,12 @@
     // name: 'itinerary',
     data () {
       return {
+          defaultTab: 0,
+          tabs: [
+            { index: 0, name: 'trip' },
+            { index: 1, name: 'post' },
+            { index: 2, name: 'saved' }
+          ],
           APIData: [] ,
           posts: [
             {
