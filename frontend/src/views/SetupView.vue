@@ -30,6 +30,7 @@ import ProgressBar from '../components/General/ProgressBar.vue'
 import SetTrip from '../components/Setup/SetTrip.vue'
 import InviteFriend from '../components/Setup/Invite.vue'
 import axios from 'axios'
+// import getAPI from '../axios-api'
 
 export default {
   name: 'SetupView',
@@ -39,7 +40,7 @@ export default {
     InviteFriend
   },
   methods: {
-    sendTrip() {
+    async sendTrip() {
       const tripData = { 
         tripname: this.tripname,
         startdate: this.startdate,
@@ -47,8 +48,7 @@ export default {
         location: this.location,
         vehicle: this.vehicle      
       }
-      axios
-        .post('/itinerary', tripData)
+      await axios.post('http://127.0.0.1:8000/itinerary/', tripData)
         .then(response => this.tripId = response.data.id)
         .catch(error => {
           console.log(error)

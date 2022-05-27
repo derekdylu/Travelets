@@ -26,3 +26,16 @@ class ItineraryView(generics.RetrieveAPIView):
             newTrip = Itinerary.objects.create(title=tripname, area=location,vehicle=vehicle, startDate=startdate, endDate=enddate)
             newTrip.save()
             return Response(newTrip.id)
+
+            # dodofk yyds
+
+
+
+from rest_framework.viewsets import ModelViewSet
+
+
+class ItineraryViewSet(ModelViewSet):
+    queryset = Itinerary.objects.all()
+    serializer_class = ItinerarySerializer
+
+
