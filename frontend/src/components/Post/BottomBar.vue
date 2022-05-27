@@ -25,7 +25,7 @@
             >
                 <v-icon 
                     icon="favorite" 
-                    :color = "like ? 'red' : 'black'"
+                    :color = "like ? 'red' : 'secondary'"
                 />
             </v-btn>
             <v-btn 
@@ -34,7 +34,7 @@
             >
                 <v-icon 
                     icon="bookmark" 
-                    :color = "save ? color_gold : 'black'"
+                    :color = "save ? color_gold : 'secondary'"
                 />
             </v-btn>
         </v-col>

@@ -13,7 +13,7 @@
                     class = "note_card_result"
                     min-height = "130px"
                     max-height = 'fill'
-                    width = '180px'
+                    max-width = '180px'
                 >
                     <v-row v-if = "tooLong">
                         <v-col cols = "9"></v-col>
