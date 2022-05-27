@@ -40,16 +40,20 @@ export default {
   },
   methods: {
     sendTrip() {
-      // const tripData = { 
-      //   tripname: this.tripname,
-      //   startdate: this.startdate,
-      //   enddate: this.enddate,
-      //   location: this.location,
-      //   value: this.value,
-      //   options: this.options      
-      // }
+      const tripData = { 
+        tripname: this.tripname,
+        startdate: this.startdate,
+        enddate: this.enddate,
+        location: this.location,
+        vehicle: this.vehicle      
+      }
       axios
-        .post()
+        .post('itinerary/', tripData)
+        .then(response => this.tripId = response.data.id)
+        .catch(error => {
+          console.log(error)
+
+        })
     }
   }
 }

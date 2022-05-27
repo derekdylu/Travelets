@@ -14,7 +14,7 @@
         <div>
             <label>Vehicle</label>
             <Multiselect 
-            v-model="value" 
+            v-model="vehicle" 
             placeholder="Select Vehicle" 
             :options="options"
             />
@@ -44,7 +44,7 @@
                 startdate: '',
                 enddate: '',
                 location: '',
-                value: null,
+                vehicle: null,
                 options: ['Car']
             }
         },
