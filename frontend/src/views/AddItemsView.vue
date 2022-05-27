@@ -35,7 +35,11 @@
       return {
         lat: 51.4934,
         lng: 0,
+        tripID: 10,
       }
+    },
+    mounted() {
+      // #TODO learn vueX to remain state
     },
   }
 </script>

@@ -20,7 +20,7 @@
         </v-col>
       </v-container>
       
-      <v-btn @click.prevent="sendTrip()">jajajja</v-btn>
+      <v-btn @click.prevent="sendTrip(); emitTripID()">jajajja</v-btn>
     </div>
 </template>
 
@@ -39,6 +39,11 @@ export default {
     SetTrip,
     InviteFriend
   },
+  data() {
+    return {
+      tripID: -1, // defulat to be -1
+    }
+  },
   methods: {
     async sendTrip() {
       const tripData = { 
@@ -53,8 +58,15 @@ export default {
         .catch(error => {
           console.log(error)
         })
+    },
+  },
+  watch: {
+    tripID: {
+      handler() {
+        console.log(this.tripID)
+      }
     }
-  }
+  },
 }
 </script>
 
