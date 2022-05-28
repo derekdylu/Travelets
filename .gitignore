@@ -120,4 +120,12 @@ dist
 # TernJS port file
 .tern-port
 
-.sqlite3
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+.env
+db.sqlite3

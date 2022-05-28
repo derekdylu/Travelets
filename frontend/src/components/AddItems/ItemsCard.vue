@@ -6,11 +6,11 @@
       max-width="750px"
       min-width="300px">
 
-      <!-- <p>trip id = {{ $store.state.trip.id }}</p>
-      <p>trip area = {{ $store.state.trip.area }}</p>
-      <p>trip duration = {{ $store.state.trip.duration }}</p>
-      <v-btn @click="$store.dispatch('writeAttractions')">writeAttractions</v-btn>
-      <span>{{ $store.state.trip.attractions }}</span> -->
+      <!-- <p>trip id = {{ $store.state.trip.id }}</p> -->
+      <!-- <p>trip area = {{ $store.state.trip.area }}</p> -->
+      <!-- <p>trip duration = {{ $store.state.trip.duration }}</p> -->
+      <!-- <v-btn @click="$store.dispatch('writeAttractions'); $store.dispatch('createNoteSlots'); $store.dispatch('createTravelTimeSlots')">writeAttractions</v-btn> -->
+      <!-- <span>{{ $store.state.trip.attractions }}</span> -->
     
       <v-tabs
         v-model="tab"
@@ -71,7 +71,7 @@
                 :value="item"
                 active-color="primary"
                 class="pa-0"
-                @click="selectItem(item.text, addDay)"
+                @click="selectItem(item, addDay)"
               >
                 <v-list-item-avatar start>
                   <v-icon icon="place" />
@@ -249,7 +249,7 @@
           this.days.push(tmp)
         }
         console.log(this.days)
-        this.addDay = this.days.at(-1)
+        this.addDay = this.days.at(0)
       },
       selectItem(obj, d){
         this.$store.dispatch('selectItem', {obj: obj, day: d})
@@ -261,10 +261,13 @@
         this.dialog=false
       },
       async searchResultsTest(){
+        // #CHECK Parse JSON into customized objects
         // var parsedResults = JSON.parse(JSONResults.results); // no need to parse?
         console.log(JSONResults.results)
         for (var i = 0; i < JSONResults.results.length; i++){
-          this.items.push({text: JSONResults.results[i].name})
+          this.items.push({text: JSONResults.results[i].name, 
+                            lat: JSONResults.results[i].geometry.location.lat, 
+                            lng: JSONResults.results[i].geometry.location.lng})
         }
       },
     },

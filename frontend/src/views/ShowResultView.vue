@@ -14,11 +14,13 @@
         <v-col align="center">
           <ResultCard 
             :year = "y"
-            :howManyDays = "duration"
-            :place = "attractions"
-            :time = "travel_time"
-            :text = "notes"
+            :howManyDays = "$store.state.trip.duration"
+            :place = "$store.state.trip.attractions"
+            :time = "$store.state.trip.travelTimes"
+            :text = "$store.state.trip.notes"
           />
+          <!-- #CHECK here we should get all data from server and parse them onto the card, but we don't have time so let's just use vuex state :) -->
+          <!-- #TODO we left travel time schema to do -->
         </v-col>
       </v-container>
     </div>
