@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 import datetime
+from datetime import datetime,date
 
 # Create your models here.
 class Itinerary(models.Model):
@@ -19,10 +20,16 @@ class Itinerary(models.Model):
     def __str__(self):
         return f'{self.tripname}'
 
-    # 我開server會跳error
-    # def save(self, *args, **kwargs):
-    #     if self.endDate < datetime.date.today():
-    #         self.status = "past"
-    #     else:
-    #         self.status = "ongoing"
-    #     super().save(*args, **kwargs)
+    # 應該解決了
+    def save(self, *args, **kwargs):
+        if self.endDate:
+            if type(self.endDate) is str:
+                endDate_obj = datetime.strptime(self.endDate, '%Y-%m-%d').date()
+            else:
+                endDate_obj = self.endDate
+
+            if endDate_obj < date.today():
+                self.status = "past"
+            else:
+                self.status = "ongoing"
+            super().save(*args, **kwargs)
