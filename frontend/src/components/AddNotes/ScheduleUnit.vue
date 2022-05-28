@@ -13,6 +13,8 @@
                     class= "edit_btn_popup"
                     :spot_name = "place"
                     @value-update = "getValFromChild"
+                    :inDay = "inDay"
+                    :inOrder = "inOrder"
                 />
         
                 <v-card
@@ -21,6 +23,7 @@
                     max-height = 'fill'
                     max-width = '180px'
                 >
+                    <!-- <p>in day {{inDay}}, in order {{inOrder}}</p> -->
                     <p style = "word-wrap: break-word;white-space: pre-line;">{{text}}</p>
                 </v-card>
 
@@ -92,6 +95,8 @@ export default {
         place: String,
         time: String,
         notLast: Boolean,
+        inDay: Number,
+        inOrder: Number,
     },
     components: {
         PopupEdit,
@@ -102,25 +107,26 @@ export default {
             // notLast: true,
         }
     },
-    watch: {
-        
-    },
     methods:{
         getValFromChild(val) {
             this.text = val;
             if(val == ""){
                 this.text = "No Memo.";
             }
-
-            console.log(this.time);
-            
+            // console.log(this.time);
         },
     },
+    computed: {
+        // text: {
+        //     get() {
+        //         return this.$store.state.trip.notes[this.inDay][this.inOrder]
+        //     }
+        // }
+    }
 }
 </script>
 
 <style>
-
 .place{
     font-weight: 500;
     color:rgb(0, 0, 0);

@@ -67,15 +67,15 @@
     name: "PopupEdit",
     props: {
       spot_name: String,
-        
+      inDay: Number,
+      inOrder: Number,
     },
     components: {
-
     },
     data () {
       return {
         dialog: false,
-        input_text: "",
+        // input_text: "",
       }
     },
     methods:{
@@ -90,10 +90,18 @@
       send_back(){
         this.$emit("value-update", this.input_text)
       }
-      
     },
+    computed: {
+      input_text: {
+        get() {
+          return this.$store.state.trip.notes[this.inDay][this.inOrder]
+        },
+        set(newNote) {
+          this.$store.dispatch('updateNote', {newNote: newNote, d: this.inDay, i: this.inOrder})
+        }
+      }
+    }
   }
-
 </script>
 
 <style>

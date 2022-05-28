@@ -113,8 +113,41 @@ export default createStore({
           }
       }
       state.trip.attractions = attr
+      console.log("wrote attractions!", state.trip.attractions)
     },
 
+    // DIV create slots for travel time and notes
+    createTravelTimeSlots(state) {
+      for (let i = 0; i < state.trip.attractions.length; i++){
+        let tmp = []
+        state.trip.travelTimes.push(tmp)
+        for (let j = 0; j < state.trip.attractions[i].length - 1; j++){
+          let tmp = "travelTime" // #TODO temporary only, all same
+          state.trip.travelTimes[i].push(tmp)
+        }
+      }
+      console.log("created travel time slots!", state.trip.travelTimes)
+    },
+
+    createNoteSlots(state) {
+      for (let i = 0; i < state.trip.attractions.length; i++){
+        let tmp = []
+        state.trip.notes.push(tmp)
+        for (let j = 0; j < state.trip.attractions[i].length; j++){
+          let tmp = ""
+          state.trip.notes[i].push(tmp)
+        }
+      }
+      console.log("created notes slots!", state.trip.notes)
+    },
+
+    updateNote(state, payload) {
+      state.trip.notes[payload.d][payload.i] = payload.newNote
+    }
+
+// DIV
+// DIV
+// DIV
   },
   actions: {
     updateID({commit}, newId) {
@@ -162,6 +195,17 @@ export default createStore({
     writeAttractions({commit}){
       commit('writeAttractions')
     },
+
+    // DIV
+    createTravelTimeSlots({commit}){
+      commit('createTravelTimeSlots')
+    },
+    createNoteSlots({commit}){
+      commit('createNoteSlots')
+    },
+    updateNote({commit}, payload){
+      commit('updateNote', payload)
+    }
 
   },
   modules: {

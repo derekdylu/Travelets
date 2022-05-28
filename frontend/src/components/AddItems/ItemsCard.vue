@@ -6,11 +6,11 @@
       max-width="750px"
       min-width="300px">
 
-      <!-- <p>trip id = {{ $store.state.trip.id }}</p>
-      <p>trip area = {{ $store.state.trip.area }}</p>
-      <p>trip duration = {{ $store.state.trip.duration }}</p>
-      <v-btn @click="$store.dispatch('writeAttractions')">writeAttractions</v-btn>
-      <span>{{ $store.state.trip.attractions }}</span> -->
+      <!-- <p>trip id = {{ $store.state.trip.id }}</p> -->
+      <!-- <p>trip area = {{ $store.state.trip.area }}</p> -->
+      <!-- <p>trip duration = {{ $store.state.trip.duration }}</p> -->
+      <v-btn @click="$store.dispatch('writeAttractions'); this.$store.dispatch('createNoteSlots'); this.$store.dispatch('createTravelTimeSlots')">writeAttractions</v-btn>
+      <!-- <span>{{ $store.state.trip.attractions }}</span> -->
     
       <v-tabs
         v-model="tab"
@@ -221,6 +221,7 @@
 
 <script>
   import JSONResults from "./test.json"
+  import axios from 'axios'
 
   export default {
     data () {
@@ -266,6 +267,19 @@
         for (var i = 0; i < JSONResults.results.length; i++){
           this.items.push({text: JSONResults.results[i].name})
         }
+      },
+      async sendAttractions() {
+        var formdata = new FormData();
+        formdata.append("attractions", JSON.stringify(this.$store.state.attractions))
+
+        // #TODO plus something in url whatever
+        await axios.patch('http://127.0.0.1:8000/itinerary/' + this.$store.state.trip.id, formdata)
+          .then(response => {
+            console.log(response)
+          })
+          .catch(error => {
+            console.log(error)
+          })
       },
     },
     mounted() {
