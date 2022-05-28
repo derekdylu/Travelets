@@ -12,7 +12,7 @@
 
       <v-col class="mb-4">
         <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to the Vuetify 3 Beta {{test_msg}}
+          Welcome to the Vuetify 3 Beta 
         </h1>
 
 
@@ -96,9 +96,11 @@
 
 export default {
   name: 'HelloWorld',
-  
+  props:{
+     msg: String,
+  },
   data: () => ({
-    test_msg: "Hello",
+   
     ecosystem: [
       {
         text: 'vuetify-loader',
