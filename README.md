@@ -22,6 +22,7 @@ vue --version
 ```bash
 cd Travelets/frontend
 yarn install
+npm install vuex@next --save
 ```
 
 ### Run Devlopment Server
