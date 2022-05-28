@@ -23,7 +23,7 @@ export default createStore({
     selectedItems: [],
   },
   mutations: {
-    updateId(state, newId) {
+    updateID(state, newId) {
       state.trip.id = newId
     },
     updateDuration(state) {
@@ -117,8 +117,8 @@ export default createStore({
 
   },
   actions: {
-    updateId({commit}, newId) {
-      commit('updateId', newId)
+    updateID({commit}, newId) {
+      commit('updateID', newId)
     },
     updateDuration({commit}) {
       commit('updateDuration')
