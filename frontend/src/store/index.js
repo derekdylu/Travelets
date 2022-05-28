@@ -61,7 +61,7 @@ export default createStore({
 
     // DIV additems
     selectItem(state, payload) {
-      let tmp = {text: payload.obj, id: state.selectedItems.length.toString()}
+      let tmp = {text: payload.obj.text, lat: payload.obj.lat, lng: payload.obj.lng, id: state.selectedItems.length.toString()}
       var dayIdx = state.selectedItems.findIndex(x => x.text === payload.day)
       state.selectedItems.splice(dayIdx+1, 0, tmp)
 

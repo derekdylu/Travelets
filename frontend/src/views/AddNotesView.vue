@@ -3,7 +3,7 @@
       <span>{{ $store.state.trip.notes }}</span>
       <v-container class="pa-0">
         <v-col align="center" class="pa-0">
-          <ProgressBar />
+          <ProgressBar @next-page="sendNotes" />
         </v-col>
       </v-container>
       <!-- <v-container class="pa-0">
@@ -43,7 +43,7 @@ export default {
     
   },
   methods :{
-    async sendAttractions() {
+    async sendNotes() {
       var formdata = new FormData();
       formdata.append("notes", JSON.stringify(this.$store.state.notes))
 

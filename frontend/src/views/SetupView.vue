@@ -3,7 +3,7 @@
       <v-col align="center">
         <v-continer class="pa-0">
           <v-col align="center" class="pa-0">
-            <ProgressBar />
+            <ProgressBar @next-page="sendTrip" />
           </v-col>
         </v-continer>
         <v-container class="pa-0">
@@ -22,7 +22,7 @@
         </v-container>
       </v-col>
       
-      <v-btn @click.prevent="sendTrip()">jajaja</v-btn>
+      <!-- <v-btn @click.prevent="sendTrip()">jajaja</v-btn> -->
     </div>
 </template>
 

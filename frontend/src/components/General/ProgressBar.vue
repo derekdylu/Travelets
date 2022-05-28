@@ -32,6 +32,7 @@ export default {
      this.$router.push({ name: this.$router.currentRoute.value.meta.prev})
     },
     nextPage(){
+      this.$emit('next-page')
       this.$router.push({ name: this.$router.currentRoute.value.meta.next })
     }
   },
@@ -43,7 +44,10 @@ export default {
     'primaryButton': {
       type: String,
       default: "NEXT"
-    }
+    },
+    'method': {
+      type: Function
+    },
   }
 }
 
