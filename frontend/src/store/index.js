@@ -60,9 +60,11 @@ export default createStore({
     },
 
     // DIV additems
-    selectItem(state, obj) {
-      obj['id'] = state.selectedItems.length.toString()
-      state.selectedItems.push(obj)
+    selectItem(state, payload) {
+      let tmp = {text: payload.obj, id: state.selectedItems.length.toString()}
+      var dayIdx = state.selectedItems.findIndex(x => x.text === payload.day)
+      state.selectedItems.splice(dayIdx+1, 0, tmp)
+
       console.log(state.selectedItems)
     },
     removeItem(state, idx) {
@@ -140,8 +142,8 @@ export default createStore({
     },
 
     // DIV additems
-    selectItem({commit}, obj){
-      commit('selectItem', obj)
+    selectItem({commit}, payload){
+      commit('selectItem', payload)
     },
     removeItem({commit}, idx){
       commit('removeItem', idx)

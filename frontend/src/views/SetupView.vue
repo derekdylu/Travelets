@@ -59,8 +59,8 @@ export default {
       console.log("check payload before sending", tripDataJSON)
       await axios.post('http://127.0.0.1:8000/itinerary/', tripDataJSON)
         .then(response => {
-          this.$store.dispatch('updateId', 2)
-          console.log(response)
+          console.log(response.data)
+          this.$store.dispatch('updateId', response.data)
         })
         .catch(error => {
           console.log(error)
