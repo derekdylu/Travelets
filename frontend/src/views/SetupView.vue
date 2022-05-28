@@ -63,8 +63,8 @@ export default {
 
       await axios.post('http://127.0.0.1:8000/itinerary/', formdata)
         .then(response => {
-          console.log(response.data)
-          this.$store.dispatch('updateId', response.data)
+          console.log(response.data.id)
+          this.$store.dispatch('updateId', response.data.id)
         })
         .catch(error => {
           console.log(error)
