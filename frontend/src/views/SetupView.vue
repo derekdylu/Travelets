@@ -32,7 +32,6 @@ import ProgressBar from '../components/General/ProgressBar.vue'
 import SetTrip from '../components/Setup/SetTrip.vue'
 import InviteFriend from '../components/Setup/Invite.vue'
 import axios from 'axios'
-// import getAPI from '../axios-api'
 
 export default {
   name: 'SetupView',
