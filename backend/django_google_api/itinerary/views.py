@@ -21,14 +21,15 @@ class ItineraryViewSet(ModelViewSet):
     queryset = Itinerary.objects.all()
     serializer_class = ItinerarySerializer
 
-    def create(self, request):
+    def create(self, request, *args, **kwargs):
         if request.method == 'POST':
             tripname = request.POST.get('tripname')
             startdate = request.POST.get('startdate')
             enddate = request.POST.get('enddate')
             location = request.POST.get('location')
             vehicle = request.POST.get('vehicle')
-            # TODO get data
-            newTrip = Itinerary.objects.create(title=tripname, area=location,vehicle=vehicle, startDate=startdate, endDate=enddate)
+            newTrip = Itinerary.objects.create(tripname=tripname, location=location,vehicle=vehicle, startDate=startdate, endDate=enddate)
             newTrip.save()
-            return Response(newTrip.id)
+
+            serializer = ItinerarySerializer(newTrip)
+            return Response(serializer.data["id"])

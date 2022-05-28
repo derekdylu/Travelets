@@ -7,8 +7,8 @@
   
         </div>
         <div>
-            <label>area</label>
-            <v-text-field v-model="area" placeholder="Taipei" name="area"
+            <label>Location</label>
+            <v-text-field v-model="location" placeholder="Taipei" name="location"
             ></v-text-field>
         </div>
         <div>
@@ -52,10 +52,10 @@
     computed: {
       tripname: {
         get() {
-          return this.$store.state.trip.title
+          return this.$store.state.trip.tripname
         },
-        set(newTitle) {
-          this.$store.dispatch('setTripTitle', newTitle)
+        set(newTripname) {
+          this.$store.dispatch('setTripname', newTripname)
         }
       },
       startdate: {
@@ -74,12 +74,12 @@
           this.$store.dispatch('setEndDate', newEndDate)
         }
       },
-      area: {
+      location: {
         get() {
-          return this.$store.state.trip.area
+          return this.$store.state.trip.location
         },
-        set(newArea) {
-          this.$store.dispatch('setArea', newArea)
+        set(newLocation) {
+          this.$store.dispatch('setLocation', newLocation)
         }
       },
     }
