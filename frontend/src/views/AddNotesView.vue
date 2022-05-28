@@ -19,7 +19,7 @@
             :place = "$store.state.trip.attractions"
             :time = "$store.state.trip.travelTimes"
           />
-          <!-- #TODO duration $store.state.trip.duration place and time -->
+          <!-- duration $store.state.trip.duration place and time -->
         </v-col>
       </v-container>
     </div>
@@ -45,10 +45,10 @@ export default {
   methods :{
     async sendNotes() {
       var formdata = new FormData();
-      formdata.append("notes", JSON.stringify(this.$store.state.notes))
+      formdata.append("notes", JSON.stringify(this.$store.state.trip.notes))
 
-      // #TODO plus something in url whatever
-      await axios.patch('http://127.0.0.1:8000/itinerary/' + this.$store.state.trip.id, formdata)
+      // plus something in url whatever
+      await axios.patch('http://127.0.0.1:8000/itinerary/' + this.$store.state.trip.id + '/', formdata)
         .then(response => {
           console.log(response)
         })

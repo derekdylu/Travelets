@@ -249,7 +249,7 @@
           this.days.push(tmp)
         }
         console.log(this.days)
-        this.addDay = this.days.at(-1)
+        this.addDay = this.days.at(0)
       },
       selectItem(obj, d){
         this.$store.dispatch('selectItem', {obj: obj, day: d})

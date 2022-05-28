@@ -45,12 +45,12 @@
         this.$store.dispatch('createNoteSlots');
         this.$store.dispatch('createTravelTimeSlots');
 
-        // #TODO axios patch attractions
+        // axios patch attractions
         var formdata = new FormData();
-        formdata.append("attractions", JSON.stringify(this.$store.state.attractions));
+        formdata.append("attractions", JSON.stringify(this.$store.state.trip.attractions));
 
-        // #TODO plus something in url whatever
-        await axios.patch('http://127.0.0.1:8000/itinerary/' + this.$store.state.trip.id, formdata)
+        // plus something in url whatever
+        await axios.patch('http://127.0.0.1:8000/itinerary/' + this.$store.state.trip.id + '/', formdata )
           .then(response => {
             console.log(response)
           })

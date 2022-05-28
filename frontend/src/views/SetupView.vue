@@ -54,6 +54,7 @@ export default {
       formdata.append("vehicle", this.$store.state.trip.vehicle);
       formdata.append("startDate", this.$store.state.trip.startDate);
       formdata.append("endDate", this.$store.state.trip.endDate);
+      formdata.append("host", this.$store.state.user)
 
       // var requestOptions = {
       //   method: 'POST',
