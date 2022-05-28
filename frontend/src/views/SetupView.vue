@@ -48,16 +48,21 @@ export default {
   },
   methods: {
     async sendTrip() {
-      const tripData = { 
-        tripname: this.$store.state.trip.tripname,
-        startdate: this.$store.state.trip.startDate,
-        enddate: this.$store.state.trip.endDate,
-        location: this.$store.state.trip.location,
-        vehicle: this.$store.state.trip.vehicle,     
-      }
-      const tripDataJSON = JSON.stringify(tripData)
-      console.log("check payload before sending", tripDataJSON)
-      await axios.post('http://127.0.0.1:8000/itinerary/', tripDataJSON)
+      var formdata = new FormData();
+      formdata.append("id", "");
+      formdata.append("tripname", this.$store.state.trip.tripname);
+      formdata.append("location", this.$store.state.trip.location);
+      formdata.append("vehicle", this.$store.state.trip.vehicle);
+      formdata.append("startDate", this.$store.state.trip.startDate);
+      formdata.append("endDate", this.$store.state.trip.endDate);
+
+      // var requestOptions = {
+      //   method: 'POST',
+      //   body: formdata,
+      //   redirect: 'follow'
+      // };
+
+      await axios.post('http://127.0.0.1:8000/itinerary/', formdata)
         .then(response => {
           console.log(response.data)
           this.$store.dispatch('updateId', response.data)

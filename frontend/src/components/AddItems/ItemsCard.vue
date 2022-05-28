@@ -6,11 +6,11 @@
       max-width="750px"
       min-width="300px">
 
-      <p>trip id = {{ $store.state.trip.id }}</p>
+      <!-- <p>trip id = {{ $store.state.trip.id }}</p>
       <p>trip area = {{ $store.state.trip.area }}</p>
       <p>trip duration = {{ $store.state.trip.duration }}</p>
       <v-btn @click="$store.dispatch('writeAttractions')">writeAttractions</v-btn>
-      <span>{{ $store.state.trip.attractions }}</span>
+      <span>{{ $store.state.trip.attractions }}</span> -->
     
       <v-tabs
         v-model="tab"
