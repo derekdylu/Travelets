@@ -35,10 +35,9 @@ yarn serve
 ```
 ### Run Unit test (incorrect)
 ```bash
-# IN ROOT DIRECTORY
+# IN FRONTEND DIRECTORY
 vue add unit-jest
-npm install vue-template-compiler
-npm install @vue/test-utils --save-dev
-npm install --save-dev babel-jest @babel/core @babel/preset-env
+
+npm run test:unit
 
 ```

@@ -26,8 +26,5 @@
     "jest": "^27.0.5"
   },
   "license": "MIT",
-  "repository": "https://github.com/derekdylu/Travelets.git",
-  "transform": {
-    "\\.js$": "<rootDir>/node_modules/babel-jest"
-  }
+  "repository": "https://github.com/derekdylu/Travelets.git"
 }
