@@ -21,12 +21,12 @@
         </div>
         <div >
             <label>Start Date</label>
-            <v-text-field v-model="startdate" placeholder="2022/05/08" name="startdate"
+            <v-text-field v-model="startdate" placeholder="2022-05-08" name="startdate"
             ></v-text-field>
         </div>
         <div >
             <label>End Date</label>
-            <v-text-field v-model="enddate" placeholder="2022/05/08" name="enddate"
+            <v-text-field v-model="enddate" placeholder="2022-05-08" name="enddate"
             ></v-text-field>
         </div>
     </div>
