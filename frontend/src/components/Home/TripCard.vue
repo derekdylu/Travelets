@@ -7,7 +7,7 @@
       max-height="125px"
       cover
     >
-      <v-card-title style="color: white">{{ tripProps.title }}</v-card-title>
+      <v-card-title style="color: white">{{ tripProps.tripname }}</v-card-title>
     </v-img>
 
     <v-card-text style="font-size: 0.75em;">
