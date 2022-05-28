@@ -49,16 +49,16 @@ export default {
   methods: {
     async sendTrip() {
       var tripData = { 
-        tripname: this.$store.state.trip.title,
+        tripname: this.$store.state.trip.tripname,
         startdate: this.$store.state.trip.startDate,
         enddate: this.$store.state.trip.endDate,
-        location: this.$store.state.trip.area,
+        location: this.$store.state.trip.location,
         vehicle: this.$store.state.trip.vehicle,     
       }
       console.log("check payload before sending", tripData)
       await axios.post('http://127.0.0.1:8000/itinerary/', tripData)
         .then(response => {
-          this.$store.dispatch('updateID', response.data.id) // #BUG api not sending correctly
+          this.$store.dispatch('updateID', response.data["id"]) // #BUG api not sending correctly
         })
         .catch(error => {
           console.log(error)

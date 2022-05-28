@@ -154,3 +154,4 @@ LOGIN_REDIRECT_URL = "users:account"
 LOGOUT_REDIRECT_URL = "users:sign-in"
 
 BASE_COUNTRY = "TW"
+APPEND_SLASH = False
