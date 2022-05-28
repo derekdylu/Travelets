@@ -59,7 +59,6 @@ export default {
   name: "ProfileHeader",
   data() {
     return {
-      username: "derekdylu",
       trips: 12,
       followers: 999,
     }
@@ -69,6 +68,16 @@ export default {
       this.drawer = false
     },
   },
+  computed: {
+    username: {
+      get(){
+        return this.$store.state.user
+      },
+      set() {
+
+      }
+    }
+  }
 }
 </script>
 

@@ -19,3 +19,5 @@ export default new VueRouter({
         //  other routes
     ]
 })
+
+// #NOTE testig file only

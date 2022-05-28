@@ -19,7 +19,10 @@ class Itinerary(models.Model):
     def __str__(self):
         return f'{self.title}'
 
+    # 我開server會跳error
     def save(self, *args, **kwargs):
         if self.endDate < datetime.date.today():
-            self.status = "ended"
+            self.status = "past"
+        else:
+            self.status = "ongoing"
         super().save(*args, **kwargs)
