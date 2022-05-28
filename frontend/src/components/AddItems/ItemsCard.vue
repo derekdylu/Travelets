@@ -31,6 +31,8 @@
             align-content="start"
           >
 
+            <v-row align="center" spacing="10">
+
             <v-text-field
             v-model="serchField"
             label="Search"
@@ -39,15 +41,37 @@
             clearable
             ></v-text-field>
 
+            <v-dialog
+              v-model="dialog"
+            >
+              <template v-slot:activator="{ props }">
+                <v-btn icon flat v-bind="props">
+                  <v-icon icon="edit_calendar" color="secondary" />
+                </v-btn>
+              </template>
+              <v-card width="338">
+                <div class="ma-5">
+                  <v-select
+                    :items="days"
+                    label="Items will be add to "
+                    v-model="addDay"
+                    attach
+                  ></v-select>
+                </div>
+              </v-card>
+            </v-dialog>
+
+            </v-row>
+
             <v-list density="compact">
-              <v-list-subheader>{{ $store.state.selectedItems.length - duration }} selected, tap to add</v-list-subheader>
+              <v-list-subheader>{{ $store.state.selectedItems.length - duration }} selected, tap items to add them to {{ addDay }}</v-list-subheader>
               <v-list-item
                 v-for="(item, i) in items"
                 :key="i"
                 :value="item"
                 active-color="primary"
                 class="pa-0"
-                @click="$store.dispatch('selectItem', item)"
+                @click="selectItem(item.text, addDay)"
               >
                 <v-list-item-avatar start>
                   <v-icon icon="place" />
@@ -138,14 +162,15 @@
                                 </v-list-item>
                               </template>
                               <v-card width="338">
-                                <v-card-text>
+                                <div class="ma-5">
                                   <v-select
                                     :items="days"
                                     label="Move to day ..."
                                     v-model="moveDay"
+                                    attach
                                   ></v-select>
                                   <span>Moving this to {{ moveDay }}</span>
-                                </v-card-text>
+                                </div>
                                 <v-card-actions class="justify-end">
                                   <v-btn
                                     color="secondary"
@@ -207,6 +232,7 @@
         items: [],
         days: [],
         moveDay: "",
+        addDay: "",
       }
     },
     watch: {
@@ -223,6 +249,11 @@
           this.days.push(tmp)
         }
         console.log(this.days)
+        this.addDay = this.days.at(-1)
+      },
+      selectItem(obj, d){
+        this.$store.dispatch('selectItem', {obj: obj, day: d})
+        // this.moveItem(this.$store.state.selectedItems.length, this.addDay)
       },
       moveItem(id, d){
         console.log("id=", id, ", movedDat = ", d)

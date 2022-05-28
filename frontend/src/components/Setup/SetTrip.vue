@@ -7,7 +7,7 @@
   
         </div>
         <div>
-            <label>area</label>
+            <label>Location</label>
             <v-text-field v-model="location" placeholder="Taipei" name="location"
             ></v-text-field>
         </div>
@@ -54,8 +54,8 @@
         get() {
           return this.$store.state.trip.tripname
         },
-        set(newTitle) {
-          this.$store.dispatch('setTripTitle', newTitle)
+        set(newTripname) {
+          this.$store.dispatch('setTripname', newTripname)
         }
       },
       startdate: {

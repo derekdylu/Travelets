@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     async sendTrip() {
-      var tripData = { 
+      const tripData = { 
         tripname: this.$store.state.trip.tripname,
         startdate: this.$store.state.trip.startDate,
         enddate: this.$store.state.trip.endDate,

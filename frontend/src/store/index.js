@@ -5,12 +5,12 @@ export default createStore({
     test: "testing vuex",
     user: "derekdylu", // temporary
     trip: {
-      id: -1,
+      id: "",
       invited: false, // temporary
       picture: "",
-      title: "",
+      tripname: "",
       host: "",
-      area: "",
+      location: "",
       startDate: "",
       endDate: "",
       duration: 0,
@@ -46,8 +46,8 @@ export default createStore({
     },
 
     // DIV setup
-    setTripTitle(state, newTitle) {
-      state.trip.title = newTitle
+    setTripname(state, newTripname) {
+      state.trip.tripname = newTripname
     },
     setStartDate(state, newStartDate) {
       state.trip.startDate = newStartDate
@@ -55,14 +55,16 @@ export default createStore({
     setEndDate(state, newEndDate) {
       state.trip.endDate = newEndDate
     },
-    setArea(state, newArea) {
-      state.trip.area = newArea
+    setLocation(state, newLocation) {
+      state.trip.location = newLocation
     },
 
     // DIV additems
-    selectItem(state, obj) {
-      obj['id'] = state.selectedItems.length.toString()
-      state.selectedItems.push(obj)
+    selectItem(state, payload) {
+      let tmp = {text: payload.obj, id: state.selectedItems.length.toString()}
+      var dayIdx = state.selectedItems.findIndex(x => x.text === payload.day)
+      state.selectedItems.splice(dayIdx+1, 0, tmp)
+
       console.log(state.selectedItems)
     },
     removeItem(state, idx) {
@@ -126,8 +128,8 @@ export default createStore({
     },
 
     // DIV setup
-    setTripTitle({commit}, newTitle) {
-      commit('setTripTitle', newTitle)
+    setTripname({commit}, newTripname) {
+      commit('setTripname', newTripname)
     },
     setStartDate({commit}, newStartDate) {
       commit('setStartDate', newStartDate)
@@ -135,13 +137,13 @@ export default createStore({
     setEndDate({commit}, newEndDate) {
       commit('setEndDate', newEndDate)
     },
-    setArea({commit}, newArea) {
-      commit('setArea', newArea)
+    setLocation({commit}, newLocation) {
+      commit('setLocation', newLocation)
     },
 
     // DIV additems
-    selectItem({commit}, obj){
-      commit('selectItem', obj)
+    selectItem({commit}, payload){
+      commit('selectItem', payload)
     },
     removeItem({commit}, idx){
       commit('removeItem', idx)
