@@ -9,8 +9,11 @@
         min-width = "300px"
     >
         <v-card-header>     
-            <div class="date_title">
+            <!-- <div class="date_title">
                 {{month_str[n]}} {{date_str[n]}} {{year}} (Day {{n + 1}})
+            </div> -->
+            <div class="date_title">
+                Day {{n + 1}}
             </div>
         </v-card-header>
         <v-card-text > 
@@ -23,7 +26,7 @@
                 style="margin-top:5px;"
             >
                 <ShowScheduleUnit 
-                    :place= "place[n][i]"
+                    :place= "place[n][i].text"
                     :time= "time[n][i]"
                     :text = "text[n][i]"
                     :notLast = "typeof(time[n][i]) !== 'undefined'"

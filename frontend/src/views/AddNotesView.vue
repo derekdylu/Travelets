@@ -1,24 +1,25 @@
 <template>
     <div>
+      <span>{{ $store.state.trip.notes }}</span>
       <v-container class="pa-0">
         <v-col align="center" class="pa-0">
-          <ProgressBar />
+          <ProgressBar @next-page="sendNotes" />
         </v-col>
       </v-container>
-      <v-container class="pa-0">
+      <!-- <v-container class="pa-0">
         <v-col align="center" class="pa-0">
           <BackMap :lat="lat" :lng="lng" />
-          <!-- has to use : to v-bind -->
         </v-col>
-      </v-container>
+      </v-container> -->
       <v-container class="pa-0">
         <v-col align="center">
           <ScheduleCard 
             :year = "y"
-            :howManyDays = "duration"
-            :place = "attractions"
-            :time = "travel_time"
+            :howManyDays = "$store.state.trip.duration"
+            :place = "$store.state.trip.attractions"
+            :time = "$store.state.trip.travelTimes"
           />
+          <!-- duration $store.state.trip.duration place and time -->
         </v-col>
       </v-container>
     </div>
@@ -27,15 +28,34 @@
 
 <script>
 import ProgressBar from '@/components/General/ProgressBar.vue'
-import BackMap from '@/components/AddItems/BackMap.vue'
+// import BackMap from '@/components/AddItems/BackMap.vue'
 import ScheduleCard from '../components/AddNotes/ScheduleCard.vue'
+import axios from 'axios'
 
 export default {
   name: 'AddNotesView2',
   components: {
     ProgressBar,
-    BackMap,
+    // BackMap,
     ScheduleCard,
+  },
+  mounted() {
+    
+  },
+  methods :{
+    async sendNotes() {
+      var formdata = new FormData();
+      formdata.append("notes", JSON.stringify(this.$store.state.trip.notes))
+
+      // plus something in url whatever
+      await axios.patch('http://127.0.0.1:8000/itinerary/' + this.$store.state.trip.id + '/', formdata)
+        .then(response => {
+          console.log(response)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
   },
   data() {
       return {

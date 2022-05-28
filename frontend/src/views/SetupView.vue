@@ -3,7 +3,7 @@
       <v-col align="center">
         <v-continer class="pa-0">
           <v-col align="center" class="pa-0">
-            <ProgressBar />
+            <ProgressBar @next-page="sendTrip" />
           </v-col>
         </v-continer>
         <v-container class="pa-0">
@@ -22,7 +22,7 @@
         </v-container>
       </v-col>
       
-      <v-btn @click.prevent="sendTrip()">jajaja</v-btn>
+      <!-- <v-btn @click.prevent="sendTrip()">jajaja</v-btn> -->
     </div>
 </template>
 
@@ -54,6 +54,7 @@ export default {
       formdata.append("vehicle", this.$store.state.trip.vehicle);
       formdata.append("startDate", this.$store.state.trip.startDate);
       formdata.append("endDate", this.$store.state.trip.endDate);
+      formdata.append("host", this.$store.state.user)
 
       // var requestOptions = {
       //   method: 'POST',
