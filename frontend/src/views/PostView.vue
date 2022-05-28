@@ -1,6 +1,11 @@
 <template>
   <div>
     <v-container class="pa-0">
+        <v-col align="center" class="pa-0">
+            <ProgressBar />
+        </v-col>
+    </v-container>
+    <v-container class="pa-0">
       <v-col align="center" class="pa-0">
         <v-card
             class = "pa-3 .bg-white rounded-xl flex-column flex-grow mt-1"
@@ -49,12 +54,14 @@
 </template>
 
 <script>
+import ProgressBar from '@/components/General/ProgressBar.vue'
 import TripCard from '@/components/Home/TripCard.vue'
 import PostPage from '@/components/Post/PostPage.vue'
 import BottomBar from '@/components/Post/BottomBar.vue'
 export default {
    name: 'PostView',
    components: {
+     ProgressBar,
      TripCard,
      PostPage,
      BottomBar,

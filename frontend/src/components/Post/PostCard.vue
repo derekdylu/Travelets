@@ -24,8 +24,6 @@
             </v-row>
           </v-col>
         </v-container>
-        
-        
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>

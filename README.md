@@ -33,7 +33,7 @@ yarn frontend
 # IN FRONTEND DIRECTORY
 yarn serve
 ```
-### Run Unit test
+### Run Unit test (incorrect)
 ```bash
 # IN ROOT DIRECTORY
 vue add unit-jest
