@@ -10,7 +10,8 @@ from .models import Itinerary
 class TestItinerary(TestCase):
     def setUp(self):
         Itinerary.objects.create(tripname = 'Green Island Trip', startDate = '2022-02-28', endDate = '2022-03-05', host = 'somebody')
-        Itinerary.objects.create(tripname = 'Go to Japan', startDate = '2022-05-31', endDate = '2022-06-15', host = 'monkey', vehicle = 'boat')
+        Itinerary.objects.create(tripname = 'Go to Japan', startDate = '2023-06-09', endDate = '2023-06-15', host = 'monkey', vehicle = 'boat')
+        Itinerary.objects.create(tripname = 'Taichung with friends', startDate = '2022-05-30', endDate = '2022-06-03', host = 'juice', vehicle = 'feet')
 
     def test_host(self):
         greentrip = Itinerary.objects.get(tripname = 'Green Island Trip')
@@ -19,6 +20,8 @@ class TestItinerary(TestCase):
     def test_status(self):
         greentrip = Itinerary.objects.get(tripname = 'Green Island Trip')
         jptrip = Itinerary.objects.get(tripname = 'Go to Japan')
+        taichungtrip = Itinerary.objects.get(tripname = 'Taichung with friends')
         self.assertEqual(greentrip.status, 'past')
-        self.assertEqual(jptrip.status, 'ongoing')
+        self.assertEqual(jptrip.status, 'ready')
+        self.assertEqual(taichungtrip.status, 'ongoing')
 
