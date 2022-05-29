@@ -31,7 +31,7 @@
             {{ tripProps.startDate }} - {{ tripProps.endDate }}
           </v-col>
           <v-col cols="auto" align="center" class="mr-1">
-            {{ tripProps.area }}
+            {{ tripProps.location }}
           </v-col>
         </v-row>
 
@@ -69,12 +69,12 @@
           return {
             invited: false,
             picture: "",
-            title: "untitled trip",
+            tripname: "untitled trip",
             host: "unknown",
             status: "draft",
             startDate: "2022/08/12",
             endDate: "2022/08/14",
-            area: "unknown"
+            location: "unknown"
           }
         }
       },

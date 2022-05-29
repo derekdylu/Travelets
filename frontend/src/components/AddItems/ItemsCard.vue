@@ -39,10 +39,11 @@
             variant="underlined"
             color="primary"
             clearable
+            class="mt-1"
             ></v-text-field>
 
             <v-dialog
-              v-model="dialog"
+              v-model="dialogAdd"
             >
               <template v-slot:activator="{ props }">
                 <v-btn icon flat v-bind="props">
@@ -55,7 +56,6 @@
                     :items="days"
                     label="Items will be add to "
                     v-model="addDay"
-                    attach
                   ></v-select>
                 </div>
               </v-card>
@@ -64,9 +64,9 @@
             </v-row>
 
             <v-list density="compact">
-              <v-list-subheader>{{ $store.state.selectedItems.length - duration }} selected, tap items to add them to {{ addDay }}</v-list-subheader>
+              <v-list-subheader>{{ $store.state.selectedItems.length - $store.state.trip.duration }} selected, tap items to add them to {{ addDay }}</v-list-subheader>
               <v-list-item
-                v-for="(item, i) in items"
+                v-for="(item, i) in showingItems"
                 :key="i"
                 :value="item"
                 active-color="primary"
@@ -126,7 +126,7 @@
                     <div class="flex-shrink-0">
                       <v-btn-toggle>
                         <v-icon icon="more_horiz" color="secondary" />
-                        <v-menu activator="parent" anchor="bottom end" origin="auto" :close-on-content-click="true">
+                        <v-menu activator="parent" anchor="bottom end" origin="auto">
                           <v-list density="compact" class="rounded-lg">
 
                             <v-list-item @click="$store.dispatch('moveUpItem', $store.state.selectedItems.findIndex(x => x.id === item.id.toString()) )">
@@ -150,8 +150,17 @@
                               <v-list-item-title>Create a poll with ...</v-list-item-title>
                             </v-list-item>
 
-                            <v-dialog
+                            <v-list-item>
+                              <v-list-item-avatar start>
+                                <v-icon icon="event" />
+                              </v-list-item-avatar>
+                              <v-list-item-title>Move to day ...</v-list-item-title>
+                              
+                            </v-list-item>
+
+                            <!-- <v-dialog
                               v-model="dialog"
+                              persistent
                             >
                               <template v-slot:activator="{ props }">
                                 <v-list-item v-bind="props">
@@ -161,16 +170,18 @@
                                   <v-list-item-title>Move to day ...</v-list-item-title>
                                 </v-list-item>
                               </template>
+                              
                               <v-card width="338">
+
                                 <div class="ma-5">
                                   <v-select
                                     :items="days"
                                     label="Move to day ..."
                                     v-model="moveDay"
-                                    attach
                                   ></v-select>
                                   <span>Moving this to {{ moveDay }}</span>
                                 </div>
+                                
                                 <v-card-actions class="justify-end">
                                   <v-btn
                                     color="secondary"
@@ -187,8 +198,10 @@
                                     Move
                                   </v-btn>
                                 </v-card-actions>
+
                               </v-card>
-                            </v-dialog>
+
+                            </v-dialog> -->
 
                             <v-list-item @click="$store.dispatch('removeItem', 
                                                                   $store.state.selectedItems.findIndex( 
@@ -229,18 +242,26 @@
         tab: null,
         serchField: "",
         dialog: false,
+        dialogAdd: false,
         items: [],
+        showingItems: [],
         days: [],
         moveDay: "",
         addDay: "",
+        tests: ['a', 'b', 'c'],
       }
     },
     watch: {
       serchField: {
         handler() {
-          console.log('change')
+          this.filterItems()
         },
       },
+      dialog: {
+        handler() {
+          console.log("dialog", this.dialog)
+        }
+      }
     },
     methods: {
       writeDays(){
@@ -250,15 +271,17 @@
         }
         console.log(this.days)
         this.addDay = this.days.at(0)
+        this.moveDay = this.days.at(0)
       },
       selectItem(obj, d){
         this.$store.dispatch('selectItem', {obj: obj, day: d})
         // this.moveItem(this.$store.state.selectedItems.length, this.addDay)
       },
       moveItem(id, d){
-        console.log("id=", id, ", movedDat = ", d)
+        console.log("id=", id, ", movedDay = ", d)
         this.$store.dispatch('moveItem', {itemId: id, day: d})
         this.dialog=false
+        this.moveDay = d
       },
       async searchResultsTest(){
         // #CHECK Parse JSON into customized objects
@@ -269,7 +292,15 @@
                             lat: JSONResults.results[i].geometry.location.lat, 
                             lng: JSONResults.results[i].geometry.location.lng})
         }
+        this.showingItems = this.items.sort(function(a, b) { return ((a.text < b.text) ? -1 : ((a.text > b.text) ? 1 : 0)); })
       },
+      filterItems() {
+        if (this.serchField !== ""){
+          this.showingItems = this.items.filter(x => x.text.includes(this.serchField));
+        } else {
+          this.showingItems = this.items
+        }
+      }
     },
     mounted() {
       this.$store.dispatch('updateDuration')

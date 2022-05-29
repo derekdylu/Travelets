@@ -1,6 +1,6 @@
 <template>
     <div>
-      <span>{{ $store.state.trip.notes }}</span>
+      <!-- <span>{{ $store.state.trip.notes }}</span> -->
       <v-container class="pa-0">
         <v-col align="center" class="pa-0">
           <ProgressBar @next-page="sendNotes" />

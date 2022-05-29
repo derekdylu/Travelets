@@ -12,34 +12,42 @@
 </template>
 
 <script>
-  import { defineComponent, ref } from 'vue'
+  // import { ref } from 'vue'
   import { GoogleMap, Marker } from 'vue3-google-map'
+  // import { Loader } from "@googlemaps/js-api-loader"
+  // import axios from 'axios'
 
-  export default defineComponent({
+  export default {
+    data() {
+      return {
+        
+      }
+    },
     components: {
       GoogleMap,
       Marker 
     },
-    setup(props) {
-      let glat = ref(props.lat)
-      let glng = ref(props.lng)
-      console.log(glat.value, glng.value)
-      
-      const center = { lat: glat.value, lng: glng.value }
+    setup() {
+      const center = { lat: 25.026844, lng: 121.524053 }
 
       return { center }
     },
     props: {
       lat: {
         type: Number,
-        default: 25.015733
+        default: 25.026844
       },
       lng: {
         type: Number,
-        default: 121.530448
+        default: 121.524053
       },
     },
-  })
+    methods: {
+      async trysearch(){
+        
+      }
+    }
+  }
 </script>
 
 <style>
