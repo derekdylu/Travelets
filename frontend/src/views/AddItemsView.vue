@@ -49,9 +49,7 @@
         // axios patch attractions
         var formdata = new FormData();
         formdata.append("attractions", JSON.stringify(this.$store.state.trip.attractions));
-        formdata.append("travel_time", JSON.stringify(this.$store.state.trip.travelTimes));
-        // #CHECK to delete after db is ready
-
+        console.log(JSON.stringify(this.$store.state.trip.attractions))
         // plus something in url whatever
         await axios.patch('http://127.0.0.1:8000/itinerary/' + this.$store.state.trip.id + '/', formdata )
           .then(response => {
