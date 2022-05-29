@@ -17,7 +17,7 @@
             :year = "y"
             :howManyDays = "$store.state.trip.duration"
             :place = "$store.state.trip.attractions"
-            :time = "$store.state.trip.travelTimes"
+            :time = "local_travel_times"
           />
           <!-- duration $store.state.trip.duration place and time -->
         </v-col>
@@ -40,7 +40,7 @@ export default {
     ScheduleCard,
   },
   mounted() {
-    
+    this.updateTravelTimes()
   },
   methods :{
     async sendNotes() {
@@ -56,9 +56,28 @@ export default {
           console.log(error)
         })
     },
+    async updateTravelTimes() {
+      let id = this.$store.state.trip.id
+
+      await axios.get('http://127.0.0.1:8000/itinerary/' + id + '/')
+      .then(response => {
+        this.retirevedTrip = response.data
+        console.log(this.retirevedTrip)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    
+      console.log("online", this.retirevedTrip.travel_time)
+      console.log("local", this.$store.state.trip.travelTimes)
+
+      this.local_travel_times = this.retirevedTrip.travel_time
+    }
   },
   data() {
       return {
+        retirevedTrip: [],
+        local_travel_times: [],
         // DB
         itinerary_id: "2314",
         title: "Taipei Trip",
@@ -168,6 +187,9 @@ export default {
           ],
       }
     },
+  created() {
+    this.local_travel_times = this.$store.state.trip.travelTimes
+  }
 }
 </script>
 
