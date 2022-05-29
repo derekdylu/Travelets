@@ -3,10 +3,10 @@
     <GoogleMap
     api-key="AIzaSyANrwaZvz-cZ9uepOzw6w9anBZaSNqP96w"
     style="max-width: 750px; height: 200px"
-    :center="center"
+    :center="{ lat: lat, lng: lng }"
     :zoom="15"
     >
-      <Marker :options="{ position: center }" />
+      <Marker :options="{ position: { lat: lat, lng: lng } }" />
     </GoogleMap>
   </div>
 </template>
@@ -27,9 +27,8 @@
       GoogleMap,
       Marker 
     },
-    setup() {
-      const center = { lat: 25.026844, lng: 121.524053 }
-
+    setup(props) {
+      const center = { lat: props.lat, lng: props.lng }
       return { center }
     },
     props: {
@@ -43,9 +42,7 @@
       },
     },
     methods: {
-      async trysearch(){
-        
-      }
+
     }
   }
 </script>
