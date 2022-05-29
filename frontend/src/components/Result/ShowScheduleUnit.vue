@@ -136,7 +136,7 @@
             this.show_text = this.text;
         },
         checkLength(){
-            if(this.text.length > 80){
+            if(this.text && this.text.length > 80){
                 this.tooLong = true;
             }
         }
