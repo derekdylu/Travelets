@@ -1,5 +1,5 @@
 <template >
-    <v-card-text> 
+    <v-card-text data-testid="card"> 
         <v-row 
             align="stretch"
             no-gutters

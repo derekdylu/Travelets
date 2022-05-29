@@ -12,7 +12,7 @@
             <!-- <div class="date_title">
                 {{month_str[n]}} {{date_str[n]}} {{year}} (Day {{n + 1}})
             </div> -->
-            <div class="date_title">
+            <div class="date_title" data-test = "day">
                 Day {{n + 1}}
             </div>
         </v-card-header>
