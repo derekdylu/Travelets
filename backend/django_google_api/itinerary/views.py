@@ -5,6 +5,8 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework import generics
 from .models import Itinerary
 from .serializers import ItinerarySerializer
+from main.google_api_request import travelTime
+import json
 # Create your views here.
 
 # class ItineraryView(generics.RetrieveAPIView):
@@ -32,3 +34,11 @@ class ItineraryViewSet(ModelViewSet):
 
     #         serializer = ItinerarySerializer(newTrip)
     #         return Response(serializer.data)
+    def update(self, request, *args, **kwargs):
+        if request.data.get('attractions') is not None:
+            request.data._mutable = True
+            request.data["travel_time"] = travelTime(json.loads(request.data["attractions"]))
+            request.data._mutable = False
+
+
+        return super().update(request,args, **kwargs)

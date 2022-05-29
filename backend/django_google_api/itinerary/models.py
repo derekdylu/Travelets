@@ -1,7 +1,8 @@
 import uuid
 from django.db import models
 import datetime
-from datetime import datetime,date
+from datetime import datetime, date
+from main.google_api_request import travelTime
 
 # Create your models here.
 class Itinerary(models.Model):
@@ -45,5 +46,7 @@ class Itinerary(models.Model):
             elif flag == 1:
                 self.status = "ongoing"
 
-
-            super().save(*args, **kwargs)
+        # self.travel_time = travelTime(self.attractions)
+        super().save(*args, **kwargs)
+    
+    
