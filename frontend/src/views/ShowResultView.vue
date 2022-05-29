@@ -7,7 +7,7 @@
       </v-container>
       <v-container class="pa-0">
         <v-col align="center" class="pa-0">
-          <p class = "title"> Congrats! <span class = "green">{{title}}</span> is ready now!</p>
+          <p class = "title"> Congrats! <span class = "green">{{title = $store.state.trip.tripname}}</span> is ready now!</p>
         </v-col>
       </v-container>
       <v-container class="pa-0">
