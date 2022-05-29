@@ -59,6 +59,9 @@ export default createStore({
     setLocation(state, newLocation) {
       state.trip.location = newLocation
     },
+    setStatus(state, newStatus) {
+      state.trip.status = newStatus
+    },
 
     // DIV additems
     selectItem(state, payload) {
@@ -179,6 +182,9 @@ export default createStore({
     },
     setLocation({commit}, newLocation) {
       commit('setLocation', newLocation)
+    },
+    setStatus({commit}, newStatus) {
+      commit('setStatus', newStatus)
     },
 
     // DIV additems

@@ -19,16 +19,19 @@
             :options="options"
             />
         </div>
-        <div >
+        <div>
             <label class="form-control label">Start Date</label>
             <v-text-field input type="date" v-model="startdate" placeholder="2022-05-08" name="startdate"
             ></v-text-field>
         </div>
-        <div >
+        <div>
             <label class="form-control label">End Date</label>
             <v-text-field input type="date" v-model="enddate" placeholder="2022-05-08" name="enddate"
             ></v-text-field>
         </div>
+        <!-- <div>
+          <label class="form-control label">Status {{ $store.state.trip.status }}</label>
+        </div> -->
     </div>
 </template>
 
@@ -45,10 +48,29 @@
           // enddate: '',
           // area: '',
           vehicle: null,
-          options: ['Car']
+          options: ['Car'],
+          today: new Date()
       }
     },
     components: { Multiselect },
+    methods: { 
+      updateStatus() {
+        console.log("set status")
+        var s = new Date(this.$store.state.trip.startDate);
+        var e = new Date(this.$store.state.trip.endDate);
+        console.log(s, e)
+
+        if (this.today > s && this.today > e){
+          this.$store.dispatch('setStatus', "past")
+        } else if (this.today < s && this.today < e){
+          this.$store.dispatch('setStatus', "ready")
+        } else if (this.today >= s && this.today <= e){
+          this.$store.dispatch('setStatus', "ongoing")
+        } else {
+          this.$store.dispatch('setStatus', "")
+        }
+      },
+    },
     computed: {
       tripname: {
         get() {
@@ -64,6 +86,7 @@
         },
         set(newStartDate) {
           this.$store.dispatch('setStartDate', newStartDate)
+          this.updateStatus()
         }
       },
       enddate: {
@@ -72,6 +95,7 @@
         },
         set(newEndDate) {
           this.$store.dispatch('setEndDate', newEndDate)
+          this.updateStatus()
         }
       },
       location: {
@@ -82,6 +106,7 @@
           this.$store.dispatch('setLocation', newLocation)
         }
       },
+      
     }
   }
 </script>

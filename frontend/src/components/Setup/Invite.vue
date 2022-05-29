@@ -1,10 +1,7 @@
 <template>
-    <div>
-      <label>Participants</label>
-    </div>
-
-  <div>
-     <Multiselect v-model="value" mode="tags" placeholder="Invite Friends"
+  <div class="mt-5">
+    <label class="form-control label">Participants</label>
+    <Multiselect v-model="value" mode="tags" placeholder="Invite Friends"
     :close-on-select="false"
     :searchable="true"
     :create-option="true"

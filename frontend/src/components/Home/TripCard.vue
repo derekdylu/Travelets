@@ -7,7 +7,10 @@
       max-height="125px"
       cover
     >
-      <v-card-title style="color: white">{{ tripProps.tripname }}</v-card-title>
+      <v-row justify="space-between">
+        <v-card-title style="color: white" class="ml-3 mb-2">{{ tripProps.tripname }}</v-card-title>
+        <v-icon class="mr-7 mt-2" icon="arrow_forward" color="white" @click="openCard"></v-icon>
+      </v-row>
     </v-img>
 
     <v-card-text style="font-size: 0.75em;">
@@ -113,6 +116,9 @@
         } else {
           this.elevation = "2"
         }
+      },
+      openCard(){
+        this.$emit('click-card')
       }
     },
     mounted() {

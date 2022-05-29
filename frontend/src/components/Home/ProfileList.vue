@@ -28,6 +28,7 @@
                 v-for="trip in APIData"
                 :key="trip.id"
                 :tripProps="trip"
+                @click-card="openCard"
               />
             </v-col>
           </v-container>
@@ -73,42 +74,42 @@
           ],
           APIData: [] ,
           posts: [
-            {
-              id: 0,
-              text: "Lorem ipsum",
-              creator: "derekdylu",
-              trip: {
-                id: 4,
-                invited: false,
-                picture: "https://a.cdn-hotels.com/gdcs/production5/d320/a0c5a994-d99a-4278-a1b1-8a3b652461ac.jpg",
-                title: "長灘島之旅",
-                host: "Allen Lin",
-                status: "past",
-                startDate: "2021/09/16",
-                endDate: "2021/10/22",
-                area: "Boracay",
-              },
-              likes: 12,
-              link: "/post"
-            },
-            {
-              id: 1,
-              text: "Lorem ipsum lalaland",
-              creator: "derekdylu",
-              trip: {
-                id: 5,
-                invited: false,
-                picture: "https://www.aljazeera.com/wp-content/uploads/2021/12/000_9AP79Q.jpg?resize=770%2C513",
-                title: "香港之旅",
-                host: "光復香港時代革命",
-                status: "past",
-                startDate: "2021/09/16",
-                endDate: "2021/10/22",
-                area: "HongKong, HK",
-              },
-              likes: 99,
-              link: "/post"
-            }
+            // {
+            //   id: 0,
+            //   text: "Lorem ipsum",
+            //   creator: "derekdylu",
+            //   trip: {
+            //     id: 4,
+            //     invited: false,
+            //     picture: "https://a.cdn-hotels.com/gdcs/production5/d320/a0c5a994-d99a-4278-a1b1-8a3b652461ac.jpg",
+            //     title: "長灘島之旅",
+            //     host: "Allen Lin",
+            //     status: "past",
+            //     startDate: "2021/09/16",
+            //     endDate: "2021/10/22",
+            //     area: "Boracay",
+            //   },
+            //   likes: 12,
+            //   link: "/post"
+            // },
+            // {
+            //   id: 1,
+            //   text: "Lorem ipsum lalaland",
+            //   creator: "derekdylu",
+            //   trip: {
+            //     id: 5,
+            //     invited: false,
+            //     picture: "https://www.aljazeera.com/wp-content/uploads/2021/12/000_9AP79Q.jpg?resize=770%2C513",
+            //     title: "香港之旅",
+            //     host: "光復香港時代革命",
+            //     status: "past",
+            //     startDate: "2021/09/16",
+            //     endDate: "2021/10/22",
+            //     area: "HongKong, HK",
+            //   },
+            //   likes: 99,
+            //   link: "/post"
+            // }
           ]
         }
     },
@@ -116,16 +117,21 @@
       TripCard,
       PostCard
     },
-    created () {
-        getAPI.get('/itinerary/',)
-          .then(response => {
-            console.log('Post API has recieved data')
-            this.APIData = response.data
-          })
-          .catch(err => {
-            console.log(err)
-          })
-    }
+    created() {
+      getAPI.get('/itinerary/',)
+        .then(response => {
+          this.APIData = response.data
+          console.log(this.APIData)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+    methods: {
+      openCard() {
+        console.log('click on card')
+      }
+    },
     // data() {
     //   return {
     //     tab: null,
