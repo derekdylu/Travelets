@@ -33,11 +33,11 @@ yarn frontend
 # IN FRONTEND DIRECTORY
 yarn serve
 ```
-### Run Unit test (incorrect)
+### Run Unit test 
 ```bash
 # IN FRONTEND DIRECTORY
-vue add unit-jest
 
+vue add unit-jest
 npm run test:unit
 
 ```
