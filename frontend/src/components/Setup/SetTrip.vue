@@ -32,7 +32,7 @@
     </div>
 </template>
 
-<script>
+<script type="module" src="../../../tests/unit/SetTrip.spec.js">
   import Multiselect from '@vueform/multiselect'
 
   export default{
