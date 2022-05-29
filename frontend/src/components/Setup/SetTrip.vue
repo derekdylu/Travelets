@@ -7,12 +7,12 @@
   
         </div>
         <div>
-            <label>Location</label>
+            <label class="form-control label">Location</label>
             <v-text-field v-model="location" placeholder="Taipei" name="location"
             ></v-text-field>
         </div>
         <div>
-            <label>Vehicle</label>
+            <label class="form-control label">Vehicle</label>
             <Multiselect 
             v-model="vehicle" 
             placeholder="Select Vehicle" 
@@ -20,12 +20,12 @@
             />
         </div>
         <div >
-            <label>Start Date</label>
+            <label class="form-control label">Start Date</label>
             <v-text-field input type="date" v-model="startdate" placeholder="2022-05-08" name="startdate"
             ></v-text-field>
         </div>
         <div >
-            <label>End Date</label>
+            <label class="form-control label">End Date</label>
             <v-text-field input type="date" v-model="enddate" placeholder="2022-05-08" name="enddate"
             ></v-text-field>
         </div>
