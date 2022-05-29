@@ -21,6 +21,7 @@ export default createStore({
       notes: [],
     },
     selectedItems: [],
+    curPos: [25.026844, 121.524053],
   },
   mutations: {
     updateID(state, newId) {
@@ -143,6 +144,12 @@ export default createStore({
 
     updateNote(state, payload) {
       state.trip.notes[payload.d][payload.i] = payload.newNote
+    },
+
+    updateCurPos(state, payload) {
+      state.curPos[0] = payload.lat
+      state.curPos[1] = payload.lng
+      console.log(state.curPos)
     }
 
 // DIV
@@ -205,6 +212,9 @@ export default createStore({
     },
     updateNote({commit}, payload){
       commit('updateNote', payload)
+    },
+    updateCurPos({commit}, payload){
+      commit('updateCurPos', payload)
     }
 
   },

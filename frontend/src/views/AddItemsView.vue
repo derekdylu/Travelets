@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- <span>{{ lat }}, {{ lng }}</span> -->
     <v-container class="pa-0">
       <v-col align="center" class="pa-0">
         <ProgressBar @next-page="sendAttractions" />
@@ -34,8 +35,8 @@
     },
     data() {
       return {
-        lat: 51.4934,
-        lng: 0,
+        // lat: 51.4934,
+        // lng: 0,
         tripID: 10,
       }
     },
@@ -59,6 +60,18 @@
           })
       }
     },
+    computed: {
+      lat: {
+        get() {
+          return this.$store.state.curPos[0]
+        }
+      },
+      lng: {
+        get() {
+          return this.$store.state.curPos[1]
+        }
+      }
+    }
   }
 </script>
 

@@ -275,6 +275,7 @@
       },
       selectItem(obj, d){
         this.$store.dispatch('selectItem', {obj: obj, day: d})
+        this.$store.dispatch('updateCurPos', {lat: obj.lat, lng: obj.lng})
         // this.moveItem(this.$store.state.selectedItems.length, this.addDay)
       },
       moveItem(id, d){
