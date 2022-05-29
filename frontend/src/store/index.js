@@ -26,6 +26,7 @@ export default createStore({
   mutations: {
     updateID(state, newId) {
       state.trip.id = newId
+      console.log("this id is set to", state.trip.id)
     },
     updateDuration(state) {
       var date1 = new Date(state.trip.startDate);

@@ -1,9 +1,8 @@
 <template>
-
-    
     <v-container class="pa-0" style = "max-width:750px">
       <v-col align="center" class="pa-0">
-        <ProgressBar :disabledPrimary = "!allAdopted"/>
+        <ProgressBar />
+        <!-- :disabledPrimary = "!allAdopted" -->
       </v-col>
       <v-col align="start" class="pa-0">
         <v-btn 
@@ -25,19 +24,14 @@
               <VoteCard />
           </div>
           <div v-if = "nextMode">
-              <VoteCardModeB @FinishVote = "allAdopted = true"/>
+              <VoteCardModeB @FinishVote = "allAdopted = true" :votes="randomVotes" />
           </div>
       </v-col>
       <v-col align="start" class="pa-0">
           <div class = "text_2" v-if = "!nextMode">You can also discard or adopt the poll to go next.</div>
           <div class = "text_2" v-if = "(nextMode) & (!allAdopted)">Adopt or ignore the results ...</div>
       </v-col>
-
     </v-container>
-    
-    
-
-    
 </template>
 
 
@@ -45,7 +39,7 @@
 import ProgressBar from '../components/General/ProgressBar.vue'
 import VoteCard from '../components/Vote/VoteCard.vue'
 import VoteCardModeB from '../components/Vote/VoteCardModeB.vue'
-
+import axios from 'axios'
 
 export default {
   name: 'VoteView',
@@ -57,16 +51,26 @@ export default {
   data() {
     return{
       nextMode: false,
-      allAdopted: false
+      allAdopted: false,
+      randomVotes: [],
     }
   },
   methods:{
     clickButton (){
       this.nextMode = true;
     },
-
-
-  }
+  },
+  async mounted() {
+    await axios.get('https://www.randomnumberapi.com/api/v1.0/random?min=0&max=9&count=2')
+      .then(response => {
+        this.randomVotes = response.data
+        console.log(this.randomVotes)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    
+  },
 }
 </script>
 

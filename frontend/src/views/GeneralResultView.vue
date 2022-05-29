@@ -2,12 +2,12 @@
     <div>
       <v-container class="pa-0">
         <v-col align="center" class="pa-0">
-          <ProgressBar primaryButton = "SAVE" /> 
+          <ProgressBar primaryButton="DONE" disabledSecondary/> 
         </v-col>
       </v-container>
       <v-container class="pa-0">
         <v-col align="center" class="pa-0">
-          <p class = "title">Congrats🎉 <span class = "green">{{title = $store.state.trip.tripname}}</span> is now ready to go</p>
+          <p class = "title"><span class = "green">{{ retirevedTrip.tripname }}</span> trip</p>
         </v-col>
       </v-container>
       <v-container class="pa-0">
@@ -32,7 +32,7 @@ import ProgressBar from '../components/General/ProgressBar.vue'
 import ResultCard from '../components/Result/ResultCard.vue'
 
 export default {
-  name: 'ShowResultView',
+  name: 'GeneralResultView',
   components: {
     ProgressBar,
     ResultCard,
@@ -76,6 +76,7 @@ export default {
   },
   async created() {
     let id = this.$store.state.trip.id
+    console.log(id)
 
     await axios.get('http://127.0.0.1:8000/itinerary/' + id + '/')
       .then(response => {

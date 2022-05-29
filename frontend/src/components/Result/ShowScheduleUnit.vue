@@ -1,5 +1,5 @@
 <template >
-    <v-card-text> 
+    <v-card-text class="pa-0 py-4"> 
         <v-row 
             align="stretch"
             no-gutters

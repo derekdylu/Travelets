@@ -4,9 +4,10 @@
       align="center"
       justify="space-between"
     >
-      <v-btn 
+      <v-btn
         class = "bton"
         variant="text"
+        :disabled = "disabledSecondary"
         @click="prevPage()"
       >
         BACK
@@ -47,6 +48,10 @@ export default {
     },
     'method': {
       type: Function
+    },
+    'disabledSecondary': {
+      type: Boolean,
+      default: false
     },
   }
 }

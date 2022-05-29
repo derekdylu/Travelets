@@ -64,7 +64,7 @@
             </v-row>
 
             <v-list density="compact">
-              <v-list-subheader>{{ $store.state.selectedItems.length - $store.state.trip.duration }} selected, tap items to add them to {{ addDay }}</v-list-subheader>
+              <v-list-subheader>{{ $store.state.selectedItems.length - $store.state.trip.duration }} selected, tap to add to {{ addDay }}</v-list-subheader>
               <v-list-item
                 v-for="(item, i) in showingItems"
                 :key="i"
@@ -233,7 +233,8 @@
 </template>
 
 <script>
-  import JSONResults from "./test.json"
+  import mock1 from "./mock1.json"
+  
 
   export default {
     data () {
@@ -286,12 +287,12 @@
       },
       async searchResultsTest(){
         // #CHECK Parse JSON into customized objects
-        // var parsedResults = JSON.parse(JSONResults.results); // no need to parse?
-        console.log(JSONResults.results)
-        for (var i = 0; i < JSONResults.results.length; i++){
-          this.items.push({text: JSONResults.results[i].name, 
-                            lat: JSONResults.results[i].geometry.location.lat, 
-                            lng: JSONResults.results[i].geometry.location.lng})
+        // var parsedResults = JSON.parse(mock1.results); // no need to parse?
+        console.log(mock1.results)
+        for (var i = 0; i < mock1.results.length; i++){
+          this.items.push({text: mock1.results[i].name, 
+                            lat: mock1.results[i].geometry.location.lat, 
+                            lng: mock1.results[i].geometry.location.lng})
         }
         this.showingItems = this.items.sort(function(a, b) { return ((a.text < b.text) ? -1 : ((a.text > b.text) ? 1 : 0)); })
       },

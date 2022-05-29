@@ -12,6 +12,25 @@
     </v-tabs>
 
       <v-window v-model="defaultTab">
+        <v-window-item value="post">
+          <v-container fluid class="flex-column flex-grow" style="width: 750px">
+            
+            <v-col align="center">
+              <PostCard
+                class="my-2"
+                v-for="post in posts"
+                :key="post.id"
+                :trip="post.trip"
+                :text="post.text"
+                :creator="post.creator"
+                :likes="post.likes"
+              />
+            </v-col>
+          </v-container>
+        </v-window-item>
+      </v-window>
+
+      <v-window v-model="defaultTab">
         <v-window-item value="trip">
           <v-container fluid class="flex-column flex-grow" style="width: 750px">
             <v-row align="center" justify="space-between" class="mx-4">
@@ -28,26 +47,7 @@
                 v-for="trip in APIData"
                 :key="trip.id"
                 :tripProps="trip"
-                @click-card="openCard"
-              />
-            </v-col>
-          </v-container>
-        </v-window-item>
-      </v-window>
-
-      <v-window v-model="defaultTab">
-        <v-window-item value="post">
-          <v-container fluid class="flex-column flex-grow" style="width: 750px">
-            
-            <v-col align="center">
-              <PostCard
-                class="my-2"
-                v-for="post in posts"
-                :key="post.id"
-                :trip="post.trip"
-                :text="post.text"
-                :creator="post.creator"
-                :likes="post.likes"
+                @click-card="openCard(trip.id)"
               />
             </v-col>
           </v-container>
@@ -66,10 +66,10 @@
     // name: 'itinerary',
     data () {
       return {
-          defaultTab: 0,
+          defaultTab: 1,
           tabs: [
-            { index: 0, name: 'trip' },
-            { index: 1, name: 'post' },
+            { index: 0, name: 'post' },
+            { index: 1, name: 'trip' },
             { index: 2, name: 'saved' }
           ],
           APIData: [] ,
@@ -117,8 +117,8 @@
       TripCard,
       PostCard
     },
-    created() {
-      getAPI.get('/itinerary/',)
+    async created() {
+      await getAPI.get('/itinerary/',)
         .then(response => {
           this.APIData = response.data
           console.log(this.APIData)
@@ -126,10 +126,24 @@
         .catch(err => {
           console.log(err)
         })
+
+      this.APIData.sort(function(a, b){
+        return new Date(b.startDate) - new Date(a.startDate);
+      });
+
+      for (var i = 0; i < this.APIData.length; i++) {
+        if (this.APIData[i].status === "ongoing"){
+          let tmp = this.APIData[i]
+          this.APIData.splice(i, 1)
+          this.APIData.splice(0, 0, tmp)
+        }
+      }
     },
     methods: {
-      openCard() {
-        console.log('click on card')
+      openCard(id) {
+        console.log(id)
+        this.$store.dispatch('updateID', id)
+        this.$router.push({name: 'GeneralResult'})
       }
     },
     // data() {

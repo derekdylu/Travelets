@@ -72,6 +72,9 @@ export default {
         })
     },
   },
+  mounted() {
+    this.$store.dispatch('updateID', "")
+  },
 }
 </script>
 

@@ -4,24 +4,24 @@
       v-model = "dialog"
       persistent
     >
-      <template v-slot:activator="{ on, attrs }">
+      <!-- <template v-slot:activator="{ on, attrs }">
         <v-btn
-          color = "primary"
+          color = "secondary"
+          height="36"
           @click.stop= "dialog = true"
           dark
           v-bind="attrs"
           v-on="on"
         >
-          <v-icon icon="edit" />
-          EDIT
+          <v-icon icon="edit" size="24"/>
         </v-btn>
-      </template>
+      </template> -->
 
       <v-card
         width = "339px"
       >
         <v-card-title>
-          <span class="memoblc_title">Add Memo for {{spot_name}}</span>
+          <span class="memoblc_title">Add memo for {{spot_name}}</span>
         </v-card-title>
         <v-card-text >
           <v-container>
@@ -29,7 +29,6 @@
               <v-col cols="12">
                 <v-textarea
                     class = "input_memo"
-                    label = "Add Memo..."
                     v-model = "input_text"
                     @input="send_back"
                 >
@@ -89,6 +88,9 @@
       },
       send_back(){
         this.$emit("value-update", this.input_text)
+      },
+      parentOpen(){
+        this.dialog = true
       }
     },
     computed: {

@@ -2,7 +2,7 @@
   <v-card v-for = "card in cards" :key = "card" class = "container_1">
     <v-card-header>     
       <div class="text-subtitle-2 font-weight-bold">
-        Poll: {{card.voteItems[0]}}/{{card.voteItems[1]}}
+        [POLL] {{card.voteItems[0]}} / {{card.voteItems[1]}}
       </div>
     </v-card-header>
     <v-card-text > 
@@ -49,8 +49,8 @@
           justify="end"
           no-gutters
         >
-          <PopupDiscard  class= "bton_2"/>
-          <PopupAdopt class= "bton_2" :finish = "card" :disableBtn = "card.disable"/>
+          <PopupDiscard class="bton_2"/>
+          <PopupAdopt class="bton_2" :finish = "card" :disableBtn = "card.disable"/>
           
         </v-row>
     </v-card-text>
@@ -71,19 +71,19 @@
         return {
           cards: [
             {
-              voteItems: ["Taipei 101", "COMMUNE A7"],
+              voteItems: [],
               voteNumbers: [0, 0],
               voteProgress: ["0", "0"],
-              voteTotal:0,
+              voteTotal: 0,
               disable: true,
               finish_adopt: false
             },
             {
-              voteItems: ["A Train", "Placebo"],
+              voteItems: [],
               voteNumbers: [1, 0],
               voteProgress: ["10", "0"],
-              voteTotal:1,
-              disable: false,
+              voteTotal: 1,
+              disable: true,
               finish_adopt: false
             },
 
@@ -91,7 +91,23 @@
           
         }
       },
-      
+      methods: {
+        updateCards() {
+          let defaultAttractions = ["Taipei 101", "COMMUNE A7", "A Train", "Placebo"]
+          for (let i = 0; i < this.$store.state.trip.attractions[0].length; i++) {
+            defaultAttractions[i] = this.$store.state.trip.attractions[0][i].text
+          }
+          
+          for (let i = 0; i < this.cards.length; i++){
+            this.cards[i].voteItems.push(defaultAttractions[0 + i*2])
+            this.cards[i].voteItems.push(defaultAttractions[1 + i*2])
+          }
+          console.log(this.cards)
+        }
+      },
+      mounted() {
+        this.updateCards()
+      }
   }
 </script>
 
@@ -112,7 +128,7 @@
 .bton_2{
   
   margin-left:5px;
-  width:80px;
+  /* width:80px; */
   
 }
 </style>

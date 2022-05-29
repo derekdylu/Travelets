@@ -11,7 +11,7 @@
           <BackMap :lat="lat" :lng="lng" />
         </v-col>
       </v-container> -->
-      <v-container class="pa-0">
+      <v-container class="pa-0 d-flex flex-column flex-grow-1 fill-parent-height">
         <v-col align="center">
           <ScheduleCard 
             :year = "y"

@@ -9,6 +9,7 @@ import VoteView from '../views/VoteView.vue'
 import AddNotesView from '../views/AddNotesView.vue'
 import ShowResultView from '../views/ShowResultView.vue'
 import PostView from '../views/PostView.vue'
+import GeneralResultView from '../views/GeneralResultView.vue'
 
 // <<< testing >>>
 // import AddNotesViewOld from '../views/Old/AddNotesViewOld.vue'
@@ -83,6 +84,14 @@ const routes = [
     path: '/post',
     name: 'PostView',
     component: PostView
+  },
+  {
+    path: '/gresult',
+    name: 'GeneralResult',
+    component: GeneralResultView,
+    meta: {
+      next: 'Home'
+    }
   },
 ]
 

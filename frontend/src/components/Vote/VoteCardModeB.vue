@@ -45,7 +45,7 @@
             style="margin-top:10px; margin-bottom:10px"
             v-if = "!card.finish_adopt"
         >
-            <span class="text-sm-body-2 ">ends in 24 hours</span>
+            <span class="text-sm-body-2 ">ended</span>
             <span class="text-sm-body-2 ">{{card.voteTotal}}/10 people voted</span>
         </v-row>
         <v-row
@@ -68,64 +68,84 @@
   import PopupAdopt from "./PopupAdopt.vue"
 
   export default {
-      name: "VoteCardModeB",
-      components: {
-        PopupIgnore,
-        PopupAdopt
-      },
-      data() {
-        return {
-          cards: [
-            {
-              voteItems: ["Taipei 101", "COMMUNE A7"],
-              voteNumbers: [6, 2],
-              voteProgress: ["60", "20"],
-              voteTotal:8,
-              disable: false,
-              finish_adopt: false
-            },
-            {
-              voteItems: ["A Train", "Placebo"],
-              voteNumbers: [7, 2],
-              voteProgress: ["70", "20"],
-              voteTotal:9,
-              disable: false,
-              finish_adopt: false
-            },
-            
-          ],
-          
-        }
-      },
-      methods:{
-          close(card) {
-              card.finish_adopt = true;
-              // console.log(this.cards.indexOf(card));
-              this.CheckAllFinished();
+    name: "VoteCardModeB",
+    components: {
+      PopupIgnore,
+      PopupAdopt
+    },
+    props: {
+      votes: [],
+    },
+    data() {
+      return {
+        cards: [
+          {
+            voteItems: [],
+            voteNumbers: [],
+            voteProgress: [],
+            voteTotal: 9,
+            disable: false,
+            finish_adopt: false
           },
-          CheckAllFinished(){
-              let count = 0;
-              for(var i = 0; i < this.cards.length; i++){
-                  if(!this.cards[i].finish_adopt){ //not yet finish
-                    count++;
-                  }
-              }
-              
-              if(count == 0){
-                this.$emit('FinishVote');
-              }
-              
-            
-          }, 
-          DeleteCard(card){
-              // let index = this.cards.indexOf(card)
-              // if (index > -1) {
-              //   this.cards.splice(index, 1);
-              // }
-              card.finish_adopt = true;
-              this.CheckAllFinished();
-          }
+          {
+            voteItems: [],
+            voteNumbers: [],
+            voteProgress: [],
+            voteTotal: 9,
+            disable: false,
+            finish_adopt: false
+          },
+        ],
       }
+    },
+    methods:{
+      close(card) {
+        card.finish_adopt = true;
+        // console.log(this.cards.indexOf(card));
+        this.CheckAllFinished();
+      },
+      CheckAllFinished(){
+        let count = 0;
+        for(var i = 0; i < this.cards.length; i++){
+          if(!this.cards[i].finish_adopt){ //not yet finish
+            count++;
+          }
+        }
+        if(count == 0){
+          this.$emit('FinishVote');
+        }
+      }, 
+      DeleteCard(card){
+        // let index = this.cards.indexOf(card)
+        // if (index > -1) {
+        //   this.cards.splice(index, 1);
+        // }
+        card.finish_adopt = true;
+        this.CheckAllFinished();
+      },
+      updateCards() {
+        let defaultAttractions = ["Taipei 101", "COMMUNE A7", "A Train", "Placebo"]
+        for (let i = 0; i < this.$store.state.trip.attractions[0].length; i++) {
+          defaultAttractions[i] = this.$store.state.trip.attractions[0][i].text
+        }
+        
+        for (let i = 0; i < this.cards.length; i++){
+          
+          this.cards[i].voteNumbers.push(this.votes[i])
+          this.cards[i].voteNumbers.push(10 - this.votes[i] - 1)
+
+          this.cards[i].voteProgress.push((this.votes[i] * 10).toString())
+          this.cards[i].voteProgress.push(((10 - this.votes[i] - 1) * 10).toString())
+
+          this.cards[i].voteItems.push(defaultAttractions[0 + i*2])
+          this.cards[i].voteItems.push(defaultAttractions[1 + i*2])
+        }
+        console.log(this.cards)
+      }
+    },
+    mounted() {
+      this.updateCards();
+    }
   }
 </script>
 
@@ -146,7 +166,7 @@
 .bton_2{
   
   margin-left:5px;
-  width:80px;
+  /* width:80px; */
   
 }
 </style>

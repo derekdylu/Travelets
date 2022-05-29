@@ -1,5 +1,5 @@
 <template >
-    <v-card-text data-testid="card"> 
+    <v-card-text data-testid="card" class="pa-0 py-4" > 
         <v-row 
             align="stretch"
             no-gutters
@@ -15,16 +15,18 @@
                     @value-update = "getValFromChild"
                     :inDay = "inDay"
                     :inOrder = "inOrder"
+                    ref = "popEdit"
                 />
         
                 <v-card
-                    class = 'note_card'
-                    min-height = '90px'
+                    class = 'note_card pa-2'
+                    min-height = '130px'
                     max-height = 'fill'
                     max-width = '180px'
+                    @click="popClick"
                 >
                     <!-- <p>in day {{inDay}}, in order {{inOrder}}</p> -->
-                    <p style = "word-wrap: break-word;white-space: pre-line;">{{text}}</p>
+                    <p style = "word-wrap: break-word;white-space: pre-line; font-size: 11px;">{{text}}</p>
                 </v-card>
 
             </v-col>
@@ -103,7 +105,7 @@ export default {
     },
     data() {
         return {
-            text: "No Memo.",
+            text: "Tap to add memo",
             // notLast: true,
         }
     },
@@ -111,10 +113,13 @@ export default {
         getValFromChild(val) {
             this.text = val;
             if(val == ""){
-                this.text = "No Memo.";
+                this.text = "Tap to add memo";
             }
             // console.log(this.time);
         },
+        popClick() {
+            this.$refs.popEdit.parentOpen()
+        }
     },
     computed: {
         // text: {
@@ -127,6 +132,7 @@ export default {
 </script>
 
 <style>
+
 .place{
     font-weight: 500;
     color:rgb(0, 0, 0);
@@ -163,4 +169,5 @@ export default {
 .t1{
     height: 100px;
 }
+
 </style>
