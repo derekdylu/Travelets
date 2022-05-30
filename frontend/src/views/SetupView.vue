@@ -74,6 +74,12 @@ export default {
   },
   mounted() {
     this.$store.dispatch('updateID', "")
+    this.$store.dispatch('setTripname', "")
+    this.$store.dispatch('setStartDate', "")
+    this.$store.dispatch('setEndDate', "")
+    this.$store.dispatch('setLocation', "")
+    this.$store.dispatch('setStatus', "")
+    // this.$store.dispatch('updateSelectedItems', "")
   },
 }
 </script>

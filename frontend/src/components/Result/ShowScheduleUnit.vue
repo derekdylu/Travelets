@@ -15,22 +15,20 @@
                     max-height = 'fill'
                     max-width = '180px'
                 >
-                    <v-row v-if = "tooLong">
-                        <v-col cols = "9"></v-col>
-                        <v-col cols = "3">
+                    <p style = "word-wrap: break-word;">{{show_text}}</p>
+                    <v-row v-if = "tooLong" justify= "center">
                             <v-btn 
                                 icon flat
                                 @click= "onClick_open()"
                                 size = "25px"
+                                class="ma-1"
                             >
                                 <v-icon 
                                     :icon = "open? 'expand_less' : 'expand_more'"
                                     size = "20px"
                                 />
                             </v-btn>
-                        </v-col>
                     </v-row>
-                    <p style = "word-wrap: break-word;">{{show_text}}</p>
                 </v-card>
             </v-col>
             <v-col
@@ -138,6 +136,7 @@
         checkLength(){
             if(this.text && this.text.length > 80){
                 this.tooLong = true;
+                console.log("toolong")
             }
         }
       },
@@ -146,7 +145,7 @@
           this.show_text = this.text;
           if(this.tooLong){
               this.hideBlock();
-              this.open = !this.open;
+            //   this.open = !this.open;
           }
       },
   }

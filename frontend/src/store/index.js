@@ -63,6 +63,9 @@ export default createStore({
     setStatus(state, newStatus) {
       state.trip.status = newStatus
     },
+    updateSelectedItems(state, newSelectedItems){
+      state.selectedItems = newSelectedItems
+    },
 
     // DIV additems
     selectItem(state, payload) {
@@ -186,6 +189,9 @@ export default createStore({
     },
     setStatus({commit}, newStatus) {
       commit('setStatus', newStatus)
+    },
+    updateSelectedItems({commit}, newSelectedItems) {
+      commit('updateSelectedItems', newSelectedItems)
     },
 
     // DIV additems
