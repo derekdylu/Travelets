@@ -6,6 +6,7 @@ from django.test import TestCase
 # python manage.py test itinerary.tests
 
 from .models import Itinerary
+from rest_framework.test import RequestsClient
 
 class TestItinerary(TestCase):
     def setUp(self):
@@ -24,4 +25,9 @@ class TestItinerary(TestCase):
         self.assertEqual(greentrip.status, 'past')
         self.assertEqual(jptrip.status, 'ready')
         self.assertEqual(taichungtrip.status, 'ongoing')
+
+    def test_client(self):
+        client = RequestsClient()
+        response = client.get('https://127.0.0.1:8000/itinerary/')
+        assert response.status_code == 200
 
