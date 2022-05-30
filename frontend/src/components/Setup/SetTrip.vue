@@ -21,14 +21,15 @@
         </div>
         <div>
             <label class="form-control label">Start Date</label>
-            <v-text-field input v-model="startdate" placeholder="2022-05-08" name="startdate" id="sd"
+            <v-text-field type="date" input v-model="startdate" placeholder="2022-05-08" name="startdate" id="sd"
             ></v-text-field>
         </div>
         <div>
             <label class="form-control label">End Date</label>
-            <v-text-field input v-model="enddate" placeholder="2022-05-08" name="enddate" id="ed"
+            <v-text-field type="date" input v-model="enddate" placeholder="2022-05-08" name="enddate" id="ed"
             ></v-text-field>
         </div>
+        <!-- type="date" -->
         <!-- <div>
           <label class="form-control label">Status {{ $store.state.trip.status }}</label>
         </div> -->

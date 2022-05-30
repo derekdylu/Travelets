@@ -104,7 +104,7 @@
       },
       data() {
         return {
-            open: true,
+            open: false,
             tooLong: false,
             show_text: "",
             
