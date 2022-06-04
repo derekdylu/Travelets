@@ -84,7 +84,7 @@ Meanwhile, since we don't have any fund to run this application's Google Maps Pl
     # IN Travelets/frontend DIRECTORY
     yarn serve
     ```
-5. Also, to run tne **unit test** and **user acceptance test(Selenium)** in `Travelets/frontend`
+5. Also, to run tne **unit test** in `Travelets/frontend`
     ```sh
     npm run test:unit
     ```
