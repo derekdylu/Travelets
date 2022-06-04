@@ -24,7 +24,7 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/2367px-Vue.js_Logo_2.svg.png" height="45" align="center"  alt="vue">
     <img src="https://user-images.githubusercontent.com/7110136/29002857-9e802f08-7ab4-11e7-9c31-604b5d0d0c19.png" height="60" align="center"  alt="vuex">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Django_logo.svg/2560px-Django_logo.svg.png" height="50" align="center" alt="django">
-    <img src="https://blog.logomyway.com/wp-content/uploads/2022/01/Google-maps-logo.png" height="52" align="center" alt="google maps">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/1200px-Google_Maps_icon_%282020%29.svg.png" height="52" align="center" alt="google maps">
 </p>
 
 ## Table of Contents
@@ -38,6 +38,10 @@
     - [Development](#development-2)
 
 ## Introduction
+
+<p align="center">
+  <a href="https://ibb.co/jzX2Wgq"><img src="https://i.ibb.co/nBJvnz4/i-Phone-12-Pro-Wooden-Hands.png" alt="mockup" border="0" height="400"></a>
+</p>
 
 **Travelets** is a web-based application that allows users to manage their itineraries with friends easily. The ideal application will have features like (but not limited to) managing itinerary by participant's poll, exploring shared attractions on the platform, and monitoring the condition of routes and attractions. Since this is a term project of a coure at National Taiwan University, we didn't complete the full development, only demonstrating partial features.
 
@@ -82,7 +86,7 @@ Meanwhile, since we don't have any fund to run this application's Google Maps Pl
     npm run test:unit
     ```
 ### Backend
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Django_logo.svg/2560px-Django_logo.svg.png" height="25" align="center" alt="django"> <img src="https://blog.logomyway.com/wp-content/uploads/2022/01/Google-maps-logo.png" height="30" align="center"  alt="gmaps">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Django_logo.svg/2560px-Django_logo.svg.png" height="25" align="center" alt="django"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/1200px-Google_Maps_icon_%282020%29.svg.png" height="30" align="center"  alt="gmaps">
 
 #### Development
 1. Install `virtualenv`
