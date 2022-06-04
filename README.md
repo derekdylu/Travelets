@@ -5,6 +5,9 @@
 
 <h4 align="center">Official Environment Documentation with Instructions</h4>
 <h5 align="center">IM3007 第五組</h5>
+<h6 align="center">
+B07610008 黃茹暄 | B08705016 鄭亦倢 | B08705021 盧德原<br>B08705027 林暐倫 | B08705028 葉柏辰 | B08705036 朱修平 | B08705052 黃晨亘
+</h6>
 
 <p align="center">
   <a href="https://youtu.be/eq2FWnvRG7k">
