@@ -15,7 +15,7 @@ B07610008 黃茹暄 | B08705016 鄭亦倢 | B08705021 盧德原<br>B08705027 林
     <img src="https://shields.io/youtube/views/eq2FWnvRG7k"
          alt="YouTube Intro">
   </a>
-  • 
+• 
   <a href="https://youtu.be/71VSAsxW_3E">
     Presentation
     <img src="https://shields.io/youtube/views/71VSAsxW_3E"
