@@ -46,7 +46,7 @@ B07610008 黃茹暄 | B08705016 鄭亦倢 | B08705021 盧德原<br>B08705027 林
   <a href="https://ibb.co/jzX2Wgq"><img src="https://i.ibb.co/nBJvnz4/i-Phone-12-Pro-Wooden-Hands.png" alt="mockup" border="0" height="400"></a>
 </p>
 
-**Travelets** is a web-based application that allows users to manage their itineraries with friends easily. The ideal application will have features like (but not limited to) managing itinerary by participant's poll, exploring shared attractions on the platform, and monitoring the condition of routes and attractions. Since this is a term project of a coure at National Taiwan University, we didn't complete the full development, only demonstrating partial features.
+**Travelets** is a web-based application that allows users to manage their itineraries with friends easily. The ideal application will have features like (but not limited to) managing itinerary by participant's poll, exploring shared attractions on the platform, and monitoring the condition of routes and attractions. Since this is a term project of a course at National Taiwan University, we didn't complete the full development, only demonstrating partial features.
 
 Meanwhile, since we don't have any fund to run this application's Google Maps Platform API, **we didn't deploy this application online to prevent the extra fees**.
 ## Development 
